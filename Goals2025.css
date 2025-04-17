@@ -1,0 +1,87 @@
+.goals2025-container {
+    padding: 4rem 2rem;
+    background-color: #f4f6f8;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .goals2025-wrapper {
+    display: flex;
+    flex-direction: row;
+    max-width: 1200px;
+    gap: 3rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .goals2025-image img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  }
+  
+  .goals2025-content {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .goals2025-content h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: #2d2d2d;
+  }
+  
+  .goals2025-description {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #444;
+    line-height: 1.6;
+  }
+  
+  .goals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+  
+  .goal-card {
+    background: white;
+    border-left: 5px solid #f9b234;
+    padding: 1rem 1.2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    font-size: 1rem;
+    color: #333;
+    transition: transform 0.3s;
+  }
+  
+  .goal-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .goals2025-wrapper {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .goals2025-image img {
+      max-width: 100%;
+    }
+  
+    .goals-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .goals-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
