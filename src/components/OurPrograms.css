@@ -1,0 +1,76 @@
+.programs-section {
+    position: relative;
+    background: url("https://media.istockphoto.com/id/1448071428/photo/indian-man-school-teacher-give-victory-trophy-cup-to-girl-students-female-receive-winning.jpg?s=612x612&w=0&k=20&c=PrYl-XNpWu7hAdH7eezvMwUpC8Aur5bfeX9VlUfNP5E=") center center / cover no-repeat;
+    padding: 5rem 2rem;
+    min-height: 100vh;
+    color: #fff;
+    overflow: hidden;
+  }
+  
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Darken overlay for contrast */
+    z-index: 0;
+  }
+  
+  .section-title {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 4rem;
+    font-weight: 600;
+    color: #ffffff;
+    font-family: 'Noto Sans Devanagari', sans-serif;
+  }
+  
+  .programs-container {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+  
+  .program-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    color: #fefefe;
+  }
+  
+  .program-title {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: #f9d464;
+  }
+  
+  .program-goal {
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .program-card ul {
+    padding-left: 1.5rem;
+  }
+  
+  .program-card li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+  }
+  
+  /* Responsive tweaks */
+  @media (max-width: 600px) {
+    .section-title {
+      font-size: 2rem;
+    }
+  
+    .program-card {
+      padding: 1.5rem;
+    }
+  }
+  
