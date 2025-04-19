@@ -1,76 +1,141 @@
-.programs-section {
-    position: relative;
-    background: url("https://media.istockphoto.com/id/1448071428/photo/indian-man-school-teacher-give-victory-trophy-cup-to-girl-students-female-receive-winning.jpg?s=612x612&w=0&k=20&c=PrYl-XNpWu7hAdH7eezvMwUpC8Aur5bfeX9VlUfNP5E=") center center / cover no-repeat;
-    padding: 5rem 2rem;
-    min-height: 100vh;
-    color: #fff;
-    overflow: hidden;
+:root {
+  --primary: #D6AEDD;
+  --secondary: #F7C1D7;
+  --light: #FFFFFF;
+  --bg-color: #F9F4F9;
+  --accent: #E3B7D2;
+  --text-dark: #5C4B51;
+}
+
+#projects {
+  background: var(--bg-color);
+  padding: 60px 20px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title h2 {
+  font-size: 3rem;
+  color: #002d72;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.section-title p {
+  font-size: 1.2rem;
+  color: var(--text-dark);
+}
+
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+
+.timeline::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  background: #8E7DBE;
+  top: 100px;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(142, 125, 190, 0.3);
+}
+
+.timeline-item {
+  padding: 10px 40px;
+  position: relative;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: #336D82;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 4px var(--accent);
+  border-radius: 50%;
+  top: 20px;
+  z-index: 1;
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  left: 50%;
+}
+
+.left::after {
+  right: -12px;
+}
+
+.right::after {
+  left: -12px;
+}
+
+.timeline-content {
+  padding: 20px;
+  background: var(--light);
+  border-left: 6px solid var(--primary);
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  color: var(--text-dark);
+}
+
+.timeline-content h3 {
+  margin-bottom: 1rem;
+  color: #335899;
+  font-size: 1.4rem;
+}
+
+.timeline-content ul {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+.timeline-content .timeline-date {
+  margin-top: 10px;
+  font-weight: bold;
+  color: var(--secondary);
+  background: #fff0f5;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  display: inline-block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .timeline::after {
+    left: 30px;
   }
-  
-  .overlay {
-    position: absolute;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Darken overlay for contrast */
-    z-index: 0;
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 20px;
   }
-  
-  .section-title {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    font-size: 2.8rem;
-    margin-bottom: 4rem;
-    font-weight: 600;
-    color: #ffffff;
-    font-family: 'Noto Sans Devanagari', sans-serif;
+
+  .timeline-item::after {
+    left: 15px !important;
+    right: auto !important;
   }
-  
-  .programs-container {
-    position: relative;
-    z-index: 1;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
+
+  .left,
+  .right {
+    left: 0 !important;
   }
-  
-  .program-card {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
-    padding: 2rem;
-    border-radius: 20px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-    color: #fefefe;
-  }
-  
-  .program-title {
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
-    color: #f9d464;
-  }
-  
-  .program-goal {
-    font-weight: bold;
-    margin-bottom: 1rem;
-  }
-  
-  .program-card ul {
-    padding-left: 1.5rem;
-  }
-  
-  .program-card li {
-    margin-bottom: 0.5rem;
-    line-height: 1.6;
-  }
-  
-  /* Responsive tweaks */
-  @media (max-width: 600px) {
-    .section-title {
-      font-size: 2rem;
-    }
-  
-    .program-card {
-      padding: 1.5rem;
-    }
-  }
-  
+}

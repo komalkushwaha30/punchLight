@@ -1,3 +1,4 @@
+/* Core Values Container */
 .core-values-container {
   background-size: cover;
   background-position: center;
@@ -7,8 +8,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-attachment: fixed; /* Ensure background image stays fixed on scroll */
 }
 
+/* Overlay Container for Text */
 .core-values-overlay {
   background-color: rgba(255, 255, 255, 0.9);
   padding: 3rem;
@@ -16,8 +19,10 @@
   max-width: 1300px;
   width: 100%;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Prevents content from overflowing */
 }
 
+/* Title Styling */
 .core-values-title {
   text-align: center;
   font-size: 2rem;
@@ -26,12 +31,15 @@
   font-family: 'Noto Sans Devanagari', sans-serif;
 }
 
+/* Core Values Grid */
 .core-values-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Auto-fitting columns for responsive design */
   gap: 2rem;
+  width: 100%;
 }
 
+/* Card Styling */
 .core-card {
   background-color: var(--highlight-bg, #f0f4f8);
   padding: 1.8rem;
@@ -39,6 +47,7 @@
   border-left: 5px solid var(--primary, #00aaff);
   transition: transform 0.3s ease;
   font-family: 'Noto Sans Devanagari', sans-serif;
+  box-sizing: border-box; /* Prevents cards from expanding beyond their container */
 }
 
 .core-card h3 {
@@ -59,17 +68,27 @@
   line-height: 1.6;
 }
 
+/* Hover Effect for Cards */
 .core-card:hover {
   transform: translateY(-5px);
 }
 
+/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   .core-values-title {
-    font-size: 1.6rem;
+    font-size: 1.6rem; /* Slightly smaller font size */
+  }
+
+  .core-values-container {
+    padding: 3rem 1rem; /* Reduced padding on smaller screens */
+  }
+
+  .core-values-overlay {
+    padding: 2rem;
   }
 
   .core-card {
-    padding: 1.2rem;
+    padding: 1.2rem; /* Reduced padding for smaller screens */
   }
 
   .core-card h3,
@@ -79,5 +98,25 @@
 
   .core-card p {
     text-align: justify;
+  }
+
+  .core-values-grid {
+    grid-template-columns: 1fr; /* Single column for smaller screens */
+    gap: 1.5rem; /* Adjust gap to be smaller */
+  }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+  .core-values-title {
+    font-size: 1.4rem; /* Make title smaller on very small screens */
+  }
+
+  .core-card {
+    padding: 1rem; /* Even smaller padding on very small screens */
+  }
+
+  .core-card p {
+    font-size: 0.9rem; /* Slightly smaller text for better readability */
   }
 }

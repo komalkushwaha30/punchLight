@@ -1,0 +1,222 @@
+/* Global Styles for Box-sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure no horizontal scroll */
+html, body {
+  overflow-x: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #e1e2e4;
+}
+
+/* Body - Basic Styles */
+body {
+  color: #333;
+}
+
+/* Flex Containers */
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Navbar - Make sure the navbar stays fixed and flexible */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(18, 18, 18, 0.7); /* Translucent background */
+  padding: 16px 40px;
+  color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Nav Links Styling */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 24px;
+  font-weight: 500;
+}
+
+.nav-links li a {
+  color: #cccccc;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-links li a:hover {
+  color: #00bcd4;
+  transform: translateY(-2px);
+}
+
+/* Mobile Menu (Hamburger) */
+.hamburger-menu {
+  display: none;
+}
+
+/* Logo & Links Container */
+.nav-logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-logo-text {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.nav-logo-img {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  object-fit: cover;
+  padding: 3px;
+}
+
+/* Responsive for Mobile */
+@media (max-width: 768px) {
+  /* Navbar */
+  .navbar {
+    padding: 16px 20px;
+  }
+
+  /* Hide the links by default */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    width: 100%;
+    padding: 16px;
+    background: rgba(18, 18, 18, 0.9);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+  }
+
+  /* Show the hamburger menu */
+  .hamburger-menu {
+    display: block;
+    cursor: pointer;
+  }
+
+  /* When Hamburger is clicked, show the links */
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li a {
+    font-size: 1.2rem;
+  }
+}
+
+/* Page container ensuring no overflow */
+.page-container {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* Example for other components like Home, About, etc. */
+.section {
+  padding: 20px;
+  margin: 20px 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* Hero section for home page */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fce4ec, #e3f2fd);
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.hero-text {
+  flex: 1;
+  text-align: left;
+}
+
+.hero-logo {
+  width: 80px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  color: #0d47a1;
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  font-size: 1.5rem;
+  color: #555;
+}
+
+.hero-image {
+  flex: 1;
+  text-align: center;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile view for Hero Section */
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 10px;
+    flex-direction: column;
+  }
+
+  .hero-content {
+    flex-direction: column-reverse;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+
+  .hero-logo {
+    margin: 0 auto 15px;
+  }
+
+  .hero-image img {
+    max-width: 100%;
+  }
+}
