@@ -1,0 +1,107 @@
+.detailed-goals-container {
+    padding: 4rem 2rem;
+    background: #f4f9ff;
+    min-height: 100vh;
+    text-align: center;
+  }
+  
+  .goals-heading {
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+    color: #003366;
+  }
+  
+  .goals-subheading {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 900px;
+    margin-inline: auto;
+    color: #1e1e1e;
+  }
+  
+  .goals-fancy-grid {
+    display: grid;
+    grid-template-areas:
+      "education education health"
+      "women environment health"
+      "community community cleanliness";
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .fancy-card {
+    background: white;
+    padding: 1.8rem;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 102, 204, 0.08);
+    text-align: left;
+    transition: all 0.3s ease;
+    border-left: 6px solid #0066cc;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .fancy-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 102, 204, 0.12);
+  }
+  
+  .fancy-card h3 {
+    color: #003366;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .fancy-card ul {
+    padding-left: 1rem;
+    list-style: disc;
+  }
+  
+  .fancy-card ul li {
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+    color: #333;
+  }
+  
+  /* Grid area mapping */
+  .education {
+    grid-area: education;
+  }
+  
+  .health {
+    grid-area: health;
+  }
+  
+  .women {
+    grid-area: women;
+  }
+  
+  .environment {
+    grid-area: environment;
+  }
+  
+  .cleanliness {
+    grid-area: cleanliness;
+  }
+  
+  .community {
+    grid-area: community;
+  }
+  
+  /* Responsive Stacking */
+  @media (max-width: 900px) {
+    .goals-fancy-grid {
+      grid-template-areas:
+        "education"
+        "health"
+        "women"
+        "environment"
+        "cleanliness"
+        "community";
+      grid-template-columns: 1fr;
+    }
+  }
+  
