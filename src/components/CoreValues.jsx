@@ -6,36 +6,42 @@ const values = [
   {
     title: "सशक्तिकरण",
     subtitle: "Empowerment",
+    image: "https://cdn-icons-png.flaticon.com/512/6449/6449335.png",
     description:
       "हम शिक्षा, स्वास्थ्य, ऊर्जा और आजीविका के माध्यम से समाज के वंचित वर्गों को सशक्त बनाने पर ध्यान केंद्रित करते हैं, ताकि हर व्यक्ति अपनी क्षमताओं का पूरा उपयोग कर सके।",
   },
   {
     title: "सामुदायिक सहभागिता",
     subtitle: "Community Engagement",
+    image: "https://cdn-icons-png.flaticon.com/512/6449/6449335.png",
     description:
       "हम समुदायों को संगठित करते हैं और जागरूकता अभियानों, कार्यशालाओं और सामूहिक प्रयासों के माध्यम से उन्हें एकजुट होकर अपने जीवन को बेहतर बनाने में सक्षम बनाते हैं।",
   },
   {
     title: "नेतृत्व",
     subtitle: "Leadership",
+    image: "https://cdn-icons-png.flaticon.com/512/6449/6449335.png",
     description:
       "हम पारंपरिक शक्ति संरचना के बजाय सहयोग और सामूहिक निर्णय पर आधारित एक नेतृत्व प्रणाली अपनाते हैं, जिससे सभी टीमों और समुदायों का प्रभावशाली जुड़ाव हो।",
   },
   {
     title: "प्रभाव",
     subtitle: "Impact",
+    image: "https://cdn-icons-png.flaticon.com/512/6449/6449335.png",
     description:
       "हमारा उद्देश्य दीर्घकालिक और स्थायी परिणाम प्रदान करना है, यह सिद्ध करते हुए कि शिक्षा, स्वास्थ्य और सामुदायिक सशक्तिकरण के माध्यम से समग्र विकास संभव है।",
   },
   {
     title: "भागीदारी",
     subtitle: "Partnerships",
+    image: "https://cdn-icons-png.flaticon.com/512/6449/6449335.png",
     description:
       "हम उन संगठनों और संस्थानों के साथ सहयोग करते हैं जो शिक्षा, स्वास्थ्य, ऊर्जा और आजीविका के माध्यम से ग्रामीण और शहरी क्षेत्रों के विकास में योगदान देना चाहते हैं।",
   },
   {
     title: "नवाचार",
     subtitle: "Innovation",
+    image: "https://cdn-icons-png.flaticon.com/512/6449/6449335.png",
     description:
       "हम आधुनिक तकनीकों और नई सोच के माध्यम से समाधान विकसित करते हैं, जिससे समाज के सभी वर्गों को लाभ हो और विकास को गति मिले।",
   },
@@ -68,6 +74,7 @@ const CoreValues = () => {
             >
               <h3>{item.title}</h3>
               <h4>({item.subtitle})</h4>
+              <img src={item.image} alt={`${item.subtitle} logo`} className="core-card-image" />
               <p>{item.description}</p>
             </motion.div>
           ))}

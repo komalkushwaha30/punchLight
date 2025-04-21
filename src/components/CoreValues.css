@@ -26,9 +26,14 @@
 .core-values-title {
   text-align: center;
   font-size: 2rem;
-  color: var(--primary, #007acc);
+  color: #6D0C0F; /* Same color as the card background */
+  background-color: white; /* Add a white background for contrast */
+  padding: 0.8rem; /* Add padding around the text */
+  border-radius: 12px; /* Rounded corners for the title */
   margin-bottom: 2.5rem;
   font-family: 'Noto Sans Devanagari', sans-serif;
+  display: inline-block; /* Ensure the title doesn't stretch across the container */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow for emphasis */
 }
 
 /* Core Values Grid */
@@ -41,36 +46,55 @@
 
 /* Card Styling */
 .core-card {
-  background-color: var(--highlight-bg, #f0f4f8);
+  background-color: #6D0C0F; /* Updated background color */
+  color: white; /* Text color for better contrast */
   padding: 1.8rem;
   border-radius: 12px;
-  border-left: 5px solid var(--primary, #00aaff);
+  border-left: 5px solid white; /* Adjusted border color */
   transition: transform 0.3s ease;
   font-family: 'Noto Sans Devanagari', sans-serif;
   box-sizing: border-box; /* Prevents cards from expanding beyond their container */
 }
 
+/* Card Heading Styling */
 .core-card h3 {
   font-size: 1.3rem;
-  color: #222;
+  color: #6D0C0F; /* Same color as the card background */
+  background-color: white; /* Add a white background for contrast */
+  padding: 0.5rem; /* Add some padding around the text */
+  border-radius: 8px; /* Rounded corners for the heading */
+  text-align: center; /* Center the heading text */
   margin-bottom: 0.2rem;
 }
 
 .core-card h4 {
   font-size: 1rem;
-  color: #666;
+  color: #f0f0f0; /* Slightly lighter text color for subtitle */
   margin-bottom: 0.8rem;
 }
 
 .core-card p {
   font-size: 1rem;
-  color: #444;
+  color: #e0e0e0; /* Lighter text color for description */
   line-height: 1.6;
+}
+
+/* Image Styling */
+.core-card-image {
+  width: 80px; /* Smaller image size */
+  height: 80px;
+  object-fit: contain; /* Ensure the image fits without distortion */
+  background-color: transparent; /* Remove background of the image */
+  margin: 10px 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; /* Center the image */
 }
 
 /* Hover Effect for Cards */
 .core-card:hover {
   transform: translateY(-5px);
+  background-color: #8A1A1D; /* Slightly lighter shade on hover */
 }
 
 /* Media Queries for Responsiveness */
@@ -98,6 +122,11 @@
 
   .core-card p {
     text-align: justify;
+  }
+
+  .core-card-image {
+    width: 60px; /* Smaller image size for smaller screens */
+    height: 60px;
   }
 
   .core-values-grid {
