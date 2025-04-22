@@ -12,24 +12,29 @@ import DetailedGoals2025 from './components/DetailedGoals2025';
 import ChandanTestimonial from './components/ChandanTestimonial';
 import TeamSection from './components/TeamSection';
 import Contact from './components/Contact';
+import WhatWeDo from './components/WhatWeDo'; // Import the WhatWeDo component
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <>
+    <Router>
       <Navbar />
-      <section id="home"><Home /></section>
-      <section id="about"><About /></section>
-      <section id="mission"><MissionVision /></section>
-      <section id="pillar"><PillarsAndValues /></section>
-      <section id="corevalues"><CoreValues /></section>
-      <section id="story"><Story /></section>
-      <section id="project"><OurPrograms /></section>
-      <section id="goal"><Goals2025 /></section>
-      <section id="detailed-goal"><DetailedGoals2025 /></section>
-      <section id="testimonial"><ChandanTestimonial /></section>
-      <section id="team"><TeamSection /></section>
-      <section id="contact"><Contact /></section>
-    </>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/mission" element={<MissionVision />} />
+        <Route path="/pillar" element={<PillarsAndValues />} />
+        <Route path="/whatwedo" element={<WhatWeDo />} /> {/* New Route */}
+        <Route path="/corevalues" element={<CoreValues />} />
+        <Route path="/story" element={<Story />} />
+        <Route path="/project" element={<OurPrograms />} />
+        <Route path="/goal" element={<Goals2025 />} />
+        <Route path="/detailed-goal" element={<DetailedGoals2025 />} />
+        <Route path="/testimonial" element={<ChandanTestimonial />} />
+        <Route path="/team" element={<TeamSection />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </Router>
   );
 }
 
