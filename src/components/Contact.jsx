@@ -1,6 +1,13 @@
-import React, { useState } from "react";
+import { useState, useContext } from "react"; // Import useContext
+import { LanguageContext } from "../LanguageProvider"; // Import LanguageContext
 import "./Contact.css";
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+
+// Import icons from react-icons/fa (Font Awesome 5)
+import { FaPhoneAlt, FaEnvelope, FaFacebook, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
+
+// Import icons from react-icons/fa6 (Font Awesome 6)
+import { FaLocationDot, FaXTwitter } from "react-icons/fa6"; // FaLocationDot is the correct FA6 location icon, FaXTwitter is also FA6
+
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
@@ -13,6 +20,8 @@ const customIcon = new L.Icon({
 });
 
 const Contact = () => {
+  const { content } = useContext(LanguageContext); // Use useContext to get content
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -25,8 +34,8 @@ const Contact = () => {
   const [mapCenter, setMapCenter] = useState([26.1485, 87.5141]); // Default: Punchlight Foundation Office
   const [zoomLevel, setZoomLevel] = useState(5); // Default zoom level for India
   const [searchResult, setSearchResult] = useState(
-    "Punchlight Office: Village- Araria Basti, Masjid Road, Ward No. 05, Panchayat- Araria Basti, Post- Araria Basti, Police Station- Araria, Dist - Araria - 854311 (Bihar) India"
-  );
+    content.punchlightOffice + ": Village- Araria Basti, Masjid Road, Ward No. 05, Panchayat- Araria Basti, Post- Araria Basti, Police Station- Araria, Dist - Araria - 854311 (Bihar) India"
+  ); // Use content for initial searchResult
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -44,12 +53,12 @@ const Contact = () => {
       .send(serviceID, templateID, formData, userID)
       .then((response) => {
         console.log("SUCCESS!", response.status, response.text);
-        alert("Your message has been sent!");
+        alert(content.messageSentSuccess); // Use translated message
         setFormData({ name: "", email: "", subject: "", message: "" });
       })
       .catch((error) => {
         console.error("FAILED...", error);
-        alert("Failed to send your message. Please try again later.");
+        alert(content.messageSentFail); // Use translated message
       });
   };
 
@@ -59,12 +68,12 @@ const Contact = () => {
       setMapCenter([26.1485, 87.5141]); // Coordinates for Punchlight Foundation Office
       setZoomLevel(15); // Zoom in to the location
       setSearchResult(
-        "Punchlight Office: Village- Araria Basti, Masjid Road, Ward No. 05, Panchayat- Araria Basti, Post- Araria Basti, Police Station- Araria, Dist - Araria - 854311 (Bihar) India"
+        content.punchlightOffice + ": Village- Araria Basti, Masjid Road, Ward No. 05, Panchayat- Araria Basti, Post- Araria Basti, Police Station- Araria, Dist - Araria - 854311 (Bihar) India"
       );
     } else {
       // If the city or pincode does not match, keep the marker at the default location
       setZoomLevel(5); // Zoom out to show a broader view
-      setSearchResult("Sorry, Punchlight office is not currently present here.");
+      setSearchResult(content.sorryNotPresent); // Use translated message
     }
 
     // Clear the search fields
@@ -72,25 +81,36 @@ const Contact = () => {
     setPincode("");
   };
 
+  // Social media icons and their links (UPDATED WITH YOUR LINKS and names)
+  // Ensure the 'icon' property points to the correctly imported icon
+  const socialIcons = [
+    { icon: FaYoutube, color: '#FF0000', name: 'YouTube', link: 'https://youtube.com/@punchlightchannel?si=oYX_5jkmfWjOlddA' },
+    { icon: FaInstagram, color: '#C13584', name: 'Instagram', link: 'https://www.instagram.com/punchlight_foundation?igsh=YnR3bWlyN25zcWph' },
+    { icon: FaFacebook, color: '#1877F2', name: 'Facebook', link: 'https://www.facebook.com/groups/205778818753718/?ref=share&mibextid=NSMWBT' },
+    { icon: FaLinkedin, color: '#0A66C2', name: 'LinkedIn', link: 'https://www.linkedin.com/groups/9514415' },
+    { icon: FaXTwitter, color: '#000000', name: 'X (Twitter)', link: 'https://x.com/Punchlight2024?t=MILObWcQ9NYuwwf1892hqQ&s=09' },
+  ];
+
   return (
     <div className="contact-page-container">
-      {/* Contact Info and Form Section */}
+      {/* Contact Info and Form Section (remains at top) */}
       <div className="contact-info-form-container">
         {/* Contact Info Section */}
         <div className="contact-info-container">
           <div className="contact-info-card">
             <FaPhoneAlt className="contact-info-icon" />
-            <h3>Phone</h3>
+            <h3>{content.phone}</h3> {/* Translated */}
             <p>+91 8709945694</p>
           </div>
           <div className="contact-info-card">
             <FaEnvelope className="contact-info-icon" />
-            <h3>Email</h3>
+            <h3>{content.email}</h3> {/* Translated */}
             <p>namastepunchlight@gmail.com</p>
           </div>
           <div className="contact-info-card">
-            <FaMapMarkerAlt className="contact-info-icon" />
-            <h3>Location</h3>
+            {/* Corrected icon to FaLocationDot */}
+            <FaLocationDot className="contact-info-icon" />
+            <h3>{content.location}</h3> {/* Translated */}
             <p>
               Village- Araria Basti, Masjid Road, Ward No. 05,<br />
               Panchayat- Araria Basti, Post- Araria Basti,<br />
@@ -101,12 +121,12 @@ const Contact = () => {
 
         {/* Contact Form Section */}
         <div className="contact-form-container">
-          <h2>Send Us a Message</h2>
+          <h2>{content.sendUsMessage}</h2> {/* Translated */}
           <form onSubmit={handleSubmit} className="contact-form">
             <input
               type="text"
               name="name"
-              placeholder="Your Name"
+              placeholder={content.yourName}
               value={formData.name}
               onChange={handleInputChange}
               required
@@ -114,7 +134,7 @@ const Contact = () => {
             <input
               type="email"
               name="email"
-              placeholder="Your Email"
+              placeholder={content.yourEmail} 
               value={formData.email}
               onChange={handleInputChange}
               required
@@ -122,50 +142,25 @@ const Contact = () => {
             <input
               type="text"
               name="subject"
-              placeholder="Subject"
+              placeholder={content.subject} 
               value={formData.subject}
               onChange={handleInputChange}
               required
             />
             <textarea
               name="message"
-              placeholder="Your Message"
+              placeholder={content.yourMessage}
               value={formData.message}
               onChange={handleInputChange}
               required
             ></textarea>
-            <button type="submit">Send Message</button>
+            <button type="submit">{content.sendMessage}</button>
           </form>
         </div>
       </div>
 
       {/* Map and Search Section */}
       <div className="map-search-container">
-        {/* Search Section */}
-        <div className="search-box">
-          <h3>Search Location</h3>
-          <input
-            type="text"
-            placeholder="Enter City"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Enter Pincode"
-            value={pincode}
-            onChange={(e) => setPincode(e.target.value)}
-          />
-          <button onClick={handleSearch}>Search</button>
-
-          {/* Search Result */}
-          {searchResult && (
-            <div className="search-result-card">
-              <p>{searchResult}</p>
-            </div>
-          )}
-        </div>
-
         {/* Map Section */}
         <div className="map-box">
           <MapContainer
@@ -175,15 +170,39 @@ const Contact = () => {
           >
             <TileLayer
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              attribution='© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             />
             <Marker position={mapCenter} icon={customIcon}>
               <Popup>
-                Current Location<br />
-                Latitude: {mapCenter[0]}, Longitude: {mapCenter[1]}
+                {content.currentLocation}<br /> 
+                {content.latitude}: {mapCenter[0]}, {content.longitude}: {mapCenter[1]} 
               </Popup>
             </Marker>
           </MapContainer>
+        </div>
+        
+       
+      </div>
+
+      
+      <div className="social-buttons-section">
+        <h3>{content.findUsOnline}</h3>
+        <div className="social-buttons-grid">
+          {socialIcons.map((social, index) => (
+            <a
+              href={social.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              key={`button-${index}`}
+              className="social-button"
+            >
+              <social.icon
+                className="social-button-icon"
+                style={{ color: social.color }}
+              />
+              <span>{social.name}</span>
+            </a>
+          ))}
         </div>
       </div>
     </div>

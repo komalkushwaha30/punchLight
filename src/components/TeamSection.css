@@ -1,77 +1,477 @@
-/* TeamSection.css */
+/* --- */
+/* Global Variables for Consistency */
+:root {
+  /* Colors */
+  --primary-blue: #0b3d91; /* Darker blue for main headings, important text */
+  --light-blue: #007bff; /* Brighter blue for accents, buttons */
+  --accent-yellow: #ffc107; /* Yellow for buttons, highlights */
+  --text-dark: #333; /* Main body text */
+  --text-medium: #555; /* Secondary text, positions */
+  --text-light: #666; /* Paragraphs, descriptions */
+  --background-light: #f9f9f9; /* Light background for sections */
+  --background-blue-light: #e3f4fc; /* Light blue background for sections */
+  --card-background: #ffffff; /* Card backgrounds */
+  --border-light: #cde4f8; /* Light blue border */
+  --border-accent: #cce9ff; /* Even lighter blue for specific borders */
 
+  /* Fonts */
+  --font-family-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-size-base: 1rem; /* Base font size */
+  --font-size-h2: 2.5rem; /* Larger heading for main sections */
+  --font-size-h3: 1.3rem; /* Subheadings, card titles */
+  --font-size-h4: 1.2rem; /* Smaller subheadings */
+  --font-size-button: 0.95rem; /* Button text */
+  --line-height-body: 1.6;
+
+  /* Spacing */
+  /* --spacing-sm: 10px;
+  --spacing-md: 20px;
+  --spacing-lg: 30px;
+  --spacing-xl: 40px;
+  --spacing-xxl: 80px; */
+
+  /* Box Shadows */
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 8px 20px rgba(0, 123, 255, 0.08);
+  --shadow-lg: 0 12px 30px rgba(0, 123, 255, 0.15);
+
+  /* Border Radius */
+  --border-radius-sm: 5px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-pill: 30px;
+}
+
+/* --- */
+/* Base Styles & Utilities */
 body {
-  background-color: #e2e8f0; /* Previously #f9fbfc, now slightly darker */
+  margin: 0;
+  font-family: var(--font-family-primary);
+  color: var(--text-dark);
+  line-height: var(--line-height-body);
+  background-color: var(--background-light); /* Consistent background */
 }
 
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+section {
+  padding-top: var(--spacing-xxl); /* Keep top/bottom padding */
+  padding-bottom: var(--spacing-xxl); /* Keep top/bottom padding */
+}
+
+/* --- */
+/* Team Section */
 .team-container {
-  max-width: 1240px;
-  margin: auto;
-  padding: 60px 20px;
-  font-family: "Inter", sans-serif;
-  color: #1e293b;
+  /* Applying consistent left/right padding like other sections */
+  padding: var(--spacing-xxl) var(--spacing-xl);
+  max-width: 1200px; /* Also apply max-width for consistency */
+  margin: 0 auto; /* Center the container */
 }
 
-.section-header {
-  margin-bottom: 40px;
+
+.team-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
 }
 
-.section-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #0f172a;
+.team-header h2 {
+  font-size: var(--font-size-h2);
+  margin-bottom: var(--spacing-sm);
+  color: var(--primary-blue);
+  letter-spacing: 1px;
+  font-weight: 700; /* Consistent heading weight */
 }
 
-.subtitle {
-  font-size: 1.1rem;
-  color: #64748b;
-  margin-top: 8px;
+.team-header h4 {
+  font-size: var(--font-size-h4);
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-medium);
+  font-weight: 500;
+}
+
+.team-header p {
+  font-size: var(--font-size-base);
+  color: var(--text-light);
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 32px;
-  margin-bottom: 80px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
 }
 
 .team-card {
-  background: #ffffff;
-  border-radius: 18px;
-  padding: 24px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-align: center;
+  background-color: var(--card-background);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add box-shadow to transition */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .team-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md); /* Consistent hover shadow */
 }
 
-.team-img {
-  width: 160px;
-  height: 160px;
+.team-image {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+.team-info {
+  padding: var(--spacing-md);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.team-name {
+  font-size: 1.25rem; /* Slightly larger to stand out */
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: var(--primary-blue);
+}
+
+.team-position {
+  font-size: var(--font-size-base);
+  color: var(--text-medium);
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+/* No direct clamping here; rely on modal for full description */
+.team-description {
+  font-size: 0.95rem;
+  color: var(--text-dark); /* Changed to text-dark for consistency with modal */
+  line-height: var(--line-height-body);
+  white-space: pre-line;
+  overflow: auto; /* Keeps scroll if needed */
+  max-height: 200px; /* Still useful for initial display */
+  margin-bottom: var(--spacing-sm);
+}
+
+.read-more-btn {
+  background-color: transparent;
+  border: none;
+  color: var(--primary-blue); /* Use primary blue for consistent branding */
+  cursor: pointer;
+  padding: 0;
+  font-size: var(--font-size-button); /* Consistent button font size */
+  font-weight: bold;
+  text-align: left;
+  margin-top: auto; /* Pushes button to the bottom */
+}
+
+.read-more-btn:hover {
+  text-decoration: underline;
+  color: var(--light-blue); /* Lighter blue on hover for consistency */
+}
+
+/* --- */
+/* Modal */
+.blurred {
+  filter: blur(5px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  padding: var(--spacing-md);
+}
+
+.modal-content {
+  background-color: var(--card-background);
+  border-radius: var(--border-radius-lg);
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: var(--spacing-lg);
+  position: relative;
+  box-shadow: var(--shadow-lg); /* Larger shadow for modal */
+  text-align: center;
+}
+
+.close-btn {
+  position: absolute;
+  top: var(--spacing-sm);
+  right: var(--spacing-md);
+  font-size: 2rem; /* Slightly larger for better tap target */
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-dark);
+}
+
+.close-btn:hover {
+  color: red; /* Kept red for universal close icon meaning */
+}
+
+.modal-image {
+  width: 130px;
+  height: 130px;
   object-fit: cover;
   border-radius: 50%;
-  margin-bottom: 18px;
-  border: 4px solid #c8d4e7;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  margin-bottom: var(--spacing-md);
 }
 
-.team-card:hover .team-img {
-  transform: scale(1.05);
+.modal-content h3 {
+  font-size: 1.5rem; /* Consistent heading size for modal name */
+  color: var(--primary-blue);
+  margin-bottom: var(--spacing-sm);
+  font-weight: bold;
 }
 
-.team-card h3 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #1e293b;
-  margin-bottom: 6px;
+.modal-position {
+  font-style: italic;
+  color: var(--text-medium);
+  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-base);
 }
 
-.team-card p {
-  font-size: 0.9rem;
-  color: #64748b;
+.modal-description {
+  text-align: left;
+  font-size: var(--font-size-base); /* Consistent body text size */
+  color: var(--text-dark);
+  line-height: var(--line-height-body);
+  white-space: pre-line;
+}
+
+/* --- */
+/* Get Involved Section */
+.involved-section {
+  background-color: var(--background-blue-light); /* Consistent light blue background */
+}
+
+.involved-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto var(--spacing-xxl) auto; /* Increased bottom margin for separation */
+}
+
+.involved-header h2 {
+  font-size: var(--font-size-h2);
+  color: var(--light-blue); /* Lighter blue for involvement heading */
+  margin-bottom: var(--spacing-md);
+  background-color: var(--border-accent); /* Consistent background color */
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--border-radius-pill);
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.involved-header p {
+  font-size: 1.1rem; /* Slightly larger paragraph for emphasis */
+  color: var(--text-dark);
+  line-height: var(--line-height-body);
+  margin-top: var(--spacing-sm);
+}
+
+.involved-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.involved-card {
+  background-color: var(--card-background);
+  border: 2px solid var(--border-light);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-md); /* Consistent padding */
+  box-shadow: var(--shadow-md); /* Consistent card shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.involved-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg); /* Lighter shadow on hover */
+}
+
+.involved-card h4 {
+  font-size: var(--font-size-h3); /* Using h3 size for consistency */
+  color: var(--primary-blue);
+  margin-bottom: var(--spacing-sm);
+  border-bottom: 2px solid var(--border-accent);
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+.involved-card p {
+  font-size: var(--font-size-base);
+  color: var(--text-medium);
+  line-height: var(--line-height-body);
+}
+
+/* --- */
+/* Join Us Section */
+.join-us-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-xl);
+  flex-wrap: wrap;
+  background-color: var(--background-light); /* Consistent light background */
+}
+
+.join-left,
+.join-right {
+  flex: 1;
+  min-width: 300px;
+}
+
+.join-left h3 {
+  font-size: var(--font-size-h3); /* Using h3 size for consistency */
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-dark);
+  line-height: var(--line-height-body);
+  margin-bottom: var(--spacing-md);
+}
+
+.join-image {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  border-radius: var(--border-radius-md);
+  object-fit: cover;
+}
+
+.join-right {
+  text-align: left; /* Keep text aligned left for better readability in larger screens */
+}
+
+.join-right h2 {
+  font-size: var(--font-size-h2); /* Consistent with other main headings */
+  font-weight: 700;
+  color: var(--primary-blue);
+  margin-bottom: var(--spacing-md);
+}
+
+.join-right p {
+  font-size: var(--font-size-base);
+  color: var(--text-medium);
+  line-height: var(--line-height-body);
+  margin-bottom: var(--spacing-md);
+}
+
+.join-button {
+  display: inline-block;
+  background-color: var(--accent-yellow); /* Consistent button color */
+  color: var(--text-dark); /* Dark text on yellow for contrast */
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: var(--border-radius-sm);
+  transition: background-color 0.3s ease;
+  font-size: var(--font-size-button); /* Consistent button font size */
+}
+
+.join-button:hover {
+  background-color: #e0a800; /* Slightly darker yellow on hover */
+}
+
+/* --- */
+/* Responsive Adjustments */
+
+@media (max-width: 768px) {
+  section {
+    padding: var(--spacing-xl) var(--spacing-md); /* Adjust section padding for smaller screens */
+  }
+
+  /* Ensure team-container also adjusts */
+  .team-container {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+
+  .team-header h2,
+  .involved-header h2,
+  .join-right h2 {
+    font-size: 2rem; /* Slightly smaller headings */
+  }
+
+  .team-header h4 {
+    font-size: 1rem;
+  }
+
+  .team-header p,
+  .involved-header p,
+  .join-right p,
+  .involved-card p,
+  .modal-description {
+    font-size: 0.95rem; /* Slightly smaller body text */
+  }
+
+  .team-grid,
+  .involved-cards {
+    gap: var(--spacing-md); /* Reduced gap */
+  }
+
+  .modal-content {
+    padding: var(--spacing-md);
+    max-width: 95%;
+  }
+
+  .join-us-section {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-lg); /* Adjusted gap for column layout */
+  }
+
+  .join-left h3 {
+    font-size: 1.1rem; /* Smaller heading for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .team-header h2,
+  .involved-header h2,
+  .join-right h2 {
+    font-size: 1.8rem; /* Even smaller for very small screens */
+  }
+
+  .modal-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  .modal-content {
+    padding: var(--spacing-sm);
+  }
+
+  .team-name {
+    font-size: 1.1rem;
+  }
+
+  .team-position {
+    font-size: 0.9rem;
+  }
+
+  .involved-header h2 {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
 }

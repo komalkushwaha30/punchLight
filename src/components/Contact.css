@@ -1,430 +1,554 @@
-/* General Container Styling */
-.contact-container {
-    text-align: center;
-    padding: 3rem 1rem;
-    background: linear-gradient(to bottom right, #f5f9ff, #e8f0ff);
-    min-height: 100vh;
-    font-family: 'Segoe UI', sans-serif;
+/* --- Root Variables for Global Consistency --- */
+:root {
+  /* Colors */
+  --primary-blue: #0b3d91; /* Darker blue for main headings, important text */
+  --light-blue: #007bff; /* Brighter blue for accents, buttons */
+  --accent-yellow: #ffc107; /* Yellow for buttons, highlights */
+  --text-dark: #333; /* Main body text */
+  --text-medium: #555; /* Secondary text, positions */
+  --text-light: #666; /* Paragraphs, descriptions */
+  --background-light: #f9f9f9; /* Light background for sections */
+  --background-blue-light: #e3f4fc; /* Light blue background for sections */
+  --card-background: #ffffff; /* Card backgrounds */
+  --border-light: #cde4f8; /* Light blue border */
+  --border-accent: #cce9ff; /* Even lighter blue for specific borders */
+
+  /* Fonts */
+  --font-family-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-size-base: 1rem; /* Base font size */
+  --font-size-h2: 2.5rem; /* Larger heading for main sections */
+  --font-size-h3: 1.3rem; /* Subheadings, card titles */
+  --font-size-h4: 1.2rem; /* Smaller subheadings */
+  --font-size-button: 0.95rem; /* Button text */
+  --line-height-body: 1.6;
+
+  /* Spacing */
+  /* --spacing-xs: 5px;
+  --spacing-sm: 10px;
+  --spacing-md: 20px;
+  --spacing-lg: 30px;
+  --spacing-xl: 40px;
+  --spacing-xxl: 80px; */
+
+  /* Box Shadows */
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 8px 20px rgba(0, 123, 255, 0.08);
+  --shadow-lg: 0 12px 30px rgba(0, 0, 0, 0.15); /* Adjusted for more impact */
+  --shadow-card-hover: 0 12px 30px rgba(0, 0, 0, 0.15); /* Consistent hover shadow */
+
+
+  /* Border Radius */
+  --border-radius-sm: 5px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-pill: 30px;
 }
 
-/* Heading Styling */
-.thank-you {
-    font-size: 3rem;
-    font-weight: bold;
-    color: #2d2d2d;
-    margin-bottom: 0.5rem;
+/* --- General & Utility Styles --- */
+
+
+a {
+  text-decoration: none;
+  color: inherit; /* Inherit color unless specified */
 }
 
-.contact-heading {
-    font-size: 1.8rem;
-    color: #0066cc;
-    margin-bottom: 2rem;
+button {
+  cursor: pointer;
+  border: none;
 }
 
-/* Contact Cards Section */
-.contact-cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
-    align-items: flex-start;
-    margin-top: 20px;
+/* --- Main Contact Page Container --- */
+.contact-page-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xxl); /* Increased gap between major sections */
+  padding: var(--spacing-xxl) var(--spacing-xl); /* Consistent padding */
+  max-width: 1200px;
+  margin: var(--spacing-xl) auto; /* Top/bottom margin for page itself */
+  background: var(--background-light); /* Consistent background */
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg); /* Overall page shadow */
 }
 
-/* Individual Contact Card */
-.contact-card {
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    transition: transform 0.3s ease;
+
+/* --- Contact Info and Form Container --- */
+.contact-info-form-container {
+  display: flex;
+  gap: var(--spacing-lg); /* Consistent gap */
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
-.contact-card:hover {
-    transform: translateY(-5px);
+.contact-info-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md); /* Consistent gap */
+  background: var(--card-background);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md); /* Consistent shadow */
+  min-width: 280px;
 }
 
-/* Icon Styling */
-.contact-icon {
-    font-size: 2.5rem;
-    color: #0066cc;
-    margin-bottom: 1rem;
+.contact-info-card {
+  text-align: center;
+  padding: var(--spacing-sm);
+  background: var(--background-light); /* Lighter background for inner cards */
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm); /* Consistent shadow */
 }
 
-/* Contact Info Styling */
-.contact-info h3 {
-    font-size: 1.2rem;
-    color: #333;
-    margin-bottom: 0.5rem;
+.contact-info-icon {
+  font-size: 2rem;
+  color: var(--light-blue); /* Consistent icon color */
+  margin-bottom: var(--spacing-xs);
 }
 
-.contact-info p {
-    font-size: 1rem;
-    color: #555;
-    line-height: 1.5;
+.contact-info-card h3 {
+  font-size: var(--font-size-h4);
+  color: var(--text-dark);
+  margin-bottom: var(--spacing-xs);
 }
 
-.contact-image {
-    flex: 1;
-    min-width: 250px;
-    max-width: 300px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 6px solid #0066cc;
-    background: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 6px 12px rgba(0, 102, 204, 0.2);
-    transition: all 0.3s ease-in-out;
+.contact-info-card p {
+  font-size: var(--font-size-base);
+  color: var(--text-medium);
+  line-height: 1.5;
 }
 
-.contact-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
-    object-fit: cover;
+/* --- Contact Form Section --- */
+.contact-form-container {
+  flex: 2;
+  text-align: center;
+  padding: var(--spacing-md);
+  background: var(--card-background);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md); /* Consistent shadow */
+  min-width: 280px;
 }
 
-.contact-details {
-    flex: 2;
-    min-width: 280px;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    text-align: left;
+.contact-form-container h2 {
+  font-size: 1.8rem; /* Slightly smaller than main h2 */
+  color: var(--primary-blue);
+  margin-bottom: var(--spacing-md);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.contact-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    transition: all 0.2s ease-in-out;
-}
-
-.icon {
-    font-size: 1.5rem;
-    color: #0066cc;
-    flex-shrink: 0;
-}
-
-.label {
-    font-weight: 600;
-    margin-bottom: 0.2rem;
-}
-
-.value {
-    font-size: 1rem;
-    color: #333;
-    line-height: 1.5;
-}
-
-.search-section {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-    justify-content: center;
-}
-
-.search-section input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    flex: 1;
-    max-width: 200px;
-}
-
-.search-section button {
-    padding: 10px 20px;
-    background-color: #0066cc;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-.search-section button:hover {
-    background-color: #004a99;
-}
-
-/* Map Section */
-.map-section {
-    margin-top: 20px;
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-/* Contact Form Section */
-.contact-form-section {
-    margin-top: 40px;
-    text-align: center;
-    padding: 2rem 1rem;
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    margin: 40px auto;
-}
-
-.contact-form-section h2 {
-    font-size: 2rem;
-    color: #0066cc;
-    margin-bottom: 20px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-/* Contact Form Styling */
 .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    max-width: 600px;
-    margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md); /* Consistent gap */
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .contact-form input,
 .contact-form textarea {
-    padding: 12px 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
-    width: 100%;
-    background: #f9f9f9;
-    transition: all 0.3s ease;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--border-light); /* Consistent border */
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-base);
+  width: 100%;
+  background: var(--background-light); /* Consistent background */
+  transition: all 0.3s ease;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-    border-color: #0066cc;
-    background: #ffffff;
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 102, 204, 0.3);
+  border-color: var(--light-blue);
+  background: var(--card-background);
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 102, 204, 0.3);
 }
 
 .contact-form textarea {
-    resize: none;
-    height: 120px;
+  resize: vertical; /* Allow vertical resize only */
+  height: 120px;
 }
 
-/* Submit Button Styling */
 .contact-form button {
-    padding: 12px 20px;
-    background-color: #0066cc;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--light-blue); /* Consistent button color */
+  color: white;
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-button);
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm); /* Consistent shadow */
 }
 
 .contact-form button:hover {
-    background-color: #004a99;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    transform: translateY(-2px);
+  background-color: var(--primary-blue); /* Darker blue on hover */
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 .contact-form button:active {
-    transform: translateY(0);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(0);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Contact Page Container */
-.contact-page-container {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    padding: 2rem;
-    background: #f9f9f9;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    max-width: 1200px;
-    margin: 40px auto;
-}
-
-/* Contact Info and Form Container */
-.contact-info-form-container {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-/* Contact Info Container */
-.contact-info-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    background: #ffffff;
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-}
-
-.contact-info-card {
-    text-align: center;
-    padding: 1rem;
-    background: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.contact-info-icon {
-    font-size: 2rem;
-    color: #0066cc;
-    margin-bottom: 0.5rem;
-}
-
-.contact-info-card h3 {
-    font-size: 1.2rem;
-    color: #333;
-    margin-bottom: 0.5rem;
-}
-
-.contact-info-card p {
-    font-size: 1rem;
-    color: #555;
-    line-height: 1.5;
-}
-
-/* Contact Form Container */
-.contact-form-container {
-    flex: 2;
-    text-align: center;
-    padding: 1.5rem;
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-}
-
-.contact-form-container h2 {
-    font-size: 1.8rem;
-    color: #0066cc;
-    margin-bottom: 20px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-/* Map and Search Container */
+/* --- Map and Search Section --- */
 .map-search-container {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    align-items: flex-start;
+  display: flex;
+  gap: var(--spacing-lg); /* Consistent gap */
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
-/* Search Box Styling */
 .search-box {
-    flex: 1;
-    background: #ffffff;
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    text-align: center;
+  flex: 1;
+  background: var(--card-background);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md); /* Consistent shadow */
+  text-align: center;
+  min-width: 280px;
 }
 
 .search-box h3 {
-    font-size: 1.5rem;
-    color: #0066cc;
-    margin-bottom: 1rem;
+  font-size: var(--font-size-h3);
+  color: var(--primary-blue);
+  margin-bottom: var(--spacing-md);
 }
 
 .search-box input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
+  width: calc(100% - 2 * var(--spacing-sm)); /* Account for padding */
+  padding: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+  border: 1px solid var(--border-light);
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-base);
+  background: var(--background-light);
 }
 
 .search-box button {
-    padding: 10px 20px;
-    background-color: #0066cc;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--light-blue);
+  color: white;
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-button);
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
 }
 
 .search-box button:hover {
-    background-color: #004a99;
+  background-color: var(--primary-blue);
 }
 
-/* Search Result Card */
 .search-result-card {
-    margin-top: 1rem;
-    padding: 1rem;
-    background: #f1f1f1;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    font-size: 1rem;
-    color: #333;
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-sm);
+  background: var(--background-blue-light); /* Use a light blue background for results */
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+  font-size: var(--font-size-base);
+  color: var(--text-dark);
+  text-align: left; /* Align text within card */
 }
 
-/* Map Box Styling */
 .map-box {
-    flex: 2;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  flex: 2;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md); /* Consistent shadow */
+  min-width: 280px;
 }
 
-/* Responsive Design */
+/* --- Social Connect Section (STATIC - No Animation) --- */
+.social-connect-section { /* No longer needing .static-social-section specific targeting */
+  text-align: center;
+  position: relative;
+  padding: var(--spacing-xl) var(--spacing-md);
+  overflow: visible;
+  background: linear-gradient(to bottom right, #f5f9ff, #e8f0ff);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  margin-top: var(--spacing-xxl); /* Space it from the map section */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-lg);
+}
+
+.social-connect-section .social-connect-title {
+  font-size: var(--font-size-h2);
+  font-weight: bold;
+  color: var(--primary-blue);
+  margin-bottom: var(--spacing-sm);
+  letter-spacing: 1px;
+}
+
+.social-connect-section .social-connect-subtitle {
+  font-size: var(--font-size-h4);
+  color: var(--text-medium);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Main content for the static social section */
+.static-social-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    background: var(--card-background);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-sm);
+    max-width: 400px;
+    width: 100%;
+}
+
+.punchlight-logo-static {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: var(--spacing-sm);
+}
+
+.static-text-content h3 {
+    font-size: 1.8rem;
+    color: var(--primary-blue);
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.static-text-content p {
+    font-size: 1rem;
+    color: var(--text-medium);
+    margin-top: var(--spacing-xs);
+}
+
+.globe-hands-static {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: var(--spacing-sm);
+}
+
+.globe-hands-static img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.social-icons-static {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.static-social-icon-link {
+    display: block;
+    padding: var(--spacing-sm);
+    border-radius: 50%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.static-social-icon-link:hover {
+    transform: translateY(-3px) scale(1.1);
+    background-color: var(--background-blue-light);
+}
+
+.static-social-icon {
+    font-size: 2.5rem;
+    /* Color is set directly in JS for brand colors */
+}
+
+/* Removed specific animation-related classes that are no longer needed */
+.social-icons-outer-ring,
+.social-icon-wrapper,
+.social-icon,
+.social-inner-circle,
+.social-inner-content {
+    /* These classes are no longer used for animation,
+       but if they were previously targeted for other styles,
+       their content might need to be re-evaluated and moved
+       to the new static classes if necessary.
+       For this update, they are effectively removed by the JSX change. */
+    display: none; /* Explicitly hide if any remnants might cause issues */
+}
+
+
+/* --- Social Buttons Section --- */
+.social-buttons-section {
+    text-align: center;
+    padding: var(--spacing-xl);
+    background: var(--background-blue-light);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    margin-top: var(--spacing-lg); /* Reduced margin slightly to sit closer to static social section */
+}
+
+.social-buttons-section h3 {
+    font-size: var(--font-size-h3);
+    color: var(--primary-blue);
+    margin-bottom: var(--spacing-lg);
+}
+
+.social-buttons-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-md);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.social-button {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--card-background);
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius-pill);
+    box-shadow: var(--shadow-sm);
+    color: var(--text-dark);
+    font-weight: bold;
+    font-size: var(--font-size-button);
+    transition: all 0.3s ease;
+}
+
+.social-button:hover {
+    background-color: var(--light-blue);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--light-blue);
+}
+
+.social-button-icon {
+    font-size: 1.2em;
+    color: var(--light-blue);
+    transition: inherit;
+}
+
+.social-button:hover .social-button-icon {
+    color: white;
+}
+
+
+/* --- Responsive Design --- */
 @media (max-width: 768px) {
-    .contact-form-section {
-        padding: 1.5rem;
-    }
+  .contact-page-container {
+    padding: var(--spacing-xl) var(--spacing-md);
+    margin: var(--spacing-md) auto;
+  }
 
-    .contact-form {
-        gap: 1rem;
-    }
+  .social-connect-section { /* Apply to this section directly */
+      padding: var(--spacing-lg);
+      margin-top: var(--spacing-xl);
+  }
 
-    .contact-form input,
-    .contact-form textarea {
-        font-size: 0.9rem;
-    }
+  .punchlight-logo-static {
+      width: 80px;
+      height: 80px;
+  }
 
-    .contact-form button {
-        font-size: 0.9rem;
-    }
+  .globe-hands-static {
+      width: 60px;
+      height: 60px;
+  }
 
-    .contact-page-container {
-        flex-direction: column;
-        padding: 1.5rem;
-    }
+  .static-social-icon {
+      font-size: 2rem;
+  }
 
-    .contact-info-container,
-    .contact-form-container {
-        flex: none;
-        width: 100%;
-    }
+  .social-buttons-section {
+      padding: var(--spacing-lg);
+      margin-top: var(--spacing-xl);
+  }
+  .social-buttons-grid {
+      gap: var(--spacing-sm);
+  }
+  .social-button {
+      padding: var(--spacing-sm);
+      font-size: 0.85rem;
+      gap: var(--spacing-xs);
+  }
+  .social-button-icon {
+      font-size: 1.1em;
+  }
 
-    .contact-form {
-        gap: 1rem;
-    }
+  .contact-info-form-container,
+  .map-search-container {
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
 
-    .contact-form input,
-    .contact-form textarea {
-        font-size: 0.9rem;
-    }
+  .contact-info-container,
+  .contact-form-container,
+  .search-box,
+  .map-box {
+    flex: none;
+    width: 100%;
+  }
 
-    .contact-form button {
-        font-size: 0.9rem;
+  /* Font size adjustments for smaller screens */
+  .social-connect-title {
+    font-size: 2rem;
+  }
+  .social-connect-subtitle {
+    font-size: 1rem;
+  }
+  .contact-form-container h2 {
+    font-size: 1.6rem;
+  }
+  .contact-info-card h3 {
+    font-size: 1.1rem;
+  }
+  .search-box h3 {
+    font-size: 1.4rem;
+  }
+  .contact-form input,
+  .contact-form textarea,
+  .search-box input,
+  .search-result-card p,
+  .contact-info-card p {
+    font-size: 0.9rem;
+  }
+  .contact-form button,
+  .search-box button {
+    font-size: 0.85rem;
+    padding: 10px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+    .static-social-content {
+        padding: var(--spacing-md);
+        gap: var(--spacing-md);
+    }
+    .punchlight-logo-static {
+        width: 70px;
+        height: 70px;
+    }
+    .globe-hands-static {
+        width: 50px;
+        height: 50px;
+    }
+    .static-social-icon {
+        font-size: 2rem;
+    }
+    .social-icons-static {
+        gap: var(--spacing-sm);
+    }
+    .social-button {
+        flex: 1 1 auto;
+        max-width: calc(50% - var(--spacing-sm) / 2);
     }
 }

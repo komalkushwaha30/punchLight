@@ -1,0 +1,150 @@
+/* Donation.css */
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 7rem;
+  padding: 2.5rem 1rem 2rem 1rem;
+  background: #f7fafd;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.main-heading {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #2d3a4b;
+  font-weight: 800;
+  margin-bottom: 2.5rem;
+  letter-spacing: 1px;
+}
+
+.grid-container {
+  display: flex;
+  gap: 2.5rem;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 1.5rem;
+}
+
+.section-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+  padding: 2rem 1.5rem;
+  flex: 1 1 350px;
+  min-width: 320px;
+  max-width: 500px;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.donation-form-card {
+  border-top: 4px solid #6366f1;
+}
+
+.donor-list-card {
+  border-top: 4px solid #3b82f6;
+}
+
+.thank-you-message {
+  background: #e6f9ed;
+  border: 1.5px solid #1a7f37;
+  border-radius: 14px;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  margin: 2.5rem auto;
+  max-width: 500px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+}
+
+.thank-you-message h2 {
+  color: #1a7f37;
+  font-size: 1.7rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #6366f1 0%, #3b82f6 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.9rem 2.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  margin-top: 1rem;
+  box-shadow: 0 4px 12px rgba(99,102,241,0.08);
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  background: linear-gradient(90deg, #3b82f6 0%, #6366f1 100%);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.notification {
+  position: fixed;
+  top: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2000;
+  min-width: 280px;
+  max-width: 90vw;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+  animation: fadeInDown 0.5s;
+}
+.notification.success {
+  background: #e6f9ed;
+  color: #1a7f37;
+  border: 1.5px solid #1a7f37;
+}
+.notification.error {
+  background: #ffeaea;
+  color: #d32f2f;
+  border: 1.5px solid #d32f2f;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px) translateX(-50%);}
+  to { opacity: 1; transform: translateY(0) translateX(-50%);}
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .grid-container {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+  .section-card {
+    max-width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .app-container {
+    padding: 1rem 0.2rem 1.5rem 0.2rem;
+  }
+  .main-heading {
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
+  }
+  .thank-you-message {
+    padding: 1.2rem 0.5rem;
+    font-size: 1rem;
+  }
+  .btn-primary {
+    font-size: 1rem;
+    padding: 0.8rem 1.2rem;
+  }
+}

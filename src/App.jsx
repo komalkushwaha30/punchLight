@@ -1,19 +1,16 @@
 import './App.css';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer'; // Import the Footer component
 import Home from './components/Home';
 import About from './components/About';
-import MissionVision from './components/MissionVision';
-import PillarsAndValues from './components/Pillar';
-import CoreValues from './components/CoreValues';
-import Story from './components/Story';
-import OurPrograms from './components/OurPrograms';
-import Goals2025 from './components/Goals2025';
-import DetailedGoals2025 from './components/DetailedGoals2025';
-import ChandanTestimonial from './components/ChandanTestimonial';
 import TeamSection from './components/TeamSection';
 import Contact from './components/Contact';
 import WhatWeDo from './components/WhatWeDo'; // Import the WhatWeDo component
+import Donation from './components/Donation';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Impact from './components/Impact';
+import MediaAndPublications from './components/MediaAndPublications';
+import PublicationsSection from './components/PublicationsSection';
 
 function App() {
   return (
@@ -22,18 +19,15 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/mission" element={<MissionVision />} />
-        <Route path="/pillar" element={<PillarsAndValues />} />
         <Route path="/whatwedo" element={<WhatWeDo />} /> {/* New Route */}
-        <Route path="/corevalues" element={<CoreValues />} />
-        <Route path="/story" element={<Story />} />
-        <Route path="/project" element={<OurPrograms />} />
-        <Route path="/goal" element={<Goals2025 />} />
-        <Route path="/detailed-goal" element={<DetailedGoals2025 />} />
-        <Route path="/testimonial" element={<ChandanTestimonial />} />
         <Route path="/team" element={<TeamSection />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path='/donation' element={<Donation/>} />
+        <Route path='/impact' element={<Impact/>} />
+        <Route path='/media' element ={<MediaAndPublications/>} />
+       
       </Routes>
+      <Footer /> {/* Add Footer here */}
     </Router>
   );
 }

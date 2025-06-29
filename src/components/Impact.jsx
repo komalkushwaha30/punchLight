@@ -1,0 +1,29 @@
+import { useEffect, useState } from 'react';
+import DonorList from './DonorList';
+import axios from 'axios';
+import './Impact.css';
+
+const Impact = () => {
+  const [donors, setDonors] = useState([]);
+
+  useEffect(() => {
+    const fetchDonors = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/donations');
+        setDonors(response.data);
+      } catch (error) {
+        console.error('Error fetching donors:', error);
+      }
+    };
+    fetchDonors();
+  }, []);
+
+  return (
+    <div className="impact-container">
+      <h1>Our Impact</h1>
+      <DonorList donors={donors} />
+    </div>
+  );
+};
+
+export default Impact;
