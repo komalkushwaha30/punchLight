@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './MediaAndPublications.css';
 import { assets } from '../assets/assets';
+import { LanguageContext } from '../LanguageProvider';
 
 const mediaData = {
+  
   youtubeVideos: [
     {
       id: "video_g9FRlzB70ko",
@@ -112,6 +114,7 @@ const mediaData = {
 
 const MediaAndPublications = () => {
   const [selectedArticle, setSelectedArticle] = useState(null);
+  const { content } = useContext(LanguageContext)
 
   const openModal = (article) => {
     setSelectedArticle(article);
@@ -123,17 +126,16 @@ const MediaAndPublications = () => {
 
   return (
     <div className="media-page-container">
-      <h1 className="page-main-title"> Media & Publications</h1>
+      <h1 className="page-main-title">{content.mediaPublicationsTitle}</h1>
 
       <p className="intro-text">
-        Here you’ll find our latest updates, news coverage, and downloadable resources.
-        Stay connected with our journey to empower communities.
+        {content.mediaPublicationsIntro}
       </p>
 
       {/* Section 1 - YouTube */}
       {/* Section 1 - YouTube */}
 <section className="media-section youtube-section">
-  <h2 className="section-title"> Latest Videos</h2>
+  <h2 className="section-title"> {content.latestVideosTitle}</h2>
   <div className="media-grid video-grid">
     {mediaData.youtubeVideos.map((video) => (
       <div className="media-card video-card hover-lift" key={video.id}>
@@ -155,7 +157,7 @@ const MediaAndPublications = () => {
             rel="noopener noreferrer"
             className="card-button"
           >
-            Watch on YouTube
+            {content.watchOnYouTube}
           </a>
         </div>
       </div>
@@ -165,7 +167,7 @@ const MediaAndPublications = () => {
 
       {/* Section 2 - News */}
       <section className="media-section news-section">
-        <h2 className="section-title"> News Articles</h2>
+        <h2 className="section-title">{content.newsArticlesTitle}</h2>
         <div className="media-grid">
           {mediaData.newsArticles.map((article) => (
             <div
@@ -188,7 +190,7 @@ const MediaAndPublications = () => {
 
       {/* Section 3 - Publications */}
       <section className="media-section other-publications-section">
-        <h2 className="section-title"> Downloads & Reports</h2>
+        <h2 className="section-title"> {content.downloadsReportsTitle}</h2>
         <div className="media-grid">
           {mediaData.otherPublications.map((pub) => (
             <a

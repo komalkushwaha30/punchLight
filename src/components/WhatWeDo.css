@@ -728,7 +728,7 @@
   text-align: center;
   font-family: 'Poppins', sans-serif; /* Consistent font-family */
   color: var(--text-dark);
-  max-width: 1200px; /* Max width for consistency with other sections */
+  
   margin: 0 auto;
 }
 
@@ -807,9 +807,24 @@
 
 .goal-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly wider min-width */
-  gap: 35px; /* Increased gap between cards */
-  margin-top: 50px; /* Ensures spacing if hero section has margin-bottom */
+  grid-template-columns: repeat(3, 1fr); /* 3 columns on large screens */
+  gap: 35px;
+  margin: 50px;
+}
+
+@media (max-width: 1024px) {
+  .goal-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+    margin: 30px;
+    gap: 25px;
+  }
+}
+@media (max-width: 700px) {
+  .goal-grid {
+    grid-template-columns: 1fr; /* 1 column on mobile */
+    margin: 15px;
+    gap: 15px;
+  }
 }
 
 .goal-card {
@@ -822,7 +837,7 @@
   flex-direction: column;
   align-items: center; /* Center content */
   text-align: center;
-  border: 1px solid #e0e7ff; /* Subtle border for definition */
+  border: 1px solid #b9bcc9; /* Subtle border for definition */
 }
 
 .goal-card:hover {

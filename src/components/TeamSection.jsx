@@ -72,7 +72,8 @@ const TeamSection = () => {
     {
       nameKey: "youName", // This one is dynamic for "You"
       positionKey: "youPosition",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7MUiR6cIbzkmy7NPLIsU21LJ4zXeruHa2WQ&s",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7MUiR6cIbzkmy7NPLIsU21LJ4zXeruHa2WQ&s",
       descriptionKey: "youDescription",
     },
   ];
@@ -105,43 +106,85 @@ const TeamSection = () => {
   const openModal = (member) => setSelectedMember(member);
   const closeModal = () => setSelectedMember(null);
 
+  const mentors = teamData.slice(0, 4);
+  const team = teamData.slice(4);
+
   return (
     <>
       <div className={`team-container ${selectedMember ? "blurred" : ""}`}>
-        <div className="team-header">
-          <h2>{content.teamMeetOurTeam}</h2> {/* Translated */}
-          <h4>{content.teamLeadingWithVision}</h4> {/* Translated */}
-          <p>{content.teamIntro}</p> {/* Translated */}
+        {/* Mentors Section */}
+        <div className="team-group">
+          <h2 className="team-group-heading">{content.teamMentorHeading}</h2>
+          <p>{content.teamMentorSubheading}</p>
+          <div className="mentors-grid">
+            {mentors.map((member, idx) => (
+              <div key={idx} className="team-card">
+                <img
+                  src={member.image}
+                  alt={content[member.nameKey]}
+                  className="team-image"
+                />
+                <div className="team-info">
+                  <h3 className="team-name">{content[member.nameKey]}</h3>
+                  <p className="team-position">{content[member.positionKey]}</p>
+                  {member.descriptionKey && content[member.descriptionKey] && (
+                    <button
+                      className="read-more-btn"
+                      onClick={() =>
+                        openModal({
+                          name: content[member.nameKey],
+                          position: content[member.positionKey],
+                          image: member.image,
+                          description: content[member.descriptionKey],
+                        })
+                      }
+                    >
+                      {content.readMore}
+                    </button>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="team-grid">
-          {teamData.map((member, idx) => (
-            <div key={idx} className="team-card">
-              <img
-                src={member.image}
-                alt={content[member.nameKey]} // Translated alt text
-                className="team-image"
-              />
-              <div className="team-info">
-                <h3 className="team-name">{content[member.nameKey]}</h3> {/* Translated */}
-                <p className="team-position">{content[member.positionKey]}</p> {/* Translated */}
-                {/* Only show read more if description exists and can be translated */}
-                {member.descriptionKey && content[member.descriptionKey] && (
-                  <button
-                    className="read-more-btn"
-                    onClick={() => openModal({ // Pass translated content to modal
-                      name: content[member.nameKey],
-                      position: content[member.positionKey],
-                      image: member.image,
-                      description: content[member.descriptionKey]
-                    })}
-                  >
-                    {content.readMore} {/* Translated */}
-                  </button>
-                )}
+        {/* Team Section */}
+        <div className="team-group">
+          <h2 className="team-group-heading">{content.teamTeamHeading}</h2>
+          <h4>{content.teamTeamSubheading}</h4>
+          <p>
+            {content.teamTeamIntro}
+          </p>
+          <div className="team-members-grid">
+            {team.map((member, idx) => (
+              <div key={idx} className="team-card">
+                <img
+                  src={member.image}
+                  alt={content[member.nameKey]}
+                  className="team-image"
+                />
+                <div className="team-info">
+                  <h3 className="team-name">{content[member.nameKey]}</h3>
+                  <p className="team-position">{content[member.positionKey]}</p>
+                  {member.descriptionKey && content[member.descriptionKey] && (
+                    <button
+                      className="read-more-btn"
+                      onClick={() =>
+                        openModal({
+                          name: content[member.nameKey],
+                          position: content[member.positionKey],
+                          image: member.image,
+                          description: content[member.descriptionKey],
+                        })
+                      }
+                    >
+                      {content.readMore}
+                    </button>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
 

@@ -161,6 +161,7 @@ section {
   font-weight: bold;
   margin-bottom: 5px;
   color: var(--primary-blue);
+  margin-top: 15px;
 }
 
 .team-position {
@@ -422,6 +423,69 @@ section {
 .join-button:hover {
   background-color: #ffb84d;
   color: var(--primary-blue);
+}
+
+/* --- */
+/* New Team Group Styles */
+.team-group {
+  margin-bottom: var(--spacing-xl);
+  text-align: center;
+}
+
+.team-group-heading {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--primary-blue);
+  margin-bottom: var(--spacing-lg);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Optional: If you have a description under the heading, center it too */
+.team-group-description {
+  text-align: center;
+  color: var(--text-light);
+  margin: 0 auto var(--spacing-lg) auto;
+  max-width: 700px;
+  font-size: 1.1rem;
+}
+
+/* --- */
+/* Team Members Grid: Always 4 columns on large screens */
+.team-members-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-lg);
+}
+
+@media (max-width: 1024px) {
+  .team-members-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .team-members-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- */
+/* Mentors Grid: Always 4 columns on large screens */
+.mentors-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-lg);
+}
+
+@media (max-width: 1024px) {
+  .mentors-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .mentors-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* --- */

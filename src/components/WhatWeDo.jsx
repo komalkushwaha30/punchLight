@@ -388,7 +388,7 @@ const WhatWeDo = () => {
         <div className="goal-grid">
           {goalsData.map((goal, index) => (
             <div className="goal-card" key={index}>
-              <div className="goal-icon">{goal.icon}</div>
+              
               <h3 className="goal-title">{content[goal.titleKey]}</h3>{" "}
               {/* Translated */}
               <p

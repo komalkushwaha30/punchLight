@@ -143,7 +143,6 @@ function Home() {
   };
 
   const partnerImages = [
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKalzVlIzwN7B8vzgPxjFzhc4obPwOm8N-eA&s",
     "https://static.wixstatic.com/media/aa3a70_2fe770ade7ed4a1bbe70b8cf54a3e82a~mv2.png/v1/fill/w_139,h_181,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/aa3a70_2fe770ade7ed4a1bbe70b8cf54a3e82a~mv2.png",
     "https://www.pureindia.org/wp-content/uploads/2023/08/cropped-pure-new-logo.png",
      // Add image59 or any other image for the 4th partner
@@ -304,7 +303,7 @@ function Home() {
 
       {/* Professional Partners Row Section */}
       <section className="partners-row-section">
-        <h2 className="partners-row-title">Our Partners</h2>
+        <h2 className="partners-row-title">{content.partnersRowTitle}</h2>
         <div className="partners-row">
           {partnerImages.map((img, idx) => (
             <div className="partner-logo-animated" key={idx}>

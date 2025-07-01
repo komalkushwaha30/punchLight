@@ -77,7 +77,7 @@ const ProgramsSection = () => {
           </p>
           <div className="adhigamshala-card">
             <img
-              src={assets.image60}
+              src={assets.image61}
               alt={content.progShalaCardTitle}
               className="adhigamshala-card-image"
             />
@@ -100,7 +100,7 @@ const ProgramsSection = () => {
           </div>
         </>
       ),
-      images: [assets.image1, assets.image26, assets.image27, assets.image28,assets.image29,assets.image30,],
+      images: [assets.image1, assets.image26, assets.image27, assets.image28,assets.image29,assets.image30,assets.image62,assets.image63,assets.image64],
     },
     {
       titleKey: "progSvasthyaTitle",
