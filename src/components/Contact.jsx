@@ -1,12 +1,12 @@
-import { useState, useContext } from "react"; // Import useContext
-import { LanguageContext } from "../LanguageProvider"; // Import LanguageContext
+import { useState, useContext } from "react";
+import { LanguageContext } from "../LanguageProvider";
 import "./Contact.css";
 
 // Import icons from react-icons/fa (Font Awesome 5)
 import { FaPhoneAlt, FaEnvelope, FaFacebook, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
 
 // Import icons from react-icons/fa6 (Font Awesome 6)
-import { FaLocationDot, FaXTwitter } from "react-icons/fa6"; // FaLocationDot is the correct FA6 location icon, FaXTwitter is also FA6
+import { FaLocationDot, FaXTwitter } from "react-icons/fa6";
 
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
@@ -15,12 +15,12 @@ import emailjs from "@emailjs/browser";
 
 // Custom marker icon
 const customIcon = new L.Icon({
-  iconUrl: "https://cdn-icons-png.flaticon.com/512/684/684908.png",
+  iconUrl: "[https://cdn-icons-png.flaticon.com/512/684/684908.png](https://cdn-icons-png.flaticon.com/512/684/684908.png)",
   iconSize: [40, 40],
 });
 
 const Contact = () => {
-  const { content } = useContext(LanguageContext); // Use useContext to get content
+  const { content } = useContext(LanguageContext);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -35,7 +35,7 @@ const Contact = () => {
   const [zoomLevel, setZoomLevel] = useState(5); // Default zoom level for India
   const [searchResult, setSearchResult] = useState(
     content.punchlightOffice + ": Village- Araria Basti, Masjid Road, Ward No. 05, Panchayat- Araria Basti, Post- Araria Basti, Police Station- Araria, Dist - Araria - 854311 (Bihar) India"
-  ); // Use content for initial searchResult
+  );
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -45,20 +45,22 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const serviceID = "service_ctfr9zi"; // Replace with your EmailJS service ID
-    const templateID = "template_s6u31py"; // Replace with your EmailJS template ID
-    const userID = "oF4yHv-iEHIR8ZYcR"; // Replace with your EmailJS user ID
+    const serviceID = "service_nok7nyb"; // Replace with your EmailJS service ID
+    const templateID = "template_yqhuyeg"; // Replace with your EmailJS template ID
+    const userID = "FdU3hGddYi9kbg-MM"; // Replace with your EmailJS user ID
 
     emailjs
       .send(serviceID, templateID, formData, userID)
       .then((response) => {
         console.log("SUCCESS!", response.status, response.text);
-        alert(content.messageSentSuccess); // Use translated message
+        // Using a custom message box instead of alert()
+        alert(content.messageSentSuccess);
         setFormData({ name: "", email: "", subject: "", message: "" });
       })
       .catch((error) => {
         console.error("FAILED...", error);
-        alert(content.messageSentFail); // Use translated message
+        // Using a custom message box instead of alert()
+        alert(content.messageSentFail);
       });
   };
 
@@ -73,7 +75,7 @@ const Contact = () => {
     } else {
       // If the city or pincode does not match, keep the marker at the default location
       setZoomLevel(5); // Zoom out to show a broader view
-      setSearchResult(content.sorryNotPresent); // Use translated message
+      setSearchResult(content.sorryNotPresent);
     }
 
     // Clear the search fields
@@ -81,8 +83,7 @@ const Contact = () => {
     setPincode("");
   };
 
-  // Social media icons and their links (UPDATED WITH YOUR LINKS and names)
-  // Ensure the 'icon' property points to the correctly imported icon
+  // Social media icons and their links
   const socialIcons = [
     { icon: FaYoutube, color: '#FF0000', name: 'YouTube', link: 'https://youtube.com/@punchlightchannel?si=oYX_5jkmfWjOlddA' },
     { icon: FaInstagram, color: '#C13584', name: 'Instagram', link: 'https://www.instagram.com/punchlight_foundation?igsh=YnR3bWlyN25zcWph' },
@@ -108,7 +109,6 @@ const Contact = () => {
             <p>namastepunchlight@gmail.com</p>
           </div>
           <div className="contact-info-card">
-            {/* Corrected icon to FaLocationDot */}
             <FaLocationDot className="contact-info-icon" />
             <h3>{content.location}</h3> {/* Translated */}
             <p>
@@ -134,7 +134,7 @@ const Contact = () => {
             <input
               type="email"
               name="email"
-              placeholder={content.yourEmail} 
+              placeholder={content.yourEmail}
               value={formData.email}
               onChange={handleInputChange}
               required
@@ -142,7 +142,7 @@ const Contact = () => {
             <input
               type="text"
               name="subject"
-              placeholder={content.subject} 
+              placeholder={content.subject}
               value={formData.subject}
               onChange={handleInputChange}
               required
@@ -170,21 +170,20 @@ const Contact = () => {
           >
             <TileLayer
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              attribution='© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              attribution='© <a href="[https://www.openstreetmap.org/copyright](https://www.openstreetmap.org/copyright)">OpenStreetMap</a> contributors'
             />
             <Marker position={mapCenter} icon={customIcon}>
               <Popup>
-                {content.currentLocation}<br /> 
-                {content.latitude}: {mapCenter[0]}, {content.longitude}: {mapCenter[1]} 
+                {content.currentLocation}<br />
+                {content.latitude}: {mapCenter[0]}, {content.longitude}: {mapCenter[1]}
               </Popup>
             </Marker>
           </MapContainer>
         </div>
-        
-       
-      </div>
 
-      
+             </div>
+
+      {/* Social Buttons Section */}
       <div className="social-buttons-section">
         <h3>{content.findUsOnline}</h3>
         <div className="social-buttons-grid">

@@ -118,16 +118,42 @@
   to { opacity: 1; transform: translateY(0) translateX(-50%);}
 }
 
-/* Responsive Design */
+/* Main Content Styles */
+.main-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start; /* Changed from center to flex-start */
+  gap: 2.5rem;
+  width: auto; /* Remove any forced width */
+  margin: 0 auto;
+  /* Remove or do not set a min-height here */
+}
+
+.left-panel {
+  flex: 0 1 420px; /* Do not grow, only shrink if needed, and set a reasonable max width */
+  max-width: 480px;
+  min-width: 320px;
+  width: 100%;
+}
+
+.right-panel {
+  flex: 0 1 420px; /* Same as left-panel */
+  max-width: 480px;
+  min-width: 320px;
+  width: 100%;
+}
+
+/* On small screens, stack vertically */
 @media (max-width: 900px) {
-  .grid-container {
+  .main-content {
     flex-direction: column;
     gap: 1.5rem;
     align-items: stretch;
   }
-  .section-card {
+  .left-panel, .right-panel {
     max-width: 100%;
     min-width: 0;
+    width: 100%;
   }
 }
 

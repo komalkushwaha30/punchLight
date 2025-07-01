@@ -1,76 +1,218 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import "./ProgramsSection.css";
+import { assets } from "../assets/assets";
+import { LanguageContext } from "../LanguageProvider";
 
-const programs = [
-  {
-    title: "Adhigamshala",
-    image: "/images/programs/adhigamshala.jpg",
-    description:
-      "Community learning centers run by trained youth educators (Adhigam Sarthis) to build literacy, creativity, and leadership among children — especially girls."
-  },
-  {
-    title: "Adhigamnatyya",
-    image: "/images/programs/adhigamnatyya.jpg",
-    description:
-      "Street theatre and folk arts to raise awareness on gender equality, health, child rights, and more."
-  },
-  {
-    title: "Adhigamsvavalamban",
-    image: "/images/programs/adhigamsvavalamban.jpg",
-    description:
-      "Livelihood support through tailoring, skills training, and PM SVANidhi scheme, promoting economic self-reliance."
-  },
-  {
-    title: "Adhigamsvasthya",
-    image: "/images/programs/adhigamsvasthya.jpg",
-    description:
-      "Health awareness through workshops and theatre, supporting Ayushman card registration and menstrual health."
-  }
-];
+const ProgramsSection = () => {
+  const [carouselIndexes, setCarouselIndexes] = useState({});
+  const { content } = useContext(LanguageContext);
 
-const impact = [
-  {
-    heading: "People",
-    description:
-      "We believe that bringing about change in society requires committed and sensitive people working at the grassroots level. Punchlight Foundation has trained many young people who are working to bring about positive change in society in areas such as education, health, sanitation and livelihood. Our volunteers have impacted thousands of people by visiting villages and conducting street plays, awareness campaigns and programmes."
-  },
-  {
-    heading: "Models",
-    description:
-      "Our programmes are based on practical and community-based models, which are being adopted by other organisations and local bodies. Initiatives like 'Adhigamshala' have promoted children's education, while campaigns like Ayushman Card awareness have helped connect rural families to health services. Our street plays and workshops are now being appreciated and adopted by government departments and schools as well."
-  },
-  {
-    heading: "Scaling Up",
-    description:
-      "Today, Punchlight Foundation is actively working in several districts of Bihar and has reached out to more than 50,000 people. We work in collaboration with various community-based organizations and educational institutions. Our goal is to empower 5 lakh people in the field of education, health, employment and sanitation by connecting them with our programs by 2030."
-  }
-];
-
-const ProgramsSection = () => (
-  <section className="programs-section">
-    <h2 className="section-title">Our Programs</h2>
-    <div className="programs-grid">
-      {programs.map((prog, i) => (
-        <div className="program-card" key={i}>
-          <img src={prog.image} alt={prog.title} className="program-img" />
-          <div className="program-content">
-            <h3>{prog.title}</h3>
-            <p>{prog.description}</p>
+  const imageSections = [
+    {
+      titleKey: "progNatyaTitle",
+      className: "natya",
+      content: (
+        <>
+          <p>
+            <strong>{content.progNatyaIntro1Highlight}</strong>
+            {content.progNatyaIntro1}
+          </p>
+          <p>{content.progNatyaIntro2}</p>
+          <p>{content.progNatyaIntro3}</p>
+          <div className="community-card-section">
+            <div className="community-card">
+              <img
+                src={assets.image22}
+                alt={content.progNatyaCard1Title}
+                className="community-card-image"
+              />
+              <div className="community-card-content">
+                <h2>
+                  <span className="community-highlight">
+                    {content.progNatyaCard1TitleHighlight}
+                  </span>{" "}
+                  {content.progNatyaCard1Title}
+                </h2>
+                <p>{content.progNatyaCard1Text}</p>
+              </div>
+            </div>
+            <div className="community-card">
+              <img
+                src={assets.image24}
+                alt={content.progNatyaCard2Title}
+                className="community-card-image"
+              />
+              <div className="community-card-content">
+                <h2>
+                  <span className="community-highlight">
+                    {content.progNatyaCard2TitleHighlight}
+                  </span>{" "}
+                  {content.progNatyaCard2Title}
+                </h2>
+                <p>{content.progNatyaCard2Text}</p>
+              </div>
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
+          <div className="impact-highlights">
+            <span>{content.progNatyaImpact1}</span>
+            <span>{content.progNatyaImpact2}</span>
+          </div>
+        </>
+      ),
+      images: [assets.image15, assets.image16, assets.image17, assets.image18, assets.image19,assets.image20,assets.image22,assets.image23,assets.image24,],
+    },
+    {
+      titleKey: "progShalaTitle",
+      className: "shala",
+      content: (
+        <>
+          <p>
+            🚀 <strong>{content.progShalaMissionHighlight}</strong>:{" "}
+            {content.progShalaMission}
+          </p>
+          <p>
+            🎯 <strong>{content.progShalaVisionHighlight}</strong>:{" "}
+            {content.progShalaVision}
+          </p>
+          <div className="adhigamshala-card">
+            <img
+              src={assets.image60}
+              alt={content.progShalaCardTitle}
+              className="adhigamshala-card-image"
+            />
+            <div className="adhigamshala-card-content">
+              <h2>
+                <span className="adhigamshala-highlight">
+                  {content.progShalaCardTitleHighlight}
+                </span>{" "}
+                {content.progShalaCardTitle}
+              </h2>
+              <p>{content.progShalaCardText1}</p>
+              <p>{content.progShalaCardText2}</p>
+              <p>{content.progShalaCardText3}</p>
+              <p>{content.progShalaCardText4}</p>
+            </div>
+          </div>
+          <div className="impact-highlights">
+            <span>{content.progShalaImpact1}</span>
+            <span>{content.progShalaImpact2}</span>
+          </div>
+        </>
+      ),
+      images: [assets.image1, assets.image26, assets.image27, assets.image28,assets.image29,assets.image30,],
+    },
+    {
+      titleKey: "progSvasthyaTitle",
+      className: "svasthya",
+      content: (
+        <>
+          <p>{content.progSvasthyaText1}</p>
+          <p>{content.progSvasthyaText2}</p>
+          <p>{content.progSvasthyaText3}</p>
+          <p>{content.progSvasthyaText4}</p>
+          <p>{content.progSvasthyaText5}</p>
+          <div className="impact-highlights">
+            <span>{content.progSvasthyaImpact1}</span>
+            <span>{content.progSvasthyaImpact2}</span>
+          </div>
+        </>
+      ),
+      images: [assets.image31, assets.image32, assets.image33, assets.image34,assets.image35,],
+    },
+    {
+      titleKey: "progSvavalambanTitle",
+      className: "swavalamban",
+      content: (
+        <>
+          <p>{content.progSvavalambanText1}</p>
+          <div className="adhigamsvavalamban-card">
+            <img
+              src={assets.image42}
+              alt={content.progSvavalambanCardTitle}
+              className="adhigamsvavalamban-card-image"
+            />
+            <div className="adhigamsvavalamban-card-content">
+              <h2>
+                <span className="adhigamsvavalamban-highlight">
+                  {content.progSvavalambanCardTitleHighlight}
+                </span>{" "}
+                {content.progSvavalambanCardTitle}
+              </h2>
+              <p>{content.progSvavalambanCardText1}</p>
+              <p>{content.progSvavalambanCardText2}</p>
+              <p>{content.progSvavalambanCardText3}</p>
+            </div>
+          </div>
+          <div className="impact-highlights">
+            <span>{content.progSvavalambanImpact1}</span>
+            <span>{content.progSvavalambanImpact2}</span>
+          </div>
+        </>
+      ),
+      images: [
+        assets.image39,
+        assets.image37,
+        assets.image36,
+        assets.image38,
+        assets.image40,
+        assets.image41,
+        assets.image42,
+        
+      ],
+    },
+  ];
 
-    <h2 className="section-title impact-heading">Our Impact</h2>
-    <div className="impact-grid">
-      {impact.map((item, index) => (
-        <div key={index} className="impact-card">
-          <h3>{item.heading}</h3>
-          <p>{item.description}</p>
+  const handleNext = (index) => {
+    setCarouselIndexes((prev) => ({
+      ...prev,
+      [index]: ((prev[index] || 0) + 1) % imageSections[index].images.length,
+    }));
+  };
+
+  const handlePrev = (index) => {
+    setCarouselIndexes((prev) => ({
+      ...prev,
+      [index]:
+        ((prev[index] || 0) - 1 + imageSections[index].images.length) %
+        imageSections[index].images.length,
+    }));
+  };
+
+  return (
+    <div className="presentation-container">
+      {imageSections.map((section, index) => (
+        <div key={index} className={`section-block ${section.className}`}>
+          <h1 className="slide-title">{content[section.titleKey]}</h1>
+          <div className="text-section">{section.content}</div>
+
+          {section.images.length > 0 && (
+            <div className="image-carousel">
+              <button
+                className="carousel-btn"
+                onClick={() => handlePrev(index)}
+              >
+                <ChevronLeft />
+              </button>
+              <div>
+                <img
+                  src={section.images[carouselIndexes[index] || 0]}
+                  alt={`Image ${carouselIndexes[index] || 0 + 1}`}
+                  className="carousel-image"
+                />
+              </div>
+              <button
+                className="carousel-btn"
+                onClick={() => handleNext(index)}
+              >
+                <ChevronRight />
+              </button>
+            </div>
+          )}
         </div>
       ))}
     </div>
-  </section>
-);
+  );
+};
 
 export default ProgramsSection;

@@ -10,11 +10,17 @@ import Donation from './components/Donation';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Impact from './components/Impact';
 import MediaAndPublications from './components/MediaAndPublications';
-import PublicationsSection from './components/PublicationsSection';
+import ProgramsSection from './components/ProgramsSection';
+import ScrollToTop from './components/ScrollToTop';
+import FaqSection from './components/FAQ';
+import DonationPage from './components/DonationPage';
+import { LanguageProvider } from './LanguageProvider';
+import NotFound from './components/NotFound';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -22,9 +28,12 @@ function App() {
         <Route path="/whatwedo" element={<WhatWeDo />} /> {/* New Route */}
         <Route path="/team" element={<TeamSection />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path='/donation' element={<Donation/>} />
+        <Route path='/donation' element={<DonationPage/>} />
         <Route path='/impact' element={<Impact/>} />
-        <Route path='/media' element ={<MediaAndPublications/>} />
+        <Route path='/publication' element ={<MediaAndPublications/>} />
+        <Route path='/faqs' element={<FaqSection/>} />
+        <Route path='/programs' element ={<ProgramsSection/>}/>
+        <Route path='*' element={<NotFound/>}/>
        
       </Routes>
       <Footer /> {/* Add Footer here */}

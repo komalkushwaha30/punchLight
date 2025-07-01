@@ -64,17 +64,21 @@ function Donation() {
           </button>
         </div>
       ) : (
-        <div className="grid-container">
-          <div className="section-card donation-form-card">
-            <DonationForm
-              onPaymentSuccess={handlePaymentSuccess}
-              onPaymentFailure={(message) => {
-                showTemporaryNotification(message || 'Payment failed. Please try again.', 'error');
-              }}
-            />
+        <div className="main-content">
+          <div className="left-panel">
+            <div className="section-card donation-form-card">
+              <DonationForm
+                onPaymentSuccess={handlePaymentSuccess}
+                onPaymentFailure={(message) => {
+                  showTemporaryNotification(message || 'Payment failed. Please try again.', 'error');
+                }}
+              />
+            </div>
           </div>
-          <div className="section-card donor-list-card">
-            <DonorList donors={donors} />
+          <div className="right-panel">
+            <div className="section-card donor-list-card">
+              <DonorList donors={donors} />
+            </div>
           </div>
         </div>
       )}

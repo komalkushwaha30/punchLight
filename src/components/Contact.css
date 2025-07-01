@@ -1,17 +1,17 @@
 /* --- Root Variables for Global Consistency --- */
 :root {
   /* Colors */
-  --primary-blue: #0b3d91; /* Darker blue for main headings, important text */
-  --light-blue: #007bff; /* Brighter blue for accents, buttons */
-  --accent-yellow: #ffc107; /* Yellow for buttons, highlights */
-  --text-dark: #333; /* Main body text */
-  --text-medium: #555; /* Secondary text, positions */
-  --text-light: #666; /* Paragraphs, descriptions */
-  --background-light: #f9f9f9; /* Light background for sections */
-  --background-blue-light: #e3f4fc; /* Light blue background for sections */
-  --card-background: #ffffff; /* Card backgrounds */
-  --border-light: #cde4f8; /* Light blue border */
-  --border-accent: #cce9ff; /* Even lighter blue for specific borders */
+  --primary-blue: #152b42;      /* Main dark blue */
+  --light-blue: #2d4c73;        /* Lighter blue for accents/buttons */
+  --accent-yellow: #ffc107;     /* Yellow for highlights */
+  --text-dark: #152b42;         /* Use theme blue for headings */
+  --text-medium: #2d4c73;       /* Slightly lighter for secondary text */
+  --text-light: #5a6b7a;        /* Even lighter for paragraphs */
+  --background-light: #f6f8fa;  /* Very light background */
+  --background-blue-light: #e6eef6; /* Light blue background for sections */
+  --card-background: #fff;      /* Card backgrounds */
+  --border-light: #c7d3e6;      /* Light blue border */
+  --border-accent: #b3c6e0;     /* Even lighter blue for borders */
 
   /* Fonts */
   --font-family-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -67,7 +67,7 @@ button {
   margin: var(--spacing-xl) auto; /* Top/bottom margin for page itself */
   background: var(--background-light); /* Consistent background */
   border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-lg); /* Overall page shadow */
+  box-shadow: 0 8px 32px rgba(21, 43, 66, 0.10); /* Use theme blue for shadow */
 }
 
 
@@ -88,7 +88,7 @@ button {
   background: var(--card-background);
   padding: var(--spacing-md);
   border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-md); /* Consistent shadow */
+  box-shadow: 0 4px 16px rgba(21, 43, 66, 0.08);
   min-width: 280px;
 }
 
@@ -97,18 +97,18 @@ button {
   padding: var(--spacing-sm);
   background: var(--background-light); /* Lighter background for inner cards */
   border-radius: var(--border-radius-md);
-  box-shadow: var(--shadow-sm); /* Consistent shadow */
+  box-shadow: 0 2px 8px rgba(21, 43, 66, 0.06);
 }
 
 .contact-info-icon {
   font-size: 2rem;
-  color: var(--light-blue); /* Consistent icon color */
+  color: var(--primary-blue);
   margin-bottom: var(--spacing-xs);
 }
 
 .contact-info-card h3 {
   font-size: var(--font-size-h4);
-  color: var(--text-dark);
+  color: var(--primary-blue);
   margin-bottom: var(--spacing-xs);
 }
 
@@ -125,7 +125,7 @@ button {
   padding: var(--spacing-md);
   background: var(--card-background);
   border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-md); /* Consistent shadow */
+  box-shadow: 0 4px 16px rgba(21, 43, 66, 0.08);
   min-width: 280px;
 }
 
@@ -173,8 +173,8 @@ button {
 
 .contact-form button {
   padding: var(--spacing-sm) var(--spacing-md);
-  background-color: var(--light-blue); /* Consistent button color */
-  color: white;
+  background-color: var(--primary-blue);
+  color: #fff;
   border-radius: var(--border-radius-md);
   font-size: var(--font-size-button);
   font-weight: bold;
@@ -184,7 +184,7 @@ button {
 }
 
 .contact-form button:hover {
-  background-color: var(--primary-blue); /* Darker blue on hover */
+  background-color: var(--light-blue);
   box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
@@ -231,8 +231,8 @@ button {
 
 .search-box button {
   padding: var(--spacing-sm) var(--spacing-md);
-  background-color: var(--light-blue);
-  color: white;
+  background-color: var(--primary-blue);
+  color: #fff;
   border-radius: var(--border-radius-md);
   font-size: var(--font-size-button);
   font-weight: bold;
@@ -242,17 +242,17 @@ button {
 }
 
 .search-box button:hover {
-  background-color: var(--primary-blue);
+  background-color: var(--light-blue);
 }
 
 .search-result-card {
   margin-top: var(--spacing-md);
   padding: var(--spacing-sm);
-  background: var(--background-blue-light); /* Use a light blue background for results */
+  background: var(--background-blue-light);
+  color: var(--primary-blue);
   border-radius: var(--border-radius-md);
   box-shadow: var(--shadow-sm);
   font-size: var(--font-size-base);
-  color: var(--text-dark);
   text-align: left; /* Align text within card */
 }
 
@@ -365,6 +365,7 @@ button {
 
 .static-social-icon {
     font-size: 2.5rem;
+    color: var(--primary-blue);
     /* Color is set directly in JS for brand colors */
 }
 
@@ -417,28 +418,28 @@ button {
     border: 1px solid var(--border-light);
     border-radius: var(--border-radius-pill);
     box-shadow: var(--shadow-sm);
-    color: var(--text-dark);
+    color: var(--primary-blue);
     font-weight: bold;
     font-size: var(--font-size-button);
     transition: all 0.3s ease;
 }
 
 .social-button:hover {
-    background-color: var(--light-blue);
-    color: white;
+    background-color: var(--primary-blue);
+    color: #fff;
     transform: translateY(-3px);
     box-shadow: var(--shadow-md);
-    border-color: var(--light-blue);
+    border-color: var(--primary-blue);
 }
 
 .social-button-icon {
     font-size: 1.2em;
-    color: var(--light-blue);
+    color: var(--primary-blue);
     transition: inherit;
 }
 
 .social-button:hover .social-button-icon {
-    color: white;
+    color: #fff;
 }
 
 
@@ -518,7 +519,7 @@ button {
   .contact-form textarea,
   .search-box input,
   .search-result-card p,
-  .contact-info-card p {
+  .contact-info_card p {
     font-size: 0.9rem;
   }
   .contact-form button,

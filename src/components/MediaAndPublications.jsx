@@ -1,121 +1,202 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './MediaAndPublications.css';
+import { assets } from '../assets/assets';
 
-// Example data (you would integrate this with actual data fetching/CMS)
 const mediaData = {
   youtubeVideos: [
     {
-      id: "youtube_gandhi",
-      thumbnail: "https://img.youtube.com/vi/h2a_W7G7b-Q/mqdefault.jpg", // Placeholder - REPLACE with actual video ID/URL for thumbnail
-      title: "गांधी जयंती पर स्वच्छता ही सेवा पखवाड़ा एवं(Indian, Swachhata,League)2•0",
-      channel: "Sach Ki Khoj",
-      views: "346 views",
-      timeAgo: "1 yr ago",
-      link: "https://www.youtube.com/watch?v=h2a_W7G7b-Q" // REPLACE with actual YouTube link
+      id: "video_g9FRlzB70ko",
+      embedId: "g9FRlzB70ko",
+      title: "सड़क सुरक्षा जागरूकता कार्यक्रम",
+      channel: "Punchlight Foundation",
+      views: "120 views",
+      timeAgo: "2 weeks ago"
     },
     {
-      id: "youtube_swachhata",
-      thumbnail: "https://img.youtube.com/vi/s6u31py-example/mqdefault.jpg", // Placeholder - REPLACE with actual video ID/URL for thumbnail
-      title: "स्वच्छता ही सेवा कार्यक्रम के तहत अररिया के सम्राट अशोक भवन में मेला",
-      channel: "DD NEWS BIHAR",
-      views: "93 views",
-      timeAgo: "7 mo ago",
-      link: "https://www.youtube.com/watch?v=s6u31py-example" // REPLACE with actual YouTube link
+      id: "video_hUV9MtvLdRI",
+      embedId: "hUV9MtvLdRI",
+      title: "Punchlight Foundation – Community Awareness",
+      channel: "Punchlight Foundation",
+      views: "85 views",
+      timeAgo: "1 week ago"
     },
-    // Add more YouTube video objects here
+    {
+      id: "video_GleVf3irSXw",
+      embedId: "GleVf3irSXw",
+      title: "Punchlight Foundation: Awareness Documentary",
+      channel: "Punchlight Foundation",
+      views: "102 views",
+      timeAgo: "5 days ago"
+    },
+    {
+      id: "video_f7HUwfwklow",
+      embedId: "f7HUwfwklow",
+      title: "स्वस्थ जीवनशैली पर कार्यशाला",
+      channel: "Punchlight Foundation",
+      views: "76 views",
+      timeAgo: "3 days ago"
+    },
+    {
+      id: "video_w-5PcXrvd7Q",
+      embedId: "w-5PcXrvd7Q",
+      title: "Nukkad Natak – Social Awareness",
+      channel: "Punchlight Foundation",
+      views: "143 views",
+      timeAgo: "1 day ago"
+    },
+    {
+      id: "video_gXpJZanJV4Y",
+      embedId: "gXpJZanJV4Y",
+      title: "Women Empowerment Campaign",
+      channel: "Punchlight Foundation",
+      views: "94 views",
+      timeAgo: "6 days ago"
+    },
+    {
+      id: "video_TAzhEwMIfjE",
+      embedId: "TAzhEwMIfjE",
+      title: "Community Outreach Highlights",
+      channel: "Punchlight Foundation",
+      views: "110 views",
+      timeAgo: "4 days ago"
+    },
+    {
+      id: "video_wvwsGF1MZ5o",
+      embedId: "wvwsGF1MZ5o",
+      title: "स्वच्छ भारत अभियान पहल",
+      channel: "Punchlight Foundation",
+      views: "135 views",
+      timeAgo: "2 days ago"
+    }
   ],
   newsArticles: [
     {
-      id: "news_puraskar",
-      image: "https://via.placeholder.com/300x200?text=News+Article+Image+1",
-      title: "स्वच्छता को लेकर पुरस्कार का आयोजन",
-      snippet: "This is a generic text snippet showcasing a news article. This article...",
-      publication: "Unknown Source", // From image, hard to tell
-      date: "October 3, 2024",
-      link: "#" // REPLACE with actual article link
+      id: "news_nukkad_natak",
+      image: assets.image53,
+      title: "स्वच्छता को लेकर नुक्कड़ नाटक का आयोजन",
+      snippet: "नगर परिषद क्षेत्र में स्वच्छता को लेकर नुक्कड़ नाटक का आयोजन किया गया। इस अवसर पर बच्चों और नागरिकों को स्वच्छता के प्रति जागरूक किया गया।",
+      publication: "सिटी बाइट्स",
+      date: "June 28, 2025",
+      featured: true
     },
     {
-      id: "news_jimmedari",
-      image: "https://via.placeholder.com/300x200?text=News+Article+Image+2",
-      title: "बड़ी जिम्मेदारी", // Based on visual cue "जिम्मेदारी"
-      snippet: "This is another generic text snippet showcasing a news article. In this article...",
-      publication: "Unknown Source",
-      date: "October 3, 2024", // Assuming same date from image
-      link: "#" // REPLACE with actual article link
-    },
-    // Add more news article objects here
+      id: "news_government_scheme",
+      image: assets.image54,
+      title: "हर बहना को ₹12 हजार की योजना",
+      snippet: "सरकार द्वारा महिलाओं के सशक्तिकरण के लिए ₹12,000 सालाना सहायता की योजना शुरू की गई है। इस योजना से लाखों महिलाएं लाभान्वित हो रही हैं।",
+      publication: "सरकारी विज्ञप्ति",
+      date: "June 28, 2025"
+    }
   ],
   otherPublications: [
     {
       id: "publication_pdf_annual_report",
       type: "Document",
-      icon: "https://cdn-icons-png.flaticon.com/512/337/337946.png", // PDF icon
+      icon: "https://cdn.jsdelivr.net/npm/@mdi/svg/svg/file-pdf-box.svg", // Professional PDF icon
       title: "Punchlight Foundation Annual Report 2024",
       description: "Download our latest annual report and learn about our progress.",
       date: "January 15, 2025",
-      link: "/documents/Punchlight_Annual_Report_2024.pdf" // REPLACE with actual PDF path
+      link: "https://youtu.be/GleVf3irSXw?si=NKrRVKBxVWx1N7u_"
     },
     {
       id: "publication_image_gallery",
       type: "Photo Gallery",
-      icon: "https://cdn-icons-png.flaticon.com/512/1042/1042339.png", // Gallery icon
+      icon: "https://cdn.jsdelivr.net/npm/@mdi/svg/svg/camera.svg", // Professional Camera icon
       title: "Community Program Photo Gallery",
       description: "Browse photos from our recent community outreach events.",
       date: "June 1, 2025",
-      link: "/gallery/community_events" // Link to your photo gallery page
+      link: "/#gallery"
     }
   ]
 };
 
 const MediaAndPublications = () => {
+  const [selectedArticle, setSelectedArticle] = useState(null);
+
+  const openModal = (article) => {
+    setSelectedArticle(article);
+  };
+
+  const closeModal = () => {
+    setSelectedArticle(null);
+  };
+
   return (
     <div className="media-page-container">
-      <h1 className="page-main-title">Publications & Media</h1>
+      <h1 className="page-main-title"> Media & Publications</h1>
 
-      {/* YouTube Videos Section */}
-      <section className="media-section youtube-section">
-        <h2 className="section-title">Our YouTube Videos</h2>
-        <div className="media-grid">
-          {mediaData.youtubeVideos.map((video) => (
-            <a href={video.link} target="_blank" rel="noopener noreferrer" className="media-card video-card" key={video.id}>
-              <div className="video-thumbnail-wrapper">
-                {/* For actual YouTube embeds, you might use an iframe here or a dedicated video player component */}
-                <img src={video.thumbnail} alt={video.title} className="video-thumbnail" />
-                <div className="play-overlay">▶</div>
-              </div>
-              <div className="card-content">
-                <h3 className="card-title">{video.title}</h3>
-                <p className="card-meta">{video.channel} • {video.views} • {video.timeAgo}</p>
-              </div>
-            </a>
-          ))}
+      <p className="intro-text">
+        Here you’ll find our latest updates, news coverage, and downloadable resources.
+        Stay connected with our journey to empower communities.
+      </p>
+
+      {/* Section 1 - YouTube */}
+      {/* Section 1 - YouTube */}
+<section className="media-section youtube-section">
+  <h2 className="section-title"> Latest Videos</h2>
+  <div className="media-grid video-grid">
+    {mediaData.youtubeVideos.map((video) => (
+      <div className="media-card video-card hover-lift" key={video.id}>
+        <div className="video-embed-wrapper">
+          <iframe
+            src={`https://www.youtube.com/embed/${video.embedId}`}
+            title={video.title}
+            allowFullScreen
+          ></iframe>
         </div>
-      </section>
+        <div className="card-content">
+          <h3 className="card-title">{video.title}</h3>
+          <p className="card-meta">
+            {video.channel} • {video.views} • {video.timeAgo}
+          </p>
+          <a
+            href={`https://www.youtube.com/watch?v=${video.embedId}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="card-button"
+          >
+            Watch on YouTube
+          </a>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
 
-      {/* News Articles Section */}
+      {/* Section 2 - News */}
       <section className="media-section news-section">
-        <h2 className="section-title">News Articles</h2>
+        <h2 className="section-title"> News Articles</h2>
         <div className="media-grid">
           {mediaData.newsArticles.map((article) => (
-            <a href={article.link} target="_blank" rel="noopener noreferrer" className="media-card article-card" key={article.id}>
+            <div
+              className={`media-card article-card hover-lift${article.featured ? " featured" : ""}`}
+              key={article.id}
+            >
               <img src={article.image} alt={article.title} className="article-image" />
               <div className="card-content">
                 <h3 className="card-title">{article.title}</h3>
                 <p className="card-snippet">{article.snippet}</p>
                 <p className="card-meta">{article.publication} • {article.date}</p>
+                <button className="card-button" onClick={() => openModal(article)}>
+                  Read More
+                </button>
               </div>
-            </a>
+            </div>
           ))}
         </div>
       </section>
 
-      {/* Other Publications Section */}
+      {/* Section 3 - Publications */}
       <section className="media-section other-publications-section">
-        <h2 className="section-title">Other Publications & Documents</h2>
+        <h2 className="section-title"> Downloads & Reports</h2>
         <div className="media-grid">
           {mediaData.otherPublications.map((pub) => (
-            <a href={pub.link} target="_blank" rel="noopener noreferrer" className="media-card publication-card" key={pub.id}>
-              {pub.icon && <img src={pub.icon} alt={pub.type} className="publication-icon" />}
+            <a
+              href={pub.link}
+              className="media-card publication-card hover-lift"
+              key={pub.id}
+            >
+              <img src={pub.icon} alt={pub.type} className="publication-icon" />
               <div className="card-content">
                 <h3 className="card-title">{pub.title}</h3>
                 <p className="card-description">{pub.description}</p>
@@ -125,6 +206,19 @@ const MediaAndPublications = () => {
           ))}
         </div>
       </section>
+
+      {/* Modal for News */}
+      {selectedArticle && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="close-button" onClick={closeModal}>×</button>
+            <img src={selectedArticle.image} alt={selectedArticle.title} className="modal-image" />
+            <h3 className="modal-title">{selectedArticle.title}</h3>
+            <p className="modal-snippet">{selectedArticle.snippet}</p>
+            <p className="modal-meta">{selectedArticle.publication} • {selectedArticle.date}</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -1,82 +1,87 @@
+/* --- Base Navbar Styles --- */
 .navbar {
-  /* position: fixed; */
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 1001; /* Ensure the main navbar is above most content */
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background: rgba(18, 18, 18, 0.8);
-  padding: 16px 40px;
-  color: #ffffff;
+  background: #0d1b2a;
+  padding: 12px 40px;
+  color: #f1f5fa;
+  min-height: 64px;
+  box-sizing: border-box;
   backdrop-filter: blur(10px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  transition: background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px rgba(13, 27, 42, 0.18);
+  transition: background 0.3s, box-shadow 0.3s;
 }
 
 .navbar:hover {
-  background: rgba(18, 18, 18, 0.95);
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+  background: #0d1b2a;
+  box-shadow: 0 6px 25px rgba(13, 27, 42, 0.28);
 }
 
-.nav-logo {
-  font-size: 1.8rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: #ffffff;
-}
-
+/* --- Logo and Text --- */
 .nav-logo-container {
   display: flex;
   align-items: center;
-  gap: 12px;
 }
 
 .nav-home-link {
   display: flex;
   align-items: center;
+  gap: 12px;
   text-decoration: none;
-  color: #ffffff;
-  transition: color 0.3s ease;
-}
-
-.nav-home-link:hover {
-  color: #00bcd4;
-}
-
-.nav-logo-text {
-  font-size: 1.8rem;
-  font-weight: 700;
-  letter-spacing: 1px;
+  color: #f1f5fa;
+  height: 48px;
+  min-width: 120px;
 }
 
 .nav-logo-img {
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
-  object-fit: cover;
-  padding: 3px;
-  transition: transform 0.3s ease;
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+  background: none;
+  box-shadow: none;
+  margin-top: 0;
+  object-fit: contain;
+  transition: max-width 0.2s;
 }
 
-.nav-logo-img:hover {
-  transform: scale(1.1);
-}
-
+/* --- Nav Links --- */
 .nav-links {
   display: flex;
+  align-items: center;
   list-style: none;
   gap: 24px;
   font-weight: 500;
+  height: 48px;
+  margin: 0;
+  padding: 0;
 }
 
+.nav-links li {
+  display: flex;
+  align-items: center;
+  height: 48px;
+}
+
+/* --- Nav Link Anchors --- */
 .nav-links li a {
-  color: #cccccc;
+  color: #e8f2fa;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.08rem;
+  font-weight: 500;
   position: relative;
-  transition: color 0.3s ease, transform 0.2s ease;
+  transition: color 0.3s, transform 0.2s;
+  padding: 0 10px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
+  white-space: nowrap;
 }
 
 .nav-links li a::after {
@@ -86,158 +91,184 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: #007bff;
-  transition: width 0.3s ease;
+  background: #00bcd4;
+  transition: width 0.3s;
 }
 
 .nav-links li a:hover::after {
   width: 100%;
 }
 
-.nav-links li a:hover {
-  color: #00bcd4;
-  transform: translateY(-2px);
-}
-
 .nav-links .active-link {
-  color: #007bff;
+  color: #00bcd4;
   font-weight: bold;
-  border-bottom: 2px solid #007bff;
   animation: pulse 1s infinite;
+  position: relative;
 }
 
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
+/* --- Language Switcher Buttons --- */
+.nav-links li button {
+  background: transparent;
+  border: 2px solid #00bcd4;
+  color: #00bcd4;
+  font-size: 1.08rem;
+  font-weight: 600;
+  border-radius: 18px;
+  padding: 0 18px;
+  height: 40px;
+  margin: 0 4px;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s, border-color 0.25s, box-shadow 0.25s;
+  outline: none;
+  box-shadow: none;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
 }
 
-/* Responsive for mobile */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
-
-  .navbar {
-    padding: 16px 20px;
-  }
+.nav-links li button.active-link,
+.nav-links li button:focus,
+.nav-links li button:hover {
+  background: linear-gradient(90deg, #00bcd4, #0d1b2a);
+  color: #fff;
+  border-color: #00bcd4;
+  box-shadow: 0 2px 8px rgba(0, 188, 212, 0.13);
 }
 
-/* Hamburger Styles */
+/* --- Hamburger Menu --- */
 .hamburger {
   display: none;
   flex-direction: column;
-  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  width: 38px;
+  height: 38px;
+  background: none;
+  border: none;
   cursor: pointer;
   z-index: 1100;
+  margin-left: 12px;
 }
 
-.bar {
-  width: 25px;
+.hamburger span {
+  display: block;
+  width: 26px;
   height: 3px;
-  background-color: #fff;
-  transition: 0.4s;
-  border-radius: 3px;
+  margin: 4px 0;
+  background: #00bcd4;
+  border-radius: 2px;
+  transition: all 0.3s;
 }
 
-.bar.open:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+/* Hamburger animation */
+.hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
 }
-.bar.open:nth-child(2) {
+.hamburger.open span:nth-child(2) {
   opacity: 0;
 }
-.bar.open:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
-.bar:hover {
-  background-color: #00bcd4;
-}
-
-/* Responsive Nav Links */
-@media (max-width: 768px) {
+/* --- Responsive Design (Mobile Menu) --- */
+@media (max-width: 900px) {
   .hamburger {
     display: flex;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    z-index: 1100;
   }
 
   .nav-links {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
+    display: none; /* Hidden by default */
     flex-direction: column;
+    position: fixed; /* Changed from absolute to fixed to cover viewport */
+    top: 64px;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 64px); /* Make it fill the rest of the viewport */
+    background: #0d1b2a; /* Solid background for the menu itself */
+    box-shadow: 0 8px 32px rgba(13, 27, 42, 0.18);
+    padding: 24px 0;
+    z-index: 1050; /* Ensure menu is above page content, below overlay */
+    gap: 18px;
     align-items: center;
-    background: rgba(18, 18, 18, 0.95);
-    backdrop-filter: blur(10px);
-    padding: 20px 0;
-    display: none;
-    animation: slideDown 0.5s ease forwards;
+    overflow-y: auto; /* Enable scrolling for long menus */
+    transition: transform 0.3s ease-out; /* Smooth transition for slide-in */
+    transform: translateX(100%); /* Start off-screen to the right */
   }
 
   .nav-links.active {
-    display: flex;
+    display: flex; /* Show menu */
+    transform: translateX(0); /* Slide into view */
   }
 
   .nav-links li {
-    margin: 10px 0;
-    opacity: 0;
-    animation: fadeIn 0.5s ease forwards;
+    width: 100%;
+    text-align: center;
   }
 
-  .nav-links li:nth-child(1) {
-    animation-delay: 0.1s;
-  }
-  .nav-links li:nth-child(2) {
-    animation-delay: 0.2s;
-  }
-  .nav-links li:nth-child(3) {
-    animation-delay: 0.3s;
-  }
-  .nav-links li:nth-child(4) {
-    animation-delay: 0.4s;
-  }
-  .nav-links li:nth-child(5) {
-    animation-delay: 0.5s;
+  .nav-links li a,
+  .nav-links li button {
+    justify-content: center;
+    width: auto;
+    margin: 0 auto;
   }
 
-  @keyframes slideDown {
-    from {
-      transform: translateY(-20px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
+  /* --- NEW: Mobile Menu Overlay for Page Content --- */
+  .mobile-menu-overlay {
+    position: fixed; /* Fixed to cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    /* Add blur effect to the background content */
+    backdrop-filter: blur(5px);
+    z-index: 1040; /* Lower than nav-links (1050) but higher than page content */
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0; /* Start hidden */
+    pointer-events: none; /* Allow clicks to pass through when hidden */
   }
 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+  /* When the menu is active, show the overlay */
+  .nav-links.active + .mobile-menu-overlay { /* This selector works if overlay is directly after nav-links */
+    opacity: 1;
+    pointer-events: auto; /* Enable clicks on overlay to close menu */
   }
 }
 
+/* --- Responsive Logo Image (refinements) --- */
+@media (max-width: 1200px) {
+  .nav-logo-img {
+    max-width: 140px;
+  }
+}
+@media (max-width: 900px) {
+  .nav-logo-img {
+    max-width: 110px;
+  }
+  .navbar {
+    padding: 12px 20px;
+  }
+}
+@media (max-width: 600px) {
+  .nav-logo-img {
+    max-width: 80px;
+  }
+}
+
+/* Dropdown (TOC) - unchanged */
 .toc {
   list-style: none;
   padding: 10px;
   margin: 0;
-  background: #ffffff;
-  border: 1px solid #ddd;
+  background: #112240;
+  border: 1px solid #00bcd4;
   border-radius: 5px;
   position: absolute;
   z-index: 1000;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 188, 212, 0.08);
   display: block;
   min-width: 200px;
 }
@@ -245,13 +276,13 @@
 .toc li {
   padding: 8px 12px;
   cursor: pointer;
-  color: #333;
-  font-size: 0.9rem;
-  transition: background 0.3s ease, color 0.3s ease;
+  color: #bfc9d1;
+  font-size: 0.95rem;
+  transition: background 0.3s, color 0.3s;
 }
 
 .toc li:hover {
-  background: #007bff;
-  color: #ffffff;
+  background: #00bcd4;
+  color: #fff;
   border-radius: 3px;
 }

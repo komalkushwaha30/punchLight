@@ -1,27 +1,170 @@
-import React, { useState } from "react";
-import "./Home.css";
-import PartnersSection from "./PartnersSection";
-import ProgramsSection from "./ProgramsSection";
+import React, { useContext, useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import "./Home.css"; // Assuming you still have your CSS file for styling
+import { assets } from "../assets/assets"; // Assuming this path is correct
+import { LanguageContext } from '../LanguageProvider'; // Import LanguageContext
 
 function Home() {
+  const { content } = useContext(LanguageContext); // Use useContext to get content
+
   const images = [
-    "https://media.gettyimages.com/id/496276728/photo/group-of-happy-gypsy-indian-children-desert-village-india.jpg?s=612x612&w=gi&k=20&c=B37mpIc7Y2xUY6yNRLfnuu5NCHd7O3oD4MaaJ--arDI=",
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsrRD1_YO-J5F4Q_1l9Q6ODKSqqO5vnSrGdQ&s",
-    "https://plus.unsplash.com/premium_photo-1682092585257-58d1c813d9b4?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cG9vciUyMGNoaWxkfGVufDB8fDB8fHww",
-    "https://st4.depositphotos.com/1561509/20296/i/1600/depositphotos_202969004-stock-photo-mandu-india-february-2017-unidentified.jpg",
-    "https://www.shutterstock.com/image-photo/unidentified-poor-children-playing-posing-260nw-2414721027.jpg",
-    "https://www.shutterstock.com/image-photo/kenya-rusinga-island-utajo-village-600nw-1180465816.jpg",
-    "https://t3.ftcdn.net/jpg/05/98/10/80/360_F_598108068_o04Tbckl8FmgD0Cx6rnZuhjyJqLTOan6.jpg",
-    "https://images.pexels.com/photos/13819209/pexels-photo-13819209.jpeg?cs=srgb&dl=pexels-mnannapaneni-13819209.jpg&fm=jpg",
+    { image: assets.image30 },
+    { image: assets.image34 },
+    { image: assets.image17 },
+    { image: assets.image4 },
+    { image: assets.image5 },
+    { image: assets.image6 },
+    { image: assets.image7 },
+    { image: assets.image8 },
+    { image: assets.image33 },
+    { image: assets.image9 },
+    { image: assets.image10 },
+    { image: assets.image11 },
   ];
 
   const [selectedImage, setSelectedImage] = useState(null);
+  const navigate = useNavigate();
+
+  // Define partners data with keys that can be looked up in the content object
+  const partnersData = [
+    { key: "partnerUrbanDevelopment", image: assets.image43 },
+    { key: "partnerProjectPotential", image: assets.image44 },
+    { key: "partnerPureIndiaTrust", image: assets.image1 },
+    { key: "partnerLearningLinksFoundation", image: assets.image1 },
+    { key: "partnerRuralDevelopmentInitiative", image: assets.image1 },
+    { key: "partnerWomenEmpowermentSociety", image: assets.image1 },
+    { key: "partnerEducationForAll", image: assets.image1 },
+    { key: "partnerHealthCarePartners", image: assets.image1 },
+  ];
+
+  const PartnersSection = () => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const nextSlide = () => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex >= partnersData.length - 3 ? 0 : prevIndex + 1
+      );
+    };
+
+    const prevSlide = () => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex <= 0 ? partnersData.length - 3 : prevIndex - 1
+      );
+    };
+
+    return (
+      <section className="partners-section">
+        <div className="partners-container">
+          <h2 className="section-title">{content.partnersTitle}</h2> 
+          <p className="section-subtitle">
+            {content.partnersSubtitle}
+          </p>
+
+          <div className="carousel-container">
+            <button className="carousel-btn prev-btn" onClick={prevSlide}>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path
+                  d="M12.5 15L7.5 10L12.5 5"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+
+            <div className="partners-carousel">
+              <div
+                className="partners-track"
+                style={{
+                  transform: `translateX(-${currentIndex * (100 / 3)}%)`,
+                }}
+              >
+                {partnersData.map((partner, index) => (
+                  <div key={index} className="partner-card">
+                    <div className="partner-logo-container">
+                      <img
+                        src={partner.image}
+                        alt={content[partner.key]} 
+                        className="partner-logo"
+                        onError={(e) => {
+                          e.target.style.display = "none";
+                          e.target.nextSibling.style.display = "flex";
+                        }}
+                      />
+                      <div
+                        className="partner-placeholder"
+                        style={{ display: "none" }}
+                      >
+                        <span>
+                          {/* Use content for partner name, then extract initials */}
+                          {content[partner.key]
+                            .split(" ")
+                            .map((word) => word[0])
+                            .join("")}
+                        </span>
+                      </div>
+                    </div>
+                    <p className="partner-name">{content[partner.key]}</p> 
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <button className="carousel-btn next-btn" onClick={nextSlide}>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path
+                  d="M7.5 15L12.5 10L7.5 5"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <div className="carousel-indicators">
+            {Array.from({ length: Math.max(1, partnersData.length - 2) }).map(
+              (_, index) => (
+                <button
+                  key={index}
+                  className={`indicator ${
+                    index === currentIndex ? "active" : ""
+                  }`}
+                  onClick={() => setCurrentIndex(index)}
+                />
+              )
+            )}
+          </div>
+        </div>
+      </section>
+    );
+  };
+
+  const partnerImages = [
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKalzVlIzwN7B8vzgPxjFzhc4obPwOm8N-eA&s",
+    "https://static.wixstatic.com/media/aa3a70_2fe770ade7ed4a1bbe70b8cf54a3e82a~mv2.png/v1/fill/w_139,h_181,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/aa3a70_2fe770ade7ed4a1bbe70b8cf54a3e82a~mv2.png",
+    "https://www.pureindia.org/wp-content/uploads/2023/08/cropped-pure-new-logo.png",
+     // Add image59 or any other image for the 4th partner
+  ];
+
+  // Add a ref to the gallery section
+  const galleryRef = useRef(null);
+
+  // Scroll to #gallery if hash is present
+  useEffect(() => {
+    if (window.location.hash === "#gallery" && galleryRef.current) {
+      setTimeout(() => {
+        galleryRef.current.scrollIntoView({ behavior: "smooth" });
+      }, 100); // slight delay to ensure DOM is ready
+    }
+  }, []);
 
   return (
-    <div className="home-container">
+    <div className="home-container bg-white">
       {/* Hero Section */}
       <section className="hero">
-        {/* Video Background */}
         <video className="hero-video" autoPlay loop muted playsInline>
           <source
             src="https://www.w3schools.com/howto/rain.mp4"
@@ -30,24 +173,62 @@ function Home() {
           Your browser does not support the video tag.
         </video>
 
-        {/* Overlay Text */}
         <div className="hero-text">
-          <h2>Non profit Charity Foundation</h2>
-          <h1>Raise Your Helping Hand</h1>
+          <h2>{content.heroMainTitle}</h2> 
+          <h1>{content.heroMainTitle}</h1> 
           <p>
-            Healthcare organizations can provide medical treatments &
-            essentials, supplies like clean water and simple things to grow.
+            {content.heroSubtitle} 
           </p>
           <div className="hero-buttons">
-            <button className="btn orange">Popular Causes</button>
-            <button className="btn bordered">Become a Volunteer</button>
+            <button
+              className="btn orange"
+              onClick={() => navigate("/donation")}
+            >
+              {content.donationButton}
+            </button>
+            <button
+              className="btn bordered"
+              onClick={() => navigate("/contact")}
+            >
+              {content.volunteerButton} 
+            </button>
           </div>
         </div>
       </section>
 
-      <section className="gallery-section">
-        <h2 className="gallery-title">Gallery</h2>
-        <p className="gallery-subtitle">Lorem ipsum dolor sit amet.</p>
+      {/* Vision Section */}
+      
+      <section className="vision-section">
+  <div className="vision-content">
+    <h2>
+      <span>{content.visionMissionProblemTitle.split('&')[0]}</span>
+      &{content.visionMissionProblemTitle.split('&')[1]}
+    </h2>
+    <p>
+      <strong>{content.visionLabel}</strong> {content.visionText}
+    </p>
+    <p>
+      <strong>{content.missionLabel}</strong> {content.missionText}
+    </p>
+    <p>
+      <strong>{content.problemStatementLabel}</strong> {content.problemStatementText}
+    </p>
+  </div>
+  <div className="vision-image">
+    <img src={assets.image11} alt="Empowerment" />
+  </div>
+</section>
+
+      {/* Gallery Section */}
+      <section className="gallery-section" id="gallery" ref={galleryRef}>
+        <div style={{textAlign: "center"}}>
+
+        <h2 className="gallery-title" style={{ display: 'inline-block', borderBottom: '2px solid #000', paddingBottom: '4px' }}>{content.galleryTitle}</h2> 
+        </div>
+        
+        <p className="gallery-subtitle">
+          {content.gallerySubtitle} 
+        </p>
 
         <div className="gallery-grid">
           {images.map((img, idx) => (
@@ -56,9 +237,9 @@ function Home() {
               key={idx}
               onClick={() => setSelectedImage(img)}
             >
-              <img src={img} alt={`gallery-${idx}`} />
+              <img src={img.image} alt={`gallery-${idx}`} />
               <div className="overlay">
-                <span>👁 Preview</span>
+                <span>{content.previewText}</span> 
               </div>
             </div>
           ))}
@@ -67,111 +248,82 @@ function Home() {
         {selectedImage && (
           <div className="modal" onClick={() => setSelectedImage(null)}>
             <div className="modal-content">
-              <img src={selectedImage} alt="enlarged" />
+              <img src={selectedImage.image} alt="enlarged" />
             </div>
           </div>
         )}
       </section>
 
-      <section className="vision-section">
-        <div className="vision-content">
-          <h2>
-            <span>Vision, Mission</span> & Problem Statement
-          </h2>
-          <p>
-            <strong>Vision:</strong> To build an inclusive and empowered society
-            by using theatre, education, and community dialogue—especially for
-            women and girls in rural India.
-          </p>
-          <p>
-            <strong>Mission:</strong> To enable awareness, expression, and
-            self-reliance among marginalized communities through creative and
-            participatory platforms.
-          </p>
-          <p>
-            <strong>Problem Statement:</strong> In rural India, especially in
-            districts like Araria, women and youth lack access to quality
-            education, health awareness, skill-building, and public platforms
-            for voice and leadership.
-          </p>
-        </div>
-        <div className="vision-image">
-          <img
-            src="https://images.pexels.com/photos/13819209/pexels-photo-13819209.jpeg?cs=srgb&dl=pexels-mnannapaneni-13819209.jpg&fm=jpg"
-            alt="Empowerment"
-          />
-        </div>
-      </section>
-
-      <section className="testimonial-container">
-        <div className="testimonial-text">
-          <h2>Chandan Kumar Sah – An Inspiring Journey</h2>
-          <p>
-            "Punchlight Foundation played a vital role in changing my life.
-            Earlier I used to sell vegetables from a handcart all the time, but
-            after joining the organization, I got a chance to work as an actor
-            in street plays. This experience increased my confidence and skills.
-          </p>
-          <p>
-            Today, with the help of Punchlight Foundation, I am working as
-            Junior Officer, Skill Enhancement & Entrepreneurship at Learning
-            Links Foundation. My financial condition has improved, and my family
-            is now doing well.
-          </p>
-          <p>
-            I thank Punchlight Foundation from the bottom of my heart for giving
-            me this opportunity and recognizing my potential."
-          </p>
-          <strong>— Chandan Kumar Sah</strong>
-        </div>
-        <div className="testimonial-image">
-          <img
-            src="https://images.pexels.com/photos/14049052/pexels-photo-14049052.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            alt="Chandan Kumar Sah"
-          />
-          <div className="testimonial-name">
-            <strong>Chandan Kumar Sah</strong>
-            <br />
-            Junior Officer, Learning Links Foundation
-          </div>
-        </div>
-      </section>
+      {/* Overlay Section */}
       <section className="overlay-section">
         <div className="overlay-content">
           <h2>
-            We believe that lasting change begins when communities find their
-            voice.
+            {content.overlayTitle} 
           </h2>
           <p>
-            At Punchlight Foundation, we harness the power of street theatre,
-            education, and community dialogue to ignite awareness and action in
-            rural India.
+            {content.overlayP1} 
           </p>
           <p>
-            Our focus is on empowering women and youth in the most underserved
-            districts through participatory and creative means.
+            {content.overlayP2} 
           </p>
           <p>
-            From performing plays on health, gender, and livelihoods in village
-            squares, to building local learning spaces and nurturing young
-            educators and artists — we work hand-in-hand with communities to
-            spark dignity, confidence, and self-reliance.
+            {content.overlayP3} 
           </p>
           <p>
             <strong>
-              Because we believe: real change is not delivered — it's discovered
-              together.
+              {content.overlayBelieveText} 
             </strong>
           </p>
         </div>
       </section>
-      <section>
-        <PartnersSection/>
-        
-        
+
+      {/* Testimonial Section */}
+      <section className="testimonial-container">
+        <div className="testimonial-text">
+          <h2>{content.testimonialTitle}</h2> 
+          <p>
+            {content.testimonialP1} 
+          </p>
+          <p>
+            {content.testimonialP2} 
+          </p>
+          <p>
+            {content.testimonialP3} 
+          </p>
+          <strong>{content.testimonialAuthor}</strong> 
+        </div>
+        <div className="testimonial-image">
+          <img src={assets.image16} alt="Chandan Kumar Sah" />
+          <div className="testimonial-name">
+            <strong>{content.testimonialAuthor}</strong> 
+            <br />
+            {content.testimonialAuthorTitle} 
+          </div>
+        </div>
+      </section>
+
+      {/* Professional Partners Row Section */}
+      <section className="partners-row-section">
+        <h2 className="partners-row-title">Our Partners</h2>
+        <div className="partners-row">
+          {partnerImages.map((img, idx) => (
+            <div className="partner-logo-animated" key={idx}>
+              <img
+                src={img}
+                alt={`Partner ${idx + 1}`}
+              />
+            </div>
+          ))}
+        </div>
       </section>
     </div>
   );
 }
 
 export default Home;
+
+// The original PartnersCarousel component was moved inside Home to be able to use content,
+// but if it's reused elsewhere, it should be defined globally and content passed as prop.
+// For now, I've integrated its logic directly or adjusted the call in Home.
+// The ProfileCard component was not used in the Home component, so it remains as is.
+

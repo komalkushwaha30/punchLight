@@ -2,38 +2,38 @@
 /* Global Variables for Consistency */
 :root {
   /* Colors */
-  --primary-blue: #0b3d91; /* Darker blue for main headings, important text */
-  --light-blue: #007bff; /* Brighter blue for accents, buttons */
-  --accent-yellow: #ffc107; /* Yellow for buttons, highlights */
-  --text-dark: #333; /* Main body text */
-  --text-medium: #555; /* Secondary text, positions */
-  --text-light: #666; /* Paragraphs, descriptions */
-  --background-light: #f9f9f9; /* Light background for sections */
-  --background-blue-light: #e3f4fc; /* Light blue background for sections */
-  --card-background: #ffffff; /* Card backgrounds */
-  --border-light: #cde4f8; /* Light blue border */
-  --border-accent: #cce9ff; /* Even lighter blue for specific borders */
+  --primary-blue: #152b42; /* Main theme color: dark blue */
+  --light-blue: #3a5d85; /* Lighter blue accent (tint of #152b42) */
+  --accent-yellow: #ff9900; /* Orange accent for buttons/highlights */
+  --text-dark: #152b42; /* Use theme blue for main text */
+  --text-medium: #3a5d85; /* Lighter blue for secondary text */
+  --text-light: #6c7a89; /* Muted blue-grey for descriptions */
+  --background-light: #f9f9f9;
+  --background-blue-light: #eaf1f8; /* Very light blue background */
+  --card-background: #fff;
+  --border-light: #dbe6f3; /* Light blue border */
+  --border-accent: #b3c7df; /* Even lighter blue for borders */
 
   /* Fonts */
-  --font-family-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  --font-size-base: 1rem; /* Base font size */
-  --font-size-h2: 2.5rem; /* Larger heading for main sections */
-  --font-size-h3: 1.3rem; /* Subheadings, card titles */
-  --font-size-h4: 1.2rem; /* Smaller subheadings */
-  --font-size-button: 0.95rem; /* Button text */
+  --font-family-primary: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --font-size-base: 1rem;
+  --font-size-h2: 2.5rem;
+  --font-size-h3: 1.3rem;
+  --font-size-h4: 1.2rem;
+  --font-size-button: 0.95rem;
   --line-height-body: 1.6;
 
   /* Spacing */
-  /* --spacing-sm: 10px;
+  --spacing-sm: 10px;
   --spacing-md: 20px;
   --spacing-lg: 30px;
   --spacing-xl: 40px;
-  --spacing-xxl: 80px; */
+  --spacing-xxl: 80px;
 
   /* Box Shadows */
-  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 8px 20px rgba(0, 123, 255, 0.08);
-  --shadow-lg: 0 12px 30px rgba(0, 123, 255, 0.15);
+  --shadow-sm: 0 4px 12px rgba(21, 43, 66, 0.08);
+  --shadow-md: 0 8px 20px rgba(21, 43, 66, 0.12);
+  --shadow-lg: 0 12px 30px rgba(21, 43, 66, 0.18);
 
   /* Border Radius */
   --border-radius-sm: 5px;
@@ -49,7 +49,7 @@ body {
   font-family: var(--font-family-primary);
   color: var(--text-dark);
   line-height: var(--line-height-body);
-  background-color: var(--background-light); /* Consistent background */
+  background-color: var(--background-light);
 }
 
 a {
@@ -61,19 +61,17 @@ button {
 }
 
 section {
-  padding-top: var(--spacing-xxl); /* Keep top/bottom padding */
-  padding-bottom: var(--spacing-xxl); /* Keep top/bottom padding */
+  padding-top: var(--spacing-xxl);
+  padding-bottom: var(--spacing-xxl);
 }
 
 /* --- */
 /* Team Section */
 .team-container {
-  /* Applying consistent left/right padding like other sections */
   padding: var(--spacing-xxl) var(--spacing-xl);
-  max-width: 1200px; /* Also apply max-width for consistency */
-  margin: 0 auto; /* Center the container */
+  max-width: 1200px;
+  margin: 0 auto;
 }
-
 
 .team-header {
   text-align: center;
@@ -85,7 +83,7 @@ section {
   margin-bottom: var(--spacing-sm);
   color: var(--primary-blue);
   letter-spacing: 1px;
-  font-weight: 700; /* Consistent heading weight */
+  font-weight: 700;
 }
 
 .team-header h4 {
@@ -112,33 +110,54 @@ section {
   background-color: var(--card-background);
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-sm);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add box-shadow to transition */
+  overflow: hidden; /* Important for border-radius on image within card */
   display: flex;
   flex-direction: column;
   height: 100%;
+  padding: var(--spacing-sm); /* ADDED: Padding inside the card for gap around image */
+  border: 1.5px solid var(--border-light);
+  transition: box-shadow 0.2s, border-color 0.2s;
 }
 
 .team-card:hover {
   transform: translateY(-5px);
-  box-shadow: var(--shadow-md); /* Consistent hover shadow */
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-blue);
 }
 
 .team-image {
-  width: 100%;
-  height: 260px;
+  /* ... existing properties ... */
+  width: calc(100% + 20px); /* Increase width slightly beyond container */
+  /* OR simpler: */
+  /* width: 105%; */ /* Or 110%, depends on how much whitespace */
+  
+  transform: translateX(-50%); /* Shift left by half of its own width */
+  left: 50%; /* Position from left */
+  position: relative; /* Needed for left/transform */
+  
+  /* OR more cleanly: */
+  /* Use a wrapper if you want to scale the image directly */
+  /* Let's stick with the simpler approach for now */
+
+  /* Original properties */
+  aspect-ratio: 1 / 1;
   object-fit: cover;
+  display: block;
+  /* margin: 0 auto var(--spacing-md) auto; */
+  border-radius: var(--border-radius-md);
+  
+
 }
 
 .team-info {
-  padding: var(--spacing-md);
+  padding: 0 var(--spacing-md) var(--spacing-md) var(--spacing-md); /* Adjusted padding */
   flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
 
 .team-name {
-  font-size: 1.25rem; /* Slightly larger to stand out */
+  font-size: 1.25rem;
   font-weight: bold;
   margin-bottom: 5px;
   color: var(--primary-blue);
@@ -151,32 +170,32 @@ section {
   font-style: italic;
 }
 
-/* No direct clamping here; rely on modal for full description */
 .team-description {
   font-size: 0.95rem;
-  color: var(--text-dark); /* Changed to text-dark for consistency with modal */
+  color: var(--text-dark);
   line-height: var(--line-height-body);
   white-space: pre-line;
-  overflow: auto; /* Keeps scroll if needed */
-  max-height: 200px; /* Still useful for initial display */
+  overflow: auto;
+  max-height: 200px;
   margin-bottom: var(--spacing-sm);
 }
 
 .read-more-btn {
   background-color: transparent;
   border: none;
-  color: var(--primary-blue); /* Use primary blue for consistent branding */
+  color: var(--primary-blue);
   cursor: pointer;
   padding: 0;
-  font-size: var(--font-size-button); /* Consistent button font size */
+  font-size: var(--font-size-button);
   font-weight: bold;
   text-align: left;
-  margin-top: auto; /* Pushes button to the bottom */
+  margin-top: auto;
+  transition: color 0.2s;
 }
 
 .read-more-btn:hover {
   text-decoration: underline;
-  color: var(--light-blue); /* Lighter blue on hover for consistency */
+  color: var(--accent-yellow);
 }
 
 /* --- */
@@ -193,7 +212,7 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(21, 43, 66, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -210,35 +229,38 @@ section {
   overflow-y: auto;
   padding: var(--spacing-lg);
   position: relative;
-  box-shadow: var(--shadow-lg); /* Larger shadow for modal */
+  box-shadow: var(--shadow-lg);
   text-align: center;
+  border: 2px solid var(--primary-blue);
 }
 
 .close-btn {
   position: absolute;
   top: var(--spacing-sm);
   right: var(--spacing-md);
-  font-size: 2rem; /* Slightly larger for better tap target */
+  font-size: 2rem;
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--text-dark);
+  color: var(--primary-blue);
+  transition: color 0.2s;
 }
 
 .close-btn:hover {
-  color: red; /* Kept red for universal close icon meaning */
+  color: var(--accent-yellow);
 }
 
 .modal-image {
   width: 130px;
   height: 130px;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 50%; /* Keeps modal image circular */
   margin-bottom: var(--spacing-md);
+  /* border: 3px solid var(--primary-blue); */
 }
 
 .modal-content h3 {
-  font-size: 1.5rem; /* Consistent heading size for modal name */
+  font-size: 1.5rem;
   color: var(--primary-blue);
   margin-bottom: var(--spacing-sm);
   font-weight: bold;
@@ -253,7 +275,7 @@ section {
 
 .modal-description {
   text-align: left;
-  font-size: var(--font-size-base); /* Consistent body text size */
+  font-size: var(--font-size-base);
   color: var(--text-dark);
   line-height: var(--line-height-body);
   white-space: pre-line;
@@ -262,20 +284,20 @@ section {
 /* --- */
 /* Get Involved Section */
 .involved-section {
-  background-color: var(--background-blue-light); /* Consistent light blue background */
+  background-color: var(--background-blue-light);
 }
 
 .involved-header {
   text-align: center;
   max-width: 800px;
-  margin: 0 auto var(--spacing-xxl) auto; /* Increased bottom margin for separation */
+  margin: 0 auto var(--spacing-xxl) auto;
 }
 
 .involved-header h2 {
   font-size: var(--font-size-h2);
-  color: var(--light-blue); /* Lighter blue for involvement heading */
+  color: var(--primary-blue);
   margin-bottom: var(--spacing-md);
-  background-color: var(--border-accent); /* Consistent background color */
+  background-color: var(--border-accent);
   display: inline-block;
   padding: var(--spacing-sm) var(--spacing-lg);
   border-radius: var(--border-radius-pill);
@@ -284,7 +306,7 @@ section {
 }
 
 .involved-header p {
-  font-size: 1.1rem; /* Slightly larger paragraph for emphasis */
+  font-size: 1.1rem;
   color: var(--text-dark);
   line-height: var(--line-height-body);
   margin-top: var(--spacing-sm);
@@ -302,18 +324,19 @@ section {
   background-color: var(--card-background);
   border: 2px solid var(--border-light);
   border-radius: var(--border-radius-lg);
-  padding: var(--spacing-md); /* Consistent padding */
-  box-shadow: var(--shadow-md); /* Consistent card shadow */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: var(--spacing-md);
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.2s;
 }
 
 .involved-card:hover {
   transform: translateY(-5px);
-  box-shadow: var(--shadow-lg); /* Lighter shadow on hover */
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-blue);
 }
 
 .involved-card h4 {
-  font-size: var(--font-size-h3); /* Using h3 size for consistency */
+  font-size: var(--font-size-h3);
   color: var(--primary-blue);
   margin-bottom: var(--spacing-sm);
   border-bottom: 2px solid var(--border-accent);
@@ -334,8 +357,11 @@ section {
   justify-content: center;
   align-items: center;
   gap: var(--spacing-xl);
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: var(--spacing-xl);
   flex-wrap: wrap;
-  background-color: var(--background-light); /* Consistent light background */
+  background-color: var(--background-light);
 }
 
 .join-left,
@@ -345,28 +371,28 @@ section {
 }
 
 .join-left h3 {
-  font-size: var(--font-size-h3); /* Using h3 size for consistency */
+  font-size: var(--font-size-h3);
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--text-dark);
-  line-height: var(--line-height-body);
+  color: var(--primary-blue);
   margin-bottom: var(--spacing-md);
 }
 
 .join-image {
   width: 100%;
-  max-width: 350px;
+  max-width: 100%;
   height: auto;
   border-radius: var(--border-radius-md);
   object-fit: cover;
+  border: 2px solid var(--border-accent);
 }
 
 .join-right {
-  text-align: left; /* Keep text aligned left for better readability in larger screens */
+  text-align: left;
 }
 
 .join-right h2 {
-  font-size: var(--font-size-h2); /* Consistent with other main headings */
+  font-size: var(--font-size-h2);
   font-weight: 700;
   color: var(--primary-blue);
   margin-bottom: var(--spacing-md);
@@ -381,29 +407,30 @@ section {
 
 .join-button {
   display: inline-block;
-  background-color: var(--accent-yellow); /* Consistent button color */
-  color: var(--text-dark); /* Dark text on yellow for contrast */
+  background-color: var(--accent-yellow);
+  color: #fff;
   padding: var(--spacing-sm) var(--spacing-md);
   font-weight: bold;
   text-decoration: none;
   border-radius: var(--border-radius-sm);
-  transition: background-color 0.3s ease;
-  font-size: var(--font-size-button); /* Consistent button font size */
+  transition: background-color 0.3s, color 0.2s;
+  font-size: var(--font-size-button);
+  border: none;
+  box-shadow: var(--shadow-sm);
 }
 
 .join-button:hover {
-  background-color: #e0a800; /* Slightly darker yellow on hover */
+  background-color: #ffb84d;
+  color: var(--primary-blue);
 }
 
 /* --- */
 /* Responsive Adjustments */
-
 @media (max-width: 768px) {
   section {
-    padding: var(--spacing-xl) var(--spacing-md); /* Adjust section padding for smaller screens */
+    padding: var(--spacing-xl) var(--spacing-md);
   }
 
-  /* Ensure team-container also adjusts */
   .team-container {
     padding: var(--spacing-xl) var(--spacing-md);
   }
@@ -411,7 +438,7 @@ section {
   .team-header h2,
   .involved-header h2,
   .join-right h2 {
-    font-size: 2rem; /* Slightly smaller headings */
+    font-size: 2rem;
   }
 
   .team-header h4 {
@@ -423,12 +450,12 @@ section {
   .join-right p,
   .involved-card p,
   .modal-description {
-    font-size: 0.95rem; /* Slightly smaller body text */
+    font-size: 0.95rem;
   }
 
   .team-grid,
   .involved-cards {
-    gap: var(--spacing-md); /* Reduced gap */
+    gap: var(--spacing-md);
   }
 
   .modal-content {
@@ -439,11 +466,11 @@ section {
   .join-us-section {
     flex-direction: column;
     text-align: center;
-    gap: var(--spacing-lg); /* Adjusted gap for column layout */
+    gap: var(--spacing-lg);
   }
 
   .join-left h3 {
-    font-size: 1.1rem; /* Smaller heading for mobile */
+    font-size: 1.1rem;
   }
 }
 
@@ -451,7 +478,7 @@ section {
   .team-header h2,
   .involved-header h2,
   .join-right h2 {
-    font-size: 1.8rem; /* Even smaller for very small screens */
+    font-size: 1.8rem;
   }
 
   .modal-image {

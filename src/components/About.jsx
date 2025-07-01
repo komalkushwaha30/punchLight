@@ -1,199 +1,313 @@
-import React, { useContext } from "react";
-import { LanguageContext } from "../LanguageProvider";
-import "./About.css";
+// Refactored and improved About component with cleaner design sections and animations
+import React, { useContext } from "react"; // Import useContext
+import { Link } from "react-router-dom";
+import "../assets/assets"; // Ensure this path is correct
 
-const About = () => {
-  const { content } = useContext(LanguageContext);
+import "./About.css"; // Assuming you still have your CSS file for styling
+import { assets } from "../assets/assets"; // Assuming this path is correct
+import { LanguageContext } from "../LanguageProvider"; // Import LanguageContext
+
+function About() {
+  const { content } = useContext(LanguageContext); // Use useContext to get content
+
+  // Refactored aboutContent to use keys from the LanguageContext content object
+  const aboutDetailedContent = [
+    {
+      headingKey: "approachLearningCenteredHeading",
+      descriptionKey: "approachLearningCenteredDescription",
+      img: assets.image4,
+    },
+    {
+      headingKey: "approachTheatreToolHeading",
+      descriptionKey: "approachTheatreToolDescription",
+      img: assets.image5,
+      reverse: true,
+    },
+    {
+      headingKey: "approachCommunityLedHeading",
+      descriptionKey: "approachCommunityLedDescription",
+      img: assets.image6,
+    },
+    {
+      headingKey: "approachEquityInclusionHeading",
+      descriptionKey: "approachEquityInclusionDescription",
+      img: assets.image7,
+      reverse: true,
+    },
+    {
+      headingKey: "approachCollaborationHeading",
+      descriptionKey: "approachCollaborationDescription",
+      img: assets.image8,
+    },
+    {
+      headingKey: "approachCulturalSensitivityHeading",
+      descriptionKey: "approachCulturalSensitivityDescription",
+      img: assets.image9,
+      reverse: true,
+    },
+  ];
+
+  // Legal details mapping to content keys for translation
+  const legalDetails = [
+    { titleKey: "legalTrustAct", detailKey: "legalTrustActDetail" },
+    {
+      titleKey: "legalTrustRegistration",
+      detailKey: "legalTrustRegistrationDetail",
+    },
+    { titleKey: "legalPAN", detailKey: "legalPANDetail" },
+    { titleKey: "legalNGODarpan", detailKey: "legalNGODarpanDetail" },
+    { titleKey: "legal12ACertificate", detailKey: "legal12ACertificateDetail" },
+    { titleKey: "legal80GCertificate", detailKey: "legal80GCertificateDetail" },
+    { titleKey: "legalGSTIN", detailKey: "legalGSTINDetail" },
+  ];
+
+  // Safely extract title parts for 'About Punchlight Foundation' section
+  const aboutTitle = content.aboutPunchlightTitle || ""; // Ensure it's a string
+  const aboutTitleParts = aboutTitle.split(" ");
+  const aboutFirstPart = aboutTitleParts[0] || "";
+  const aboutRemainingParts = aboutTitleParts.slice(1).join(" ") || "";
+
+  // Safely extract founder story parts for 'Sanjay Kumar Thakur'
+  const founderStory1 = content.founderStoryP1 || "";
+  const founderStory1Parts = founderStory1.split("Sanjay Kumar Thakur");
+  const founderStory1Before = founderStory1Parts[0] || "";
+  const founderStory1After =
+    founderStory1Parts.length > 1
+      ? founderStory1Parts.slice(1).join("Sanjay Kumar Thakur")
+      : "";
+
+  // Safely extract founder story parts for 'Neeraj Kumar' and 'education, health, hygiene, and street theatre'
+  const founderStory2 = content.founderStoryP2 || "";
+  const founderStory2PartsNeeraj = founderStory2.split("Neeraj Kumar");
+  const founderStory2BeforeNeeraj = founderStory2PartsNeeraj[0] || "";
+  const founderStory2AfterNeeraj =
+    founderStory2PartsNeeraj.length > 1
+      ? founderStory2PartsNeeraj.slice(1).join("Neeraj Kumar")
+      : "";
+
+  const founderStory2PartsEdu = founderStory2AfterNeeraj.split(
+    "education, health, hygiene, and street theatre"
+  );
+  const founderStory2BeforeEdu = founderStory2PartsEdu[0] || "";
+  const founderStory2AfterEdu =
+    founderStory2PartsEdu.length > 1
+      ? founderStory2PartsEdu
+          .slice(1)
+          .join("education, health, hygiene, and street theatre")
+      : "";
 
   return (
     <div className="page-container">
-      {/* === HERO SECTION === */}
-      <section className="hero-section">
+      {/* Hero Section */}
+      <section
+        className="hero-section"
+        style={{
+          background: `url(${assets.image19}) no-repeat center center/cover`,
+        }}
+      >
         <div className="hero-overlay">
-          <h1 className="hero-title">{content.heroTitle}</h1>
-          <p className="hero-subtitle">{content.heroSubtitle}</p>
-          <button className="hero-button">{content.donateNow}</button>
+          <h1 className="hero-title">{content.aboutHeroTitle}</h1>{" "}
+          {/* Translated */}
+          <p className="hero-subtitle">
+            {content.aboutHeroSubtitle} {/* Translated */}
+          </p>
+          <button className="hero-button">{content.aboutUsButton}</button>{" "}
+          {/* Translated */}
         </div>
       </section>
 
-      {/* === ENHANCED ABOUT SECTION === */}
-      <section className="about-section-enhanced">
+      {/* About Section Enhanced */}
+      <section className="about-section-enhanced" id="about-mission">
+        {" "}
+        {/* Added ID for Navbar scroll */}
         <div className="about-enhanced-container">
           <div className="about-enhanced-image">
-            <img
-              src="https://cdn.dribbble.com/users/5532299/screenshots/17713203/media/6257c326ff2a26d7ed07de14292f3b93.jpg?resize=400x0"
-              alt="Punchlight Foundation"
-            />
+            <img src={assets.image25} alt="Punchlight Foundation" />
           </div>
           <div className="about-enhanced-text">
-            <h2>{content.aboutPunchlightTitle}</h2>
+            <h2>
+              {aboutFirstPart}{" "}
+              {aboutRemainingParts && <span>{aboutRemainingParts}</span>}{" "}
+              {/* Safer split handling */}
+            </h2>
             <div className="divider"></div>
-            <p>{content.aboutPunchlightP1}</p>
-            <p>{content.aboutPunchlightP2}</p>
-            <p>{content.aboutPunchlightP3}</p>
+            <p id="about-vision">{content.aboutPunchlightP1}</p>{" "}
+            {/* Translated, added ID for Navbar scroll */}
+            <p>{content.aboutPunchlightP2}</p> {/* Translated */}
+            <p>
+              {content.aboutPunchlightP3.split("street theatre")[0]}
+              <strong>street theatre</strong>
+              {content.aboutPunchlightP3.split("street theatre")[1]}{" "}
+              {/* Translated, keeping strong tag */}
+            </p>
           </div>
         </div>
       </section>
 
-      {/* === LEGAL & REGISTRATION SECTION === */}
+      {/* Founding Story Section */}
+      <section className="founding-story-alt-section" id="about-team">
+        {" "}
+        {/* Added ID for Navbar scroll (assuming this section relates to team/founders) */}
+        <div className="founding-story-alt-container">
+          <div className="founder-image-wrapper">
+            <img src={assets.image10} alt="Founders of Punchlight Foundation" />
+          </div>
+          <div className="founder-text-wrapper">
+            <h2 className="founder-heading">{content.foundingStoryHeading}</h2>{" "}
+            {/* Translated */}
+            <p className="founder-subtitle">
+              {content.foundingStorySubtitle}
+            </p>{" "}
+            {/* Translated */}
+            <div className="founder-text-body">
+              <p>
+                {founderStory1Before}
+                <strong>Sanjay Kumar Thakur</strong>
+                {founderStory1After} {/* Safer split handling */}
+              </p>
+              <p>
+                {founderStory2BeforeNeeraj}
+                <strong>Neeraj Kumar</strong>
+                {founderStory2BeforeEdu}
+                <strong>education, health, hygiene, and street theatre</strong>
+                {founderStory2AfterEdu} {/* Safer split handling */}
+              </p>
+              <p>
+                {content.founderStoryP3} {/* Translated */}
+              </p>
+              <blockquote className="founder-quote">
+                {content.founderQuote} {/* Translated */}
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* Action Boxes */}
+      <section className="action-boxes">
+        <Link to="/donation" className="box">
+          {content.donateNowLink} {/* Translated */}
+        </Link>
+        <Link to="/team" className="box">
+          {content.getInvolvedLink} {/* Translated */}
+        </Link>
+        <Link to="/contact" className="box">
+          {content.contactLink} {/* Translated */}
+        </Link>
+      </section>
+      
+      {/* Legal Section */}
       <section className="legal-section">
         <div className="legal-container">
           <h2 className="legal-heading">{content.legalHeading}</h2>
-          <div className="legal-grid">
-            <div className="legal-item">
-              <strong>{content.trustAct}</strong>
-              <span>{content.trustActDetail}</span>
+          {/* Translated */}
+          <p className="legal-subheading">
+            {content.legalSubheading}
+          </p>
+          <div className="legal-container">
+            <div className="legal-directional-row">
+              <div className="legal-directional">
+                <div className="legal-banner">
+                  <h3 className="legal-banner-title">{content.legalTrustAct}</h3>
+                  <p className="legal-banner-text">{content.legalTrustActDetail}</p>
+                </div>
+              </div>
+              <div className="legal-directional">
+                <div className="legal-banner">
+                  <h3 className="legal-banner-title">{content.legalTrustRegistration}</h3>
+                  <p className="legal-banner-text">{content.legalTrustRegistrationDetail}</p>
+                </div>
+              </div>
+              <div className="legal-directional">
+                <div className="legal-banner">
+                  <h3 className="legal-banner-title">{content.legalPAN}</h3>
+                  <p className="legal-banner-text">{content.legalPANDetail}</p>
+                </div>
+              </div>
+              <div className="legal-directional">
+                <div className="legal-banner">
+                  <h3 className="legal-banner-title">{content.legalNGODarpan}</h3>
+                  <p className="legal-banner-text">{content.legalNGODarpanDetail}</p>
+                </div>
+              </div>
             </div>
-            <div className="legal-item">
-              <strong>{content.trustRegistration}</strong>
-              <span>{content.trustRegistrationDetail}</span>
-            </div>
-            <div className="legal-item">
-              <strong>{content.panNo}</strong>
-              <span>{content.panNoDetail}</span>
-            </div>
-            <div className="legal-item">
-              <strong>{content.ngoDarpanUid}</strong>
-              <span>{content.ngoDarpanUidDetail}</span>
-            </div>
-            <div className="legal-item">
-              <strong>{content.twelveANo}</strong>
-              <span>{content.twelveANoDetail}</span>
-            </div>
-            <div className="legal-item">
-              <strong>{content.eightyGNo}</strong>
-              <span>{content.eightyGNoDetail}</span>
-            </div>
-            <div className="legal-item">
-              <strong>{content.gstin}</strong>
-              <span>{content.gstinDetail}</span>
+
+            <div className="legal-content">
+              <div className="legal-main-body">
+                <img
+                  src={assets.image9}
+                  alt="Legal Banner"
+                  className="legal-main-image"
+                />
+              </div>
+
+              <div className="legal-sidebar">
+                <div className="legal-directional">
+                  <div className="legal-banner">
+                    <h3 className="legal-banner-title">{content.legal12ACertificate}</h3>
+                    <p className="legal-banner-text">{content.legal12ACertificateDetail}</p>
+                  </div>
+                </div>
+                <div className="legal-directional">
+                  <div className="legal-banner">
+                    <h3 className="legal-banner-title">{content.legal80GCertificate}</h3>
+                    <p className="legal-banner-text">{content.legal80GCertificateDetail}</p>
+                  </div>
+                </div>
+                <div className="legal-directional">
+                  <div className="legal-banner">
+                    <h3 className="legal-banner-title">{content.legalGSTIN}</h3>
+                    <p className="legal-banner-text">{content.legalGSTINDetail}</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* === ACTION BOXES === */}
-      <section className="action-boxes">
-        <div className="box">{content.actionBoxDonate}</div>
-        <div className="box">{content.actionBoxGetInvolved}</div>
-        <div className="box">{content.actionBoxVolunteer}</div>
-      </section>
+      
 
-      {/* === OUR APPROACH SECTION === */}
+      {/* Approach Section (Summary) */}
       <section className="approach-section">
         <div className="approach-container">
-          <h2 className="approach-heading">{content.approachHeading}</h2>
+          <h2 className="approach-heading">{content.approachHeading}</h2>{" "}
+          {/* Translated */}
           <div className="approach-divider"></div>
-          <p className="approach-text">{content.approachText}</p>
+          <p className="approach-text">
+            {content.approachText} {/* Translated */}
+          </p>
         </div>
       </section>
 
-      {/* === OUR CAUSES SECTION === */}
+      {/* Causes Section (Detailed Approach) */}
       <section className="causes-section">
         <div className="causes-container">
-          {/* Our Mission Block */}
-          <div className="cause-block">
-            <div className="cause-content">
-              <h2 className="cause-heading">{content.ourMissionHeading}</h2>
-              <p className="cause-description">
-                {content.ourMissionDescription}
-              </p>
+          {aboutDetailedContent.map((cause, i) => (
+            <div
+              key={i}
+              className={`cause-block ${cause.reverse ? "reverse" : ""}`}
+            >
+              <div className="cause-content">
+                <h2 className="cause-heading">{content[cause.headingKey]}</h2>{" "}
+                {/* Translated */}
+                <p className="cause-description">
+                  {content[cause.descriptionKey]}
+                </p>{" "}
+                {/* Translated */}
+              </div>
+              <div className="cause-image">
+                <img src={cause.img} alt={content[cause.headingKey]} />{" "}
+                {/* Translated alt text */}
+              </div>
             </div>
-            <div className="cause-image">
-              <img
-                src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                alt="Our Mission - helping communities"
-              />
-            </div>
-          </div>
-
-          {/* Our Story Block */}
-          <div className="cause-block reverse">
-            <div className="cause-image">
-              <img
-                src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                alt="Our Story - students learning"
-              />
-            </div>
-            <div className="cause-content">
-              <h2 className="cause-heading">{content.ourStoryHeading}</h2>
-              <p className="cause-description">
-                {content.ourStoryDescription}
-              </p>
-            </div>
-          </div>
-
-          {/* Learning-Centered Empowerment Block */}
-          <div className="cause-block">
-            <div className="cause-content">
-              <h2 className="cause-heading">
-                {content.learningEmpowermentHeading}
-              </h2>
-              <p className="cause-description">
-                {content.learningEmpowermentDescription}
-              </p>
-            </div>
-            <div className="cause-image">
-              <img
-                src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                alt="Learning and Education"
-              />
-            </div>
-          </div>
-
-          {/* Theatre as Tool Block */}
-          <div className="cause-block reverse">
-            <div className="cause-image">
-              <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                alt="Theatre Performance"
-              />
-            </div>
-            <div className="cause-content">
-              <h2 className="cause-heading">{content.theatreAsToolHeading}</h2>
-              <p className="cause-description">
-                {content.theatreAsToolDescription}
-              </p>
-            </div>
-          </div>
-
-          {/* Community-Led Change Block */}
-          <div className="cause-block">
-            <div className="cause-content">
-              <h2 className="cause-heading">
-                {content.communityLedChangeHeading}
-              </h2>
-              <p className="cause-description">
-                {content.communityLedChangeDescription}
-              </p>
-            </div>
-            <div className="cause-image">
-              <img
-                src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                alt="Community Leadership"
-              />
-            </div>
-          </div>
-
-          {/* Equity and Inclusion Block */}
-          <div className="cause-block reverse">
-            <div className="cause-image">
-              <img
-                src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                alt="Equity and Inclusion"
-              />
-            </div>
-            <div className="cause-content">
-              <h2 className="cause-heading">{content.equityInclusionHeading}</h2>
-              <p className="cause-description">
-                {content.equityInclusionDescription}
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
     </div>
   );
-};
+}
 
 export default About;
+

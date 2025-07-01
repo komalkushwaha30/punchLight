@@ -1,94 +1,102 @@
 import "./TeamSection.css";
 import React, { useState, useContext } from "react";
-import { Link } from 'react-router-dom';
-import { LanguageContext } from '../LanguageProvider';
+import { Link } from "react-router-dom";
+import { LanguageContext } from "../LanguageProvider";
+import { assets } from "../assets/assets";
 
 const TeamSection = () => {
   const { content } = useContext(LanguageContext);
 
+  // Define teamData with keys that can be looked up in the content object
   const teamData = [
     {
-      name: content.prashantPalName,
-      position: content.prashantPalPosition,
-      image: "https://images.squarespace-cdn.com/content/v1/5e335c197ce81d501c607a07/bd652c1a-29c4-46e9-8d1b-99d0c05b0534/professional-headshot-tips-for-men-business",
-      description: content.prashantPalDescription,
+      nameKey: "prashantPalName",
+      positionKey: "prashantPalPosition",
+      image: assets.image43,
+      descriptionKey: "prashantPalDescription",
     },
     {
-      name: content.shMasoomName,
-      position: content.shMasoomPosition,
-      image: "https://images.squarespace-cdn.com/content/v1/5e335c197ce81d501c607a07/bd652c1a-29c4-46e9-8d1b-99d0c05b0534/professional-headshot-tips-for-men-business",
-      description: content.shMasoomDescription,
+      nameKey: "shMasoomName",
+      positionKey: "shMasoomPosition",
+      image: assets.image44,
+      descriptionKey: "shMasoomDescription",
     },
     {
-      name: content.abodhKumarName,
-      position: content.abodhKumarPosition,
-      image: "https://images.squarespace-cdn.com/content/v1/5e335c197ce81d501c607a07/bd652c1a-29c4-46e9-8d1b-99d0c05b0534/professional-headshot-tips-for-men-business",
-      description: content.abodhKumarDescription,
+      nameKey: "abodhKumarName",
+      positionKey: "abodhKumarPosition",
+      image: assets.image45,
+      descriptionKey: "abodhKumarDescription",
     },
     {
-      name: content.amitKumarThakurName,
-      position: content.amitKumarThakurPosition,
-      image: "https://images.squarespace-cdn.com/content/v1/5e335c197ce81d501c607a07/bd652c1a-29c4-46e9-8d1b-99d0c05b0534/professional-headshot-tips-for-men-business",
-      description: content.amitKumarThakurDescription,
+      nameKey: "amitKumarThakurName",
+      positionKey: "amitKumarThakurPosition",
+      image: assets.image46,
+      descriptionKey: "amitKumarThakurDescription",
     },
     {
-      name: content.sanjayKumarThakurName,
-      position: content.sanjayKumarThakurPosition,
-      image: "https://images.squarespace-cdn.com/content/v1/5e335c197ce81d501c607a07/bd652c1a-29c4-46e9-8d1b-99d0c05b0534/professional-headshot-tips-for-men-business",
-      description: content.sanjayKumarThakurDescription,
+      nameKey: "sanjayKumarThakurName",
+      positionKey: "sanjayKumarThakurPosition",
+      image: assets.image47,
+      descriptionKey: "sanjayKumarThakurDescription",
     },
     {
-      name: content.rajaniJhaName,
-      position: content.rajaniJhaPosition,
-      image: "https://images.squarespace-cdn.com/content/v1/5e335c197ce81d501c607a07/bd652c1a-29c4-46e9-8d1b-99d0c05b0534/professional-headshot-tips-for-men-business",
-      description: content.rajaniJhaDescription,
+      nameKey: "rajaniJhaName",
+      positionKey: "rajaniJhaPosition",
+      image: assets.image48,
+      descriptionKey: "rajaniJhaDescription",
     },
     {
-      name: content.ramashankarDasName,
-      position: content.ramashankarDasPosition,
-      image: "https://images.squarespace-cdn.com/content/v1/5e335c197ce81d501c607a07/bd652c1a-29c4-46e9-8d1b-99d0c05b0534/professional-headshot-tips-for-men-business",
-      description: content.ramashankarDasDescription,
+      nameKey: "ramashankarDasName",
+      positionKey: "ramashankarDasPosition",
+      image: assets.image49,
+      descriptionKey: "ramashankarDasDescription",
     },
     {
-      name: content.lakshmiDeviName,
-      position: content.lakshmiDeviPosition,
-      image: "https://images.squarespace-cdn.com/content/v1/5e335c197ce81d501c607a07/bd652c1a-29c4-46e9-8d1b-99d0c05b0534/professional-headshot-tips-for-men-business",
-      description: content.lakshmiDeviDescription,
+      nameKey: "lakshmiDeviName",
+      positionKey: "lakshmiDeviPosition",
+      image: assets.image50,
+      descriptionKey: "lakshmiDeviDescription",
     },
     {
-      name: content.akankshaBhartiName,
-      position: content.akankshaBhartiPosition,
-      image: "https://images.squarespace-cdn.com/content/v1/5e335c197ce81d501c607a07/bd652c1a-29c4-46e9-8d1b-99d0c05b0534/professional-headshot-tips-for-men-business",
-      description: content.akankshaBhartiDescription,
+      nameKey: "akankshaBhartiName",
+      positionKey: "akankshaBhartiPosition",
+      image: assets.image51,
+      descriptionKey: "akankshaBhartiDescription",
     },
     {
-      name: content.jiwachhRamName,
-      position: content.jiwachhRamPosition,
-      image: "https://images.squarespace-cdn.com/content/v1/5e335c197ce81d501c607a07/bd652c1a-29c4-46e9-8d1b-99d0c05b0534/professional-headshot-tips-for-men-business",
-      description: content.jiwachhRamDescription,
+      nameKey: "jiwachhRamName",
+      positionKey: "jiwachhRamPosition",
+      image: assets.image52,
+      descriptionKey: "jiwachhRamDescription",
+    },
+    {
+      nameKey: "youName", // This one is dynamic for "You"
+      positionKey: "youPosition",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7MUiR6cIbzkmy7NPLIsU21LJ4zXeruHa2WQ&s",
+      descriptionKey: "youDescription",
     },
   ];
 
   const involvementOptions = [
     {
-      title: content.volunteerWithUsTitle,
-      desc: content.volunteerWithUsDesc,
+      titleKey: "volunteerWithUsTitle",
+      descKey: "volunteerWithUsDesc",
     },
     {
-      title: content.becomeAdhigamSarthiTitle,
-      desc: content.becomeAdhigamSarthiDesc,
+      titleKey: "becomeAdhigamSarthiTitle",
+      descKey: "becomeAdhigamSarthiDesc",
     },
     {
-      title: content.supportPerformanceTitle,
-      desc: content.supportPerformanceDesc,
+      titleKey: "supportPerformanceTitle",
+      descKey: "supportPerformanceDesc",
     },
     {
-      title: content.donateTitle,
-      desc: content.donateDesc,
+      titleKey: "donateTitle",
+      descKey: "donateDesc",
     },
     {
-      title: content.partnerWithUsTitle,
-      desc: content.partnerWithUsDesc,
+      titleKey: "partnerWithUsTitle",
+      descKey: "partnerWithUsDesc",
     },
   ];
 
@@ -101,9 +109,9 @@ const TeamSection = () => {
     <>
       <div className={`team-container ${selectedMember ? "blurred" : ""}`}>
         <div className="team-header">
-          <h2>{content.meetOurTeam}</h2>
-          <h4>{content.leadingWithVision}</h4>
-          <p>{content.teamIntro}</p>
+          <h2>{content.teamMeetOurTeam}</h2> {/* Translated */}
+          <h4>{content.teamLeadingWithVision}</h4> {/* Translated */}
+          <p>{content.teamIntro}</p> {/* Translated */}
         </div>
 
         <div className="team-grid">
@@ -111,18 +119,24 @@ const TeamSection = () => {
             <div key={idx} className="team-card">
               <img
                 src={member.image}
-                alt={member.name}
+                alt={content[member.nameKey]} // Translated alt text
                 className="team-image"
               />
               <div className="team-info">
-                <h3 className="team-name">{member.name}</h3>
-                <p className="team-position">{member.position}</p>
-                {member.description && (
+                <h3 className="team-name">{content[member.nameKey]}</h3> {/* Translated */}
+                <p className="team-position">{content[member.positionKey]}</p> {/* Translated */}
+                {/* Only show read more if description exists and can be translated */}
+                {member.descriptionKey && content[member.descriptionKey] && (
                   <button
                     className="read-more-btn"
-                    onClick={() => openModal(member)}
+                    onClick={() => openModal({ // Pass translated content to modal
+                      name: content[member.nameKey],
+                      position: content[member.positionKey],
+                      image: member.image,
+                      description: content[member.descriptionKey]
+                    })}
                   >
-                    {content.readMore}
+                    {content.readMore} {/* Translated */}
                   </button>
                 )}
               </div>
@@ -151,15 +165,15 @@ const TeamSection = () => {
 
       <section className="involved-section">
         <div className="involved-header">
-          <h2>{content.getInvolved}</h2>
-          <p>{content.getInvolvedIntro}</p>
+          <h2>{content.getInvolved}</h2> {/* Translated */}
+          <p>{content.getInvolvedIntro}</p> {/* Translated */}
         </div>
 
         <div className="involved-cards">
           {involvementOptions.map((item, index) => (
             <div className="involved-card" key={index}>
-              <h4>{item.title}</h4>
-              <p>{item.desc}</p>
+              <h4>{content[item.titleKey]}</h4> {/* Translated */}
+              <p>{content[item.descKey]}</p> {/* Translated */}
             </div>
           ))}
         </div>
@@ -167,27 +181,25 @@ const TeamSection = () => {
 
       <section className="join-us-section">
         <div className="join-left">
-          <h3>
-            {content.beAVoiceForChange}
-          </h3>
+          <h3>{content.beAVoiceForChange}</h3> {/* Translated */}
           <img
-            src="https://img.freepik.com/free-photo/confident-architect-with-blueprints-hardhat_1098-18345.jpg"
-            alt="Join Us Visual"
+            src={assets.image23}
+            alt="Join Us Visual" // Alt text can be translated if image is dynamic
             className="join-image"
           />
         </div>
 
         <div className="join-right">
-          <h2>{content.joinPunchlightFoundation}</h2>
-          <p>{content.joinPunchlightDesc1}</p>
-          <p>{content.joinPunchlightDesc2}</p>
+          <h2>{content.joinPunchlightFoundation}</h2> {/* Translated */}
+          <p>{content.joinPunchlightDesc1}</p> {/* Translated */}
+          <p>{content.joinPunchlightDesc2}</p> {/* Translated */}
           <Link to="/contact" className="join-button">
-            {content.joinNow}
+            {content.joinNow} {/* Translated */}
           </Link>
         </div>
       </section>
     </>
   );
-}
+};
 
-export default TeamSection
+export default TeamSection;
