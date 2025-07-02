@@ -15,7 +15,7 @@ function Donation() {
 
   const fetchDonors = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/donations');
+      const response = await axios.get('https://punchlightbackend.vercel.app/api/donations');
       setDonors(response.data);
     } catch (error) {
       console.error('Error fetching donors:', error);
