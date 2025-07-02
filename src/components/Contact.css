@@ -1,7 +1,7 @@
 /* --- Root Variables for Global Consistency --- */
 :root {
   /* Colors */
-  --primary-blue: #152b42;      /* Main dark blue */
+  --primary-blue: #0d1b2a;      /* Main dark blue */
   --light-blue: #2d4c73;        /* Lighter blue for accents/buttons */
   --accent-yellow: #ffc107;     /* Yellow for highlights */
   --text-dark: #152b42;         /* Use theme blue for headings */
