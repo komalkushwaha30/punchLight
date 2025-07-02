@@ -25,7 +25,6 @@ const WhatWeDo = () => {
     textDark: "#334155",
     pink : "#f44273",
     blue : "#0b1dfe",
-    white:"#fff"
   };
 
   // Refactor impactStats to use content keys
