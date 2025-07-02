@@ -189,7 +189,7 @@ const ProgramsSection = () => {
           {section.images.length > 0 && (
             <div className="image-carousel">
               <button
-                className="carousel-btn"
+                className="carousel-btnnn"
                 onClick={() => handlePrev(index)}
               >
                 <ChevronLeft />
@@ -202,7 +202,7 @@ const ProgramsSection = () => {
                 />
               </div>
               <button
-                className="carousel-btn"
+                className="carousel-btnnn"
                 onClick={() => handleNext(index)}
               >
                 <ChevronRight />
