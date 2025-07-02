@@ -173,7 +173,7 @@ function Home() {
         </video>
 
         <div className="hero-text">
-          <h2>{content.heroMainTitle}</h2> 
+          <h2>{content.herosubMainTitle}</h2> 
           <h1>{content.heroMainTitle}</h1> 
           <p>
             {content.heroSubtitle} 

@@ -20,7 +20,8 @@ const englishContent = {
   programsNav: "Programs",
 
   // Home Page - Hero Section
-  heroMainTitle: "For every community",
+  herosubMainTitle : "For every community",
+  heroMainTitle: "PunchLigth",
   heroSubtitle:
     "A dynamic social organization dedicated to empowering marginalized communities through education, awareness, and healthcare. We also focus on promoting cleanliness, skill development, energy solutions, and sustainable livelihoods.",
   donationButton: "Donation",
@@ -582,7 +583,7 @@ Jiwachh Ram has played a significant role in promoting social change through the
   contactUs: "Contact Us", // Re-used from Contact page
   followUs: "Follow Us",
   goToTop: "Go to Top",
-  copyright: "© 2024 Punchlight Foundation. All rights reserved.",
+  copyright: "© 2025 Punchlight Foundation. All rights reserved.",
   privacyPolicy: "Privacy Policy",
   termsOfService: "Terms of Service",
 
@@ -823,7 +824,8 @@ const hindiContent = {
   programsNav: "कार्यक्रम",
 
   // Home Page - Hero Section
-  heroMainTitle: "हर समुदाय के लिए",
+  herosubMainTitle: "हर समुदाय के लिए",
+  heroMainTitle : "पंचलाइट",
   heroSubtitle:
     "एक गतिशील सामाजिक संगठन जो शिक्षा, जागरूकता और स्वास्थ्य सेवा के माध्यम से हाशिए पर पड़े समुदायों को सशक्त बनाने के लिए समर्पित है। हम स्वच्छता, कौशल विकास, ऊर्जा समाधान और स्थायी आजीविका को बढ़ावा देने पर भी ध्यान केंद्रित करते हैं।",
   donationButton: "दान करें",
@@ -1140,7 +1142,7 @@ const hindiContent = {
   contactUs: "हमसे संपर्क करें",
   followUs: "हमें फॉलो करें",
   goToTop: "ऊपर जाएँ",
-  copyright: "© 2024 पंचलाइट फाउंडेशन। सर्वाधिकार सुरक्षित।",
+  copyright: "© 2025 पंचलाइट फाउंडेशन। सर्वाधिकार सुरक्षित।",
   privacyPolicy: "गोपनीयता नीति",
   termsOfService: "सेवा की शर्तें",
 
