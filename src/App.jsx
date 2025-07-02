@@ -17,6 +17,7 @@ import DonationPage from './components/DonationPage';
 import { LanguageProvider } from './LanguageProvider';
 import NotFound from './components/NotFound';
 
+
 function App() {
   return (
     <Router>
@@ -34,6 +35,7 @@ function App() {
         <Route path='/faqs' element={<FaqSection/>} />
         <Route path='/programs' element ={<ProgramsSection/>}/>
         <Route path='*' element={<NotFound/>}/>
+        <Route path='/donate' element={<Donation/>} />
        
       </Routes>
       <Footer /> {/* Add Footer here */}
@@ -42,3 +44,6 @@ function App() {
 }
 
 export default App;
+
+// debit card 
+// email id account 

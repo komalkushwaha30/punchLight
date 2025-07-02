@@ -55,7 +55,7 @@ const DonationForm = ({ onPaymentSuccess, onPaymentFailure }) => {
 
     try {
       // 1. Save donor details and create order on backend
-      const response = await axios.post('http://localhost:5000/api/donations/create-order', {
+      const response = await axios.post('https://punchlightbackend.vercel.app/api/donations/create-order', {      
         name,
         email,
         amount: parseFloat(amount) * 100, // Razorpay takes amount in paisa
@@ -76,7 +76,7 @@ const DonationForm = ({ onPaymentSuccess, onPaymentFailure }) => {
           setLoading(true); // Keep loading state true until verification is done
           try {
             // 3. Verify payment on backend
-            const verificationResponse = await axios.post('http://localhost:5000/api/donations/verify-payment', {
+            const verificationResponse = await axios.post('https://punchlightbackend.vercel.app/api/donations/verify-payment', {
               razorpay_payment_id: response.razorpay_payment_id,
               razorpay_order_id: response.razorpay_order_id,
               razorpay_signature: response.razorpay_signature,
