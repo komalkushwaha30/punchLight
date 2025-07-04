@@ -114,20 +114,11 @@ const Navbar = () => {
         </li>
         <li>
           <Link
-            to="/impact"
-            className={isActive('/impact') ? 'active-link' : ''}
+            to="/donation"
+            className={`donation-link${isActive('/donation') ? ' active-link' : ''}`}
             onClick={handleLinkClick}
           >
-            {content.impact || "Impact"}
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/donate"
-            className={isActive('/donate') ? 'active-link' : ''}
-            onClick={handleLinkClick}
-          >
-            {content.donate || "Donate"}
+            {content.donationNav}
           </Link>
         </li>
         {/* Language selection buttons */}
