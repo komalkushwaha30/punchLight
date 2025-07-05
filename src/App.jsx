@@ -32,12 +32,11 @@ function App() {
         <Route path="/team" element={<TeamSection />} />
         <Route path="/contact" element={<Contact />} />
         <Route path='/donation' element={<DonationPage/>} />
-        <Route path='/impact' element={<Impact/>} />
         <Route path='/publication' element ={<MediaAndPublications/>} />
         <Route path='/faqs' element={<FaqSection/>} />
         <Route path='/programs' element ={<ProgramsSection/>}/>
         <Route path='*' element={<NotFound/>}/>
-        <Route path='/donate' element={<Donation/>} />
+        
        
       </Routes>
       <Footer /> {/* Add Footer here */}
