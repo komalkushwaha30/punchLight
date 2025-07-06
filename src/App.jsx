@@ -36,7 +36,8 @@ function App() {
         <Route path='/faqs' element={<FaqSection/>} />
         <Route path='/programs' element ={<ProgramsSection/>}/>
         <Route path='*' element={<NotFound/>}/>
-        
+        <Route path="/impact" element={<Impact/>} />
+        <Route path='/donate' element={<Donation/>} />
        
       </Routes>
       <Footer /> {/* Add Footer here */}
