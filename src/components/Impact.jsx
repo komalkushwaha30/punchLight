@@ -10,6 +10,8 @@ const Impact = () => {
     const fetchDonors = async () => {
       try {
         const response = await axios.get('https://punchlightbackend.vercel.app/api/donations');
+        console.log("this is the resp",response);
+        
         setDonors(response.data);
       } catch (error) {
         console.error('Error fetching donors:', error);
