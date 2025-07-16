@@ -366,13 +366,13 @@
         min-width: 110px; /* **Increased min-width for mobile** */
     }
     .hamburger {
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
     }
     .hamburger .bar {
         width: 38px;
-        height: 5px;
-        margin: 6px 0;
+        height: 4px;
+        margin: 4px 0;
     }
     .hamburger .close-icon {
         font-size: 36px;
@@ -391,17 +391,17 @@
         min-height: 75px;
     }
     .nav-logo-img {
-        max-width: 200px; /* **INCREASED Even bigger logo on smaller mobile (was 170px)** */
-        min-width: 100px; /* **Increased min-width** */
+        max-width: 150px; /* **INCREASED Even bigger logo on smaller mobile (was 170px)** */
+        min-width: 80px; /* **Increased min-width** */
     }
     .hamburger {
-        width: 55px;
-        height: 55px;
+        width: 35px;
+        height: 35px;
     }
     .hamburger .bar {
-        width: 42px;
-        height: 6px;
-        margin: 5px 0;
+        width: 35px;
+        height: 4px;
+        margin: 3px 0;
     }
     .hamburger .close-icon {
         font-size: 40px;
@@ -425,7 +425,7 @@
     padding: 10px;
     margin: 0;
     background: #112240;
-    border: 1px solid #00bcd4;
+    border: 1px solid #01a4b9;
     border-radius: 5px;
     position: absolute;
     z-index: 1000;

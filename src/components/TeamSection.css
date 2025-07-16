@@ -230,17 +230,20 @@ section {
 }
 
 .modal-content {
- background-color: var(--card-background);
- border-radius: var(--border-radius-lg);
- max-width: 600px;
- width: 100%;
- max-height: 90vh;
- overflow-y: auto;
- padding: var(--spacing-lg);
- position: relative;
- box-shadow: var(--shadow-lg);
- text-align: center;
- border: 2px solid var(--primary-blue);
+  background-color: var(--card-background);
+  border-radius: var(--border-radius-lg);
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: var(--spacing-lg);
+  padding-top: 4rem; /* Add enough padding so close button doesn’t overlap */
+  margin-top: 80px;  /* Pushes the modal below navbar */
+  position: relative;
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+  border: 2px solid var(--primary-blue);
+  z-index: 1001; /* Ensure it’s above everything */
 }
 
 .close-btn {
