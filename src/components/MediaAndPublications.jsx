@@ -81,14 +81,7 @@ const mediaData = {
       date: "June 28, 2025",
       featured: true
     },
-    {
-      id: "news_government_scheme",
-      image: assets.image54,
-      title: "हर बहना को ₹12 हजार की योजना",
-      snippet: "सरकार द्वारा महिलाओं के सशक्तिकरण के लिए ₹12,000 सालाना सहायता की योजना शुरू की गई है। इस योजना से लाखों महिलाएं लाभान्वित हो रही हैं।",
-      publication: "सरकारी विज्ञप्ति",
-      date: "June 28, 2025"
-    }
+    
   ],
   otherPublications: [
     {

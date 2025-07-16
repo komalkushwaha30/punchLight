@@ -1,303 +1,449 @@
 /* --- Base Navbar Styles --- */
 .navbar {
- top: 0;
- left: 0;
- width: 100%;
- z-index: 1001; /* Ensure the main navbar is above most content */
- display: flex;
- flex-direction: row;
- justify-content: space-between;
- align-items: center;
- background: #0d1b2a;
- padding: 12px 40px;
- color: #f1f5fa;
- min-height: 64px;
- box-sizing: border-box;
- backdrop-filter: blur(10px);
- box-shadow: 0 4px 20px rgba(13, 27, 42, 0.18);
- transition: background 0.3s, box-shadow 0.3s;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1001; /* Ensure the main navbar is above most content */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Keeps logo and nav links at ends */
+    align-items: center; /* Vertically centers items */
+    background: #0d1b2a;
+    padding: 12px 40px; /* Base padding for common desktop screens (around 1400px) */
+    color: #f1f5fa;
+    min-height: 64px; /* Ensure a minimum height for the navbar */
+    box-sizing: border-box; /* Include padding in element's total width/height */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(13, 27, 42, 0.18);
+    transition: background 0.3s, box-shadow 0.3s, padding 0.3s; /* Add padding to transition */
+    flex-wrap: nowrap; /* Keep on one line by default */
 }
 
 .navbar:hover {
- background: #0d1b2a;
- box-shadow: 0 6px 25px rgba(13, 27, 42, 0.28);
+    background: #0d1b2a;
+    box-shadow: 0 6px 25px rgba(13, 27, 42, 0.28);
 }
 
 /* --- Logo and Text --- */
 .nav-logo-container {
- display: flex;
- align-items: center;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0; /* Prevent logo from shrinking initially */
+    flex-grow: 0;
 }
 
 .nav-home-link {
- display: flex;
- align-items: center;
- gap: 12px;
- text-decoration: none;
- color: #f1f5fa;
- height: 48px;
- min-width: 120px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #f1f5fa;
+    height: 48px; /* Consistent height for the link area */
 }
 
 .nav-logo-img {
- width: 100%;
- max-width: 180px;
- height: auto;
- background: none;
- box-shadow: none;
- margin-top: 0;
- object-fit: contain;
- transition: max-width 0.2s;
+    width: 100%; /* Allows it to scale within its container */
+    max-width: 200px; /* **INCREASED default max-width for large screens** */
+    min-width: 90px; /* **INCREASED Set a minimum width to prevent it from becoming too small** */
+    height: auto; /* Maintain aspect ratio */
+    background: none;
+    box-shadow: none;
+    margin-top: 15px;
+    object-fit: contain;
+    transition: max-width 0.2s, min-width 0.2s;
 }
 
 /* --- Nav Links --- */
 .nav-links {
- display: flex;
- align-items: center;
- list-style: none;
- gap: 24px;
- font-weight: 500;
- height: 48px;
- margin: 0;
- padding: 0;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 24px; /* Default gap for very large screens */
+    font-weight: 500;
+    height: 48px; /* Consistent height for the links row */
+    margin: 0;
+    padding: 0;
+    flex-shrink: 1; /* Allow nav links to shrink if needed */
+    flex-grow: 1; /* Allow nav links to grow and take available space */
+    justify-content: flex-end; /* Align links to the right */
 }
 
 .nav-links li {
- display: flex;
- align-items: center;
- height: 48px;
+    display: flex;
+    align-items: center;
+    height: 48px;
 }
 
 /* --- Nav Link Anchors --- */
 .nav-links li a {
- color: #e8f2fa;
- text-decoration: none;
- font-size: 1.08rem;
- font-weight: 500;
- position: relative;
- transition: color 0.3s, transform 0.2s;
- padding: 0 10px;
- height: 40px;
- display: flex;
- align-items: center;
- border-radius: 6px;
- white-space: nowrap;
+    color: #e8f2fa;
+    text-decoration: none;
+    font-size: 1.08rem; /* Base font size for large screens */
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s, transform 0.2s, font-size 0.2s, padding 0.2s; /* Add font-size and padding to transition */
+    padding: 0 10px; /* Base padding */
+    height: 40px; /* Consistent height for individual link items */
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    white-space: nowrap; /* Prevent links from wrapping their text */
 }
 
 .nav-links li a::after {
- content: '';
- position: absolute;
- bottom: -5px;
- left: 0;
- width: 0;
- height: 2px;
- background: #00bcd4;
- transition: width 0.3s;
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #00bcd4;
+    transition: width 0.3s;
 }
 
 .nav-links li a:hover::after {
- width: 100%;
+    width: 100%;
 }
 
 .nav-links .active-link {
- color: #00bcd4;
- font-weight: bold;
- animation: pulse 1s infinite;
- position: relative;
+    color: #00bcd4;
+    font-weight: bold;
+    animation: pulse 1s infinite;
+    position: relative;
 }
 
 /* --- Language Switcher Buttons --- */
 .nav-links li button {
- background: transparent;
- border: 2px solid #00bcd4;
- color: #00bcd4;
- font-size: 1.08rem;
- font-weight: 600;
- border-radius: 18px;
- padding: 0 18px;
- height: 40px;
- margin: 0 4px;
- cursor: pointer;
- transition: background 0.25s, color 0.25s, border-color 0.25s, box-shadow 0.25s;
- outline: none;
- box-shadow: none;
- letter-spacing: 0.5px;
- display: flex;
- align-items: center;
- justify-content: center;
- white-space: nowrap;
+    background: transparent;
+    border: 2px solid #00bcd4;
+    color: #00bcd4;
+    font-size: 1.08rem;
+    font-weight: 600;
+    border-radius: 18px;
+    padding: 0 18px;
+    height: 40px;
+    margin: 0 4px;
+    cursor: pointer;
+    transition: background 0.25s, color 0.25s, border-color 0.25s, box-shadow 0.25s, font-size 0.2s, padding 0.2s, height 0.2s;
+    outline: none;
+    box-shadow: none;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
 }
 
 .nav-links li button.active-link,
 .nav-links li button:focus,
 .nav-links li button:hover {
- background: linear-gradient(90deg, #00bcd4, #0d1b2a);
- color: #fff;
- border-color: #00bcd4;
- box-shadow: 0 2px 8px rgba(0, 188, 212, 0.13);
+    background: linear-gradient(90deg, #00bcd4, #0d1b2a);
+    color: #fff;
+    border-color: #00bcd4;
+    box-shadow: 0 2px 8px rgba(0, 188, 212, 0.13);
 }
 
 /* --- Hamburger Menu --- */
 .hamburger {
- display: none;
- flex-direction: column;
- justify-content: center;
- align-items: center;
- width: 38px;
- height: 38px;
- background: none;
- border: none;
- cursor: pointer;
- z-index: 1100;
- margin-left: 12px;
+    display: none; /* Hidden by default for desktop */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+    margin-left: 12px;
 }
 
 .hamburger .bar {
- display: block;
- width: 26px;
- height: 3px;
- margin: 4px 0;
- background: #00bcd4;
- border-radius: 2px;
- transition: all 0.3s;
+    display: block;
+    width: 32px;
+    height: 4px;
+    margin: 5px 0;
+    background: #00bcd4;
+    border-radius: 2px;
+    transition: all 0.3s;
 }
 
 .hamburger .close-icon {
- font-size: 24px;
- color: #00bcd4;
- font-weight: bold;
- transition: transform 0.3s ease;
+    font-size: 30px;
+    color: #00bcd4;
+    font-weight: bold;
+    transition: transform 0.3s ease;
 }
 
 .hamburger .close-icon:hover {
- transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 /* --- Responsive Design (Mobile Menu) --- */
 @media (max-width: 900px) {
- .hamburger {
- display: flex;
- }
+    .hamburger {
+        display: flex; /* Show hamburger on small screens */
+    }
 
- .nav-links {
- display: none; /* Hidden by default */
- flex-direction: column;
- position: fixed; /* Changed from absolute to fixed to cover viewport */
- top: 64px;
- left: 0;
- width: 100vw;
- height: calc(100vh - 64px); /* Make it fill the rest of the viewport */
- background: #0d1b2a; /* Solid background for the menu itself */
- box-shadow: 0 8px 32px rgba(13, 27, 42, 0.18);
- padding: 24px 0;
- z-index: 1050; /* Ensure menu is above page content, below overlay */
- gap: 18px;
- align-items: center;
- overflow-y: auto; /* Enable scrolling for long menus */
- transition: transform 0.3s ease-out; /* Smooth transition for slide-in */
- transform: translateX(100%); /* Start off-screen to the right */
- }
+    .nav-links {
+        display: none; /* Hidden by default */
+        flex-direction: column;
+        position: fixed;
+        top: 64px; /* Adjust if navbar height changes */
+        left: 0;
+        width: 100vw;
+        height: calc(100vh - 64px);
+        background: #0d1b2a;
+        box-shadow: 0 8px 32px rgba(13, 27, 42, 0.18);
+        padding: 24px 0;
+        z-index: 1050;
+        gap: 18px;
+        align-items: center;
+        overflow-y: auto;
+        transition: transform 0.3s ease-out;
+        transform: translateX(100%);
+        /* Ensure language buttons don't wrap individually if they are in their own li */
+        flex-wrap: nowrap; /* Ensures main nav items don't wrap and cause issues */
+    }
 
- .nav-links.active {
- display: flex; /* Show menu */
- transform: translateX(0); /* Slide into view */
- }
+    .nav-links.active {
+        display: flex;
+        transform: translateX(0);
+    }
 
- .nav-links li {
- width: 100%;
- text-align: center;
- }
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        /* Make each list item a flex container to center its content */
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+    }
 
- .nav-links li a,
- .nav-links li button {
- justify-content: center;
- width: auto;
- margin: 0 auto;
- }
+    .nav-links li a,
+    .nav-links li button {
+        justify-content: center;
+        width: auto;
+    }
 
- /* --- NEW: Mobile Menu Overlay for Page Content --- */
- .mobile-menu-overlay {
- position: fixed; /* Fixed to cover the entire viewport */
- top: 0;
- left: 0;
- width: 100vw;
- height: 100vh;
- background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
- /* Add blur effect to the background content */
- backdrop-filter: blur(5px);
- z-index: 1040; /* Lower than nav-links (1050) but higher than page content */
- transition: opacity 0.3s ease-in-out;
- opacity: 0; /* Start hidden */
- pointer-events: none; /* Allow clicks to pass through when hidden */
- }
+    /* Target the li containing the language buttons specifically */
+    .nav-links li:last-child {
+        display: flex; /* Make this specific list item a flex container */
+        flex-direction: row; /* Arrange buttons in a row */
+        justify-content: center; /* Center the buttons horizontally within this li */
+        gap: 10px; /* Add some space between the buttons */
+        width: auto; /* Allow it to shrink to fit content */
+        padding: 0 20px; /* Add some horizontal padding around the buttons */
+    }
 
- /* When the menu is active, show the overlay */
- .nav-links.active + .mobile-menu-overlay { /* This selector works if overlay is directly after nav-links */
- opacity: 1;
- pointer-events: auto; /* Enable clicks on overlay to close menu */
- }
+    /* Mobile Menu Overlay for Page Content */
+    .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+        z-index: 1040;
+        transition: opacity 0.3s ease-in-out;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .nav-links.active + .mobile-menu-overlay {
+        opacity: 1;
+        pointer-events: auto;
+    }
 }
 
-/* --- Responsive Logo Image (refinements) --- */
-@media (max-width: 1200px) {
- .nav-logo-img {
- max-width: 140px;
- }
+/* --- Responsive Logo Image & Navbar Padding (Crucial Adjustments for larger screens) --- */
+
+/* For very large/widescreen desktops (>= 1601px) */
+@media (min-width: 1601px) {
+    .navbar {
+        padding: 20px 80px; /* More padding for very wide screens */
+        
+    }
+    .nav-links {
+        gap: 30px; /* More space between links */
+    }
+    .nav-links li a {
+        font-size: 1.15rem; /* Slightly larger font for readability */
+        padding: 0 12px;
+    }
+    .nav-links li button {
+        font-size: 1.1rem;
+        padding: 0 20px;
+        height: 42px;
+    }
+    .nav-logo-img {
+        max-width: 250px; /* **INCREASED logo size for very large screens** */
+        min-width: 120px; /* Ensure a decent minimum */
+        margin-top: 15px;
+    }
 }
+
+/* For large desktops (1401px to 1600px) */
+@media (max-width: 1600px) and (min-width: 1401px) {
+    .navbar {
+        padding: 12px 50px; /* Standard large desktop padding */
+    }
+    .nav-links {
+        gap: 24px; /* Default gap */
+    }
+    .nav-links li a {
+        font-size: 1.08rem; /* Base font size */
+        padding: 0 10px;
+    }
+    .nav-links li button {
+        font-size: 1.08rem;
+        padding: 0 18px;
+        height: 40px;
+    }
+    .nav-logo-img {
+        max-width: 220px; /* **INCREASED logo size** */
+        min-width: 110px;
+    }
+}
+
+/* For mid-range desktops / large laptops (1103px to 1400px) */
+@media (max-width: 1400px) and (min-width: 1103px) {
+    .navbar {
+        padding: 12px 30px; /* Reduced padding */
+    }
+    .nav-links {
+        gap: 16px; /* Reduced gap to fit more links */
+    }
+    .nav-links li a {
+        font-size: 0.98rem; /* Slightly smaller font */
+        padding: 0 8px; /* Reduced link padding */
+    }
+    .nav-links li button {
+        font-size: 0.98rem;
+        padding: 0 15px;
+        height: 38px;
+    }
+    .nav-logo-img {
+        max-width: 180px; /* **INCREASED logo size, but still smaller than larger screens** */
+        min-width: 100px;
+    }
+}
+
+/* For larger tablets / small laptops (901px to 1102px) - refined */
+@media (max-width: 1102px) and (min-width: 901px) {
+    .navbar {
+        padding: 12px 20px; /* Tighter padding for this range */
+    }
+    .nav-links {
+        gap: 8px; /* Significantly reduced gap */
+    }
+    .nav-links li a {
+        font-size: 0.88rem; /* Make font size quite small to fit all links */
+        padding: 0 4px; /* Minimal horizontal padding */
+        height: 38px; /* Slightly reduce height if needed to prevent vertical crowding */
+    }
+    .nav-links li button { /* Also adjust language buttons */
+        font-size: 0.88rem;
+        padding: 0 10px;
+        height: 36px;
+    }
+    .nav-logo-img {
+        max-width: 150px; /* **INCREASED logo size slightly for this critical breakpoint** */
+        min-width: 90px; /* Ensure it doesn't disappear */
+    }
+}
+
+/* For screens where hamburger appears (<= 900px) */
 @media (max-width: 900px) {
- .nav-logo-img {
- max-width: 110px;
- }
- .navbar {
- padding: 12px 20px;
- }
+    .navbar {
+        padding: 15px 20px;
+        flex-wrap: nowrap;
+        min-height: 70px;
+    }
+    .nav-logo-img {
+        max-width: 180px; /* **INCREASED Bigger logo on mobile (was 150px)** */
+        min-width: 110px; /* **Increased min-width for mobile** */
+    }
+    .hamburger {
+        width: 50px;
+        height: 50px;
+    }
+    .hamburger .bar {
+        width: 38px;
+        height: 5px;
+        margin: 6px 0;
+    }
+    .hamburger .close-icon {
+        font-size: 36px;
+    }
+    .nav-links {
+        flex-wrap: nowrap; /* Prevent wrapping for main nav items */
+        justify-content: center;
+        gap: 18px;
+    }
 }
+
+/* For smaller mobile devices (<= 600px) */
 @media (max-width: 600px) {
- .nav-logo-img {
- max-width: 80px;
- }
-}
-
-/* Responsive adjustments for small screens */
-@media (max-width: 768px) {
- .nav-logo-img {
- max-width: 120px; /* Slightly increase logo size */
- height: auto; /* Maintain aspect ratio */
- }
-}
-
-@media (max-width: 480px) {
- .nav-logo-img {
- max-width: 140px; /* Further increase logo size for very small screens */
- height: auto; /* Maintain aspect ratio */
- }
+    .navbar {
+        padding: 15px 15px;
+        min-height: 75px;
+    }
+    .nav-logo-img {
+        max-width: 200px; /* **INCREASED Even bigger logo on smaller mobile (was 170px)** */
+        min-width: 100px; /* **Increased min-width** */
+    }
+    .hamburger {
+        width: 55px;
+        height: 55px;
+    }
+    .hamburger .bar {
+        width: 42px;
+        height: 6px;
+        margin: 5px 0;
+    }
+    .hamburger .close-icon {
+        font-size: 40px;
+    }
+    .nav-links li a,
+    .nav-links li button {
+        font-size: 1rem;
+        padding: 0 10px;
+        height: 45px;
+    }
+    /* Ensure language buttons stay side-by-side on very small screens too */
+    .nav-links li:last-child {
+        flex-direction: row;
+        gap: 8px; /* Slightly reduce gap for very small screens */
+    }
 }
 
 /* Dropdown (TOC) - unchanged */
 .toc {
- list-style: none;
- padding: 10px;
- margin: 0;
- background: #112240;
- border: 1px solid #00bcd4;
- border-radius: 5px;
- position: absolute;
- z-index: 1000;
- box-shadow: 0 4px 8px rgba(0, 188, 212, 0.08);
- display: block;
- min-width: 200px;
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    background: #112240;
+    border: 1px solid #00bcd4;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 188, 212, 0.08);
+    display: block;
+    min-width: 200px;
 }
 
 .toc li {
- padding: 8px 12px;
- cursor: pointer;
- color: #bfc9d1;
- font-size: 0.95rem;
- transition: background 0.3s, color 0.3s;
+    padding: 8px 12px;
+    cursor: pointer;
+    color: #bfc9d1;
+    font-size: 0.95rem;
+    transition: background 0.3s, color 0.3s;
 }
 
 .toc li:hover {
- background: #00bcd4;
- color: #fff;
- border-radius: 3px;
+    background: #00bcd4;
+    color: #fff;
+    border-radius: 3px;
 }

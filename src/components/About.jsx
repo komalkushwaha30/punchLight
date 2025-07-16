@@ -166,7 +166,7 @@ function About() {
  </p>
  <p>
  {founderStory2BeforeNeeraj}
- <strong>Neeraj Kumar</strong>
+ 
  {founderStory2BeforeEdu}
  <strong>education, health, hygiene, and street theatre</strong>
  {founderStory2AfterEdu} {/* Safer split handling */}

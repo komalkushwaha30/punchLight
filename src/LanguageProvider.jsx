@@ -458,31 +458,31 @@ const englishContent = {
     "A cross-cultural team dedicated to creating opportunities for rural communities, promoting lifelong learning, and driving positive, sustainable change.",
 
   prashantPalName: "Prashant Pal",
-  prashantPalPosition: "Co-Founder, Managing Trustee",
+  prashantPalPosition: "Founder & CEO Pure India Trust",
   prashantPalDescription: `Prashant Pal is a seasoned professional who has worked for decades in the corporate and social sectors. In 2013, he founded PURE India Trust, which aims to empower women and differently-abled people through entrepreneurship, skill development, and education. Coming from a middle-class background, Prashant witnessed poverty and economic struggles closely, which inspired him to help the needy. Influenced by the Anna Hazare movement, he returned to India in 2012 and started working for social change.
 At Punchlight Foundation, he is playing a vital role as a core advisor and mentor. With his extensive experience and guidance, the organization is moving forward strongly in its objective of bringing impactful change in the society.`,
 
   shMasoomName: "Sh. Masoom",
-  shMasoomPosition: "Board Member",
+  shMasoomPosition: "A Teacher, Author And Literacy Activist",
   shMasoomDescription: `Shamsul Hoda Masoom (S. H. Masoom) is a respected teacher, author, and literary activist based in Araria, Bihar. He has dedicated his life to using education and literature as tools for social transformation. Through his writing and teaching, he has inspired generations of students and readers alike.
 He holds postgraduate degrees (MA) in both English and Persian from Patna University, along with a Bachelor's degree in Secondary Education and a certification in BET Lectureship. His academic background is rich, diverse, and deeply rooted in classical and contemporary learning.
 At Punchlight Foundation, he serves as a mentor, contributing his academic expertise, linguistic depth, and literary perspective to help guide the organization’s educational and social initiatives. His insights continue to shape the foundation’s mission of community empowerment through knowledge and awareness.
 S. H. Masoom remains a source of inspiration in the fields of education, literature, and social consciousness.`,
 
   abodhKumarName: "Abodh Kumar",
-  abodhKumarPosition: "Board Member",
+  abodhKumarPosition: "Co-Founder & Trustee of Project Potential",
   abodhKumarDescription: `Abodh Kumar has believed in self-reliance and hard work since childhood. After starting out at his father’s blacksmith shop in Bihar, he set up a juice stall at the age of 10 and bought a Sanskrit grammar book with his first earnings. He self-financed his high school and college education.
 A postgraduate diploma holder in Leadership Development from Azim Premji University, Bengaluru, Abodh is dedicated to personal growth and community empowerment. His grassroots understanding and leadership skills guide the community work of Punchlight Foundation. As a core advisor and mentor, he plays a key role in the organization’s strategies, further strengthening our commitment to bring positive change in society.`,
 
   amitKumarThakurName: "Amit Kumar Thakur",
-  amitKumarThakurPosition: "Board Member",
+  amitKumarThakurPosition: "Team Coordinator of Pradan",
   amitKumarThakurDescription: `Amit Thakur is a committed development professional with over a decade of experience in grassroots rural transformation. A B.Tech graduate from Siliguri Institute of Technology, he chose to work with marginalized communities rather than pursue a traditional corporate path.
 He joined Professional Assistance for Development Action (PRADAN) in 2012 and has since been deeply involved in rural development work in Bihar, especially in Kishanganj. His efforts focus on employment generation, enterprise development, building sustainable livelihoods, empowering women, and strengthening community institutions.
 At Punchlight Foundation, Amit Thakur serves as a mentor and guide, offering strategic advice and field-based insights. His extensive on-ground experience helps the organization remain grounded in real-world challenges while designing impactful social interventions.
 With his dual engagement in development and mentorship, Amit continues to play a significant role in driving meaningful change at both institutional and community levels.`,
 
   sanjayKumarThakurName: "Sanjay Kumar Thakur",
-  sanjayKumarThakurPosition: "Trustee",
+  sanjayKumarThakurPosition: "Our Founder & Managing Trustee",
   sanjayKumarThakurDescription: `Sanjay Kumar Thakur is the visionary founder of Punchlight Foundation Trust, a platform dedicated to using theatre as a powerful tool for social change. Starting his journey in 2003 from Araria, Bihar, he raised awareness on critical social issues through plays with renowned organizations like IPTA, Renu Sanskritik Manch, and Bhartiya Kala Sanskriti Manch.
 In 2005, his involvement in the AIDS awareness campaign made him realize that art can bring about real transformation. His leadership as Secretary of Bharatiya Kala Sanskriti Manch (2006-2010) saw him drive significant campaigns on education, prohibition, and social reform. He later contributed to impactful projects like the Chief Minister Akshar Anchal Yojana and worked with J-PAL South Asia, Bihar Education Project Council, and Social Welfare Department to combat child malnutrition, child marriage, and dowry.
 In Oct 2011 to Jul 2012, he worked as a Surveyor for J-PAL South Asia, conducting surveys and contributing to research in social interventions.
@@ -496,7 +496,7 @@ Today, Sanjay Kumar Thakur continues to inspire change through his art, driving 
 Currently, she serves as a trustee of Punchlight Foundation, where she actively works on raising awareness and addressing social issues such as child marriage, health, women’s empowerment, and pandemics. Through her role, she continues to make significant contributions toward creating positive social change.`,
 
   ramashankarDasName: "Ramashankar Das",
-  ramashankarDasPosition: "Trustee",
+  ramashankarDasPosition: "Our Settlor & Trustee",
   ramashankarDasDescription: `Ramashankar Das is a seasoned entrepreneur and committed philanthropist. With a strong belief in inclusive development, he has consistently supported community welfare initiatives alongside his business endeavors. During the COVID-19 lockdown, he provided critical support to a local NGO by supplying essential commodities on credit at below-market rates, enabling effective relief distribution to underserved communities.
 As a Settlor and Board Member of Punchlight Foundation, Mr. Das brings a unique blend of strategic insight and social commitment. His guidance and continued support play a vital role in advancing the Foundation’s mission to drive grassroots change through education, awareness, and empowerment.`,
 
@@ -506,12 +506,12 @@ As a Settlor and Board Member of Punchlight Foundation, Mr. Das brings a unique 
 Currently, she serves as a trustee of Punchlight Foundation, providing guidance and support for the organization’s social initiatives and programs. Her leadership and commitment play a key role in advancing the foundation’s mission of creating positive social change.`,
 
   akankshaBhartiName: "Akanksha Bharti",
-  akankshaBhartiPosition: "Trustee",
+  akankshaBhartiPosition: "Our Adhigam Sarthi",
   akankshaBhartiDescription: `Akanksha is an educator and social worker with three years of experience in the field of education. She has contributed to the holistic development of children while teaching in private schools.
 Currently, she is pursuing higher education and actively involved with Punchlight Foundation in initiatives like "Adhigamshala." She is committed to bringing positive change in society through education and awareness.`,
 
   jiwachhRamName: "Jiwachh Ram",
-  jiwachhRamPosition: "Trustee",
+  jiwachhRamPosition: "Our Artist",
   jiwachhRamDescription: `Jiwachh Ram began his journey with street theatre in 1992. Over the years, he has actively participated in street plays to raise awareness on various social issues. He has performed plays on topics such as child malnutrition, prohibition, child marriage, dowry abolition, sanitation, and voter awareness, contributing to numerous campaigns.
 Jiwachh Ram has played a significant role in promoting social change through theatre, using his performances to spread education and awareness. He believes in the power of theatre to bring about positive change in society and strives to empower people through his plays. Currently, he is associated with Punchlight Foundation and actively participates in their street play programs.`,
 
@@ -627,15 +627,7 @@ Jiwachh Ram has played a significant role in promoting social change through the
         date: "June 28, 2025",
         featured: true,
       },
-      {
-        id: "news_government_scheme",
-        image: "image54", // Reference assets key
-        title: "Scheme of ₹12 Thousand for Every Sister",
-        snippet:
-          "A scheme of ₹12,000 annual assistance has been launched by the government for the empowerment of women. Millions of women are benefiting from this scheme.",
-        publication: "Government Press Release",
-        date: "June 28, 2025",
-      },
+      
     ],
     otherPublications: [
       {
@@ -673,8 +665,8 @@ Jiwachh Ram has played a significant role in promoting social change through the
   progNatyaCard2Title: "Dialogue with Walls (Wall Painting)",
   progNatyaCard2Text:
     "In every faded wall, we see a voice waiting to rise. Through Dialogue with Walls, we bring life to forgotten spaces — painting stories of hope, courage, and change. We speak about gender equality, education, health, hygiene, and women empowerment, using art as a powerful tool of resistance and renewal. Each wall becomes a conversation starter, urging communities to think, feel, and act. After every artwork, we listen — to fears, to dreams, to silent struggles — and together, we craft messages that truly belong to the people. Because real change doesn't just happen. It is written, painted, and spoken — on every wall, in every heart.",
-  progNatyaImpact1: "50+ plays performed",
-  progNatyaImpact2: "5000+ people reached",
+  progNatyaImpact1: "100+ plays performed",
+  progNatyaImpact2: "10000+ people reached",
 
   // AdhigamShala
   progShalaTitle: "AdhigamShala",
@@ -698,8 +690,8 @@ This inclusive environment empowers children to ask questions, share their ideas
 Beyond academics, we focus on values, creativity, and life skills through arts, environmental awareness, health education, and extracurricular activities. Our aim is to nurture confident, empathetic, and socially aware individuals.
 
 We believe every child deserves the chance to dream, grow, and contribute meaningfully to society.`,
-  progShalaImpact1: "500+ children educated",
-  progShalaImpact2: "10+ learning centers",
+  progShalaImpact1: "50+ children educated",
+  progShalaImpact2: "1 learning centers",
 
   // Adhigamsvasthya
   progSvasthyaTitle: "Adhigamsvasthya",
@@ -1280,26 +1272,26 @@ const hindiContent = {
   teamTeamIntro:
     "एक बहुसांस्कृतिक टीम जो ग्रामीण समुदायों के लिए अवसर सृजित करने, आजीवन सीखने को बढ़ावा देने और सकारात्मक, स्थायी बदलाव लाने के लिए समर्पित है।",
   prashantPalName: "प्रशांत पाल",
-  prashantPalPosition: "सह-संस्थापक, प्रबंध न्यासी",
+  prashantPalPosition: "संस्थापक और सीईओ, प्योर इंडिया ट्रस्ट",
   prashantPalDescription: `प्रशांत पाल दशकों से कॉर्पोरेट और सामाजिक क्षेत्रों में काम करने वाले एक अनुभवी पेशेवर हैं। 2013 में, उन्होंने PURE India Trust की स्थापना की, जिसका उद्देश्य उद्यमिता, कौशल विकास और शिक्षा के माध्यम से महिलाओं और दिव्यांग व्यक्तियों को सशक्त बनाना है। एक मध्यमवर्गीय पृष्ठभूमि से आने के कारण, प्रशांत ने गरीबी और आर्थिक संघर्षों को करीब से देखा, जिसने उन्हें जरूरतमंदों की मदद करने के लिए प्रेरित किया। अन्ना हजारे आंदोलन से प्रभावित होकर, वह 2012 में भारत लौटे और सामाजिक परिवर्तन के लिए काम करना शुरू किया।पंचलाइट फाउंडेशन में, वह एक मुख्य सलाहकार और संरक्षक के रूप में महत्वपूर्ण भूमिका निभा रहे हैं। अपने व्यापक अनुभव और मार्गदर्शन से, संगठन समाज में प्रभावशाली बदलाव लाने के अपने उद्देश्य में मजबूती से आगे बढ़ रहा है।`,
 
   shMasoomName: "श्री मासूम",
-  shMasoomPosition: "बोर्ड सदस्य",
+  shMasoomPosition: "एक शिक्षक, लेखक और साक्षरता कार्यकर्ता",
   shMasoomDescription: `शम्सुल हुदा मासूम (एस. एच. मासूम) अररिया, बिहार में स्थित एक सम्मानित शिक्षक, लेखक और साहित्यिक कार्यकर्ता हैं। उन्होंने अपना जीवन शिक्षा और साहित्य को सामाजिक परिवर्तन के साधन के रूप में उपयोग करने के लिए समर्पित किया है। अपने लेखन और शिक्षण के माध्यम से, उन्होंने छात्रों और पाठकों की कई पीढ़ियों को प्रेरित किया है। उनके पास पटना विश्वविद्यालय से अंग्रेजी और फारसी दोनों में स्नातकोत्तर (एमए) की डिग्री है, साथ ही माध्यमिक शिक्षा में स्नातक की डिग्री और बी.एड व्याख्याता में प्रमाणन भी है। उनकी अकादमिक पृष्ठभूमि समृद्ध, विविध और शास्त्रीय तथा समकालीन शिक्षा में गहराई से निहित है। पंचलाइट फाउंडेशन में, वह एक संरक्षक के रूप में कार्य करते हैं, संगठन की शैक्षिक और सामाजिक पहलों का मार्गदर्शन करने के लिए अपनी अकादमिक विशेषज्ञता, भाषाई गहराई और साहित्यिक दृष्टिकोण का योगदान करते हैं। उनकी अंतर्दृष्टि ज्ञान और जागरूकता के माध्यम से सामुदायिक सशक्तिकरण के फाउंडेशन के मिशन को लगातार आकार दे रही है। एस. एच. मासूम शिक्षा, साहित्य और सामाजिक चेतना के क्षेत्रों में प्रेरणा का स्रोत बने हुए हैं।`,
 
   abodhKumarName: "अबोध कुमार",
-  abodhKumarPosition: "बोर्ड सदस्य",
+  abodhKumarPosition: "सह-संस्थापक और ट्रस्टी, प्रोजेक्ट पोटेंशियल",
   abodhKumarDescription: `अबोध कुमार बचपन से ही आत्मनिर्भरता और कड़ी मेहनत में विश्वास रखते आए हैं। बिहार में अपने पिता की लोहार की दुकान से शुरुआत करने के बाद, उन्होंने 10 साल की उम्र में एक जूस का स्टॉल लगाया और अपनी पहली कमाई से संस्कृत व्याकरण की किताब खरीदी। उन्होंने अपनी हाई स्कूल और कॉलेज की शिक्षा का खर्च खुद उठाया। अजीम प्रेमजी विश्वविद्यालय, बेंगलुरु से नेतृत्व विकास में स्नातकोत्तर डिप्लोमा धारक, अबोध व्यक्तिगत विकास और सामुदायिक सशक्तिकरण के लिए समर्पित हैं। उनकी जमीनी समझ और नेतृत्व कौशल पंचलाइट फाउंडेशन के सामुदायिक कार्य का मार्गदर्शन करते हैं। एक मुख्य सलाहकार और संरक्षक के रूप में, वह संगठन की रणनीतियों में महत्वपूर्ण भूमिका निभाते हैं, समाज में सकारात्मक बदलाव लाने की हमारी प्रतिबद्धता को और मजबूत करते हैं।`,
 
   amitKumarThakurName: "अमित कुमार ठाकुर",
-  amitKumarThakurPosition: "बोर्ड सदस्य",
+  amitKumarThakurPosition: "प्रदान के टीम समन्वयक",
   amitKumarThakurDescription: `अमित ठाकुर एक प्रतिबद्ध विकास पेशेवर हैं, जिनके पास जमीनी स्तर पर ग्रामीण परिवर्तन में एक दशक से अधिक का अनुभव है। सिलीगुड़ी इंस्टीट्यूट ऑफ टेक्नोलॉजी से बी.टेक स्नातक होने के बाद, उन्होंने पारंपरिक कॉर्पोरेट मार्ग अपनाने के बजाय हाशिए पर पड़े समुदायों के साथ काम करना चुना。
 वह 2012 में प्रोफेशनल असिस्टेंस फॉर डेवलपमेंट एक्शन (PRADAN) में शामिल हुए और तब से बिहार, विशेष रूप से किशनगंज में ग्रामीण विकास कार्यों में गहराई से शामिल रहे हैं। उनके प्रयास रोजगार सृजन, उद्यम विकास, स्थायी आजीविका निर्माण, महिलाओं के सशक्तिकरण और सामुदायिक संस्थानों को मजबूत करने पर केंद्रित हैं。
 पंचलाइट फाउंडेशन में, अमित ठाकुर एक संरक्षक और मार्गदर्शक के रूप में कार्य करते हैं, रणनीतिक सलाह और क्षेत्र-आधारित अंतर्दृष्टि प्रदान करते हैं। उनका व्यापक जमीनी अनुभव संगठन को वास्तविक दुनिया की चुनौतियों में मजबूती से खड़ा रहने में मदद करता है, जबकि प्रभावशाली सामाजिक हस्तक्षेपों का डिजाइन तैयार किया जाता है。
 विकास और परामर्श दोनों में अपनी दोहरी भागीदारी के साथ, अमित संस्थागत और सामुदायिक दोनों स्तरों पर सार्थक परिवर्तन लाने में महत्वपूर्ण भूमिका निभा रहे हैं।`,
 
   sanjayKumarThakurName: "संजय कुमार ठाकुर",
-  sanjayKumarThakurPosition: "न्यासी",
+  sanjayKumarThakurPosition: "हमारे संस्थापक एवं प्रबंध न्यासी",
   sanjayKumarThakurDescription:
     "संजय कुमार ठाकुर पंचलाइट फाउंडेशन ट्रस्ट के दूरदर्शी संस्थापक हैं, जो रंगमंच को सामाजिक परिवर्तन के एक शक्तिशाली उपकरण के रूप में उपयोग करने के लिए समर्पित एक मंच है। 2003 में बिहार के अररिया से अपनी यात्रा शुरू करते हुए, उन्होंने IPTA, रेणु सांस्कृतिक मंच, और भारतीय कला संस्कृति मंच जैसे प्रसिद्ध संगठनों के साथ नाटकों के माध्यम से महत्वपूर्ण सामाजिक मुद्दों पर जागरूकता बढ़ाई। 2005 में, एड्स जागरूकता अभियान में उनकी भागीदारी ने उन्हें यह महसूस कराया कि कला वास्तविक परिवर्तन ला सकती है। भारतीय कला संस्कृति मंच (2006-2010) के सचिव के रूप में उनके नेतृत्व में शिक्षा, निषेध और सामाजिक सुधार पर महत्वपूर्ण अभियान चलाए गए। उन्होंने बाद में मुख्यमंत्री अक्षर अंचल योजना जैसे प्रभावशाली परियोजनाओं में योगदान दिया और बाल कुपोषण, बाल विवाह और दहेज से निपटने के लिए J-PAL साउथ एशिया, बिहार शिक्षा परियोजना परिषद, और समाज कल्याण विभाग के साथ काम किया।अक्टूबर 2011 से जुलाई 2012 तक, उन्होंने J-PAL साउथ एशिया के लिए एक सर्वेयर के रूप में काम किया, सर्वेक्षण किए और सामाजिक हस्तक्षेपों में शोध में योगदान दिया। 2015 में, उन्होंने प्रोजेक्ट पोटेंशियल ट्रस्ट के साथ ग्रामीण विकास और शिक्षा पहल का नेतृत्व किया और ई-अर्थ कला मंच (2018-2020) के माध्यम से सामाजिक परिवर्तन को आगे बढ़ाया। महामारी के दौरान, उन्होंने जागरूकता अभियानों पर PRADAN के साथ काम किया और बाद में दिव्या भारत हिंदी समाचार में एक समाचार एंकर बन गए। अप्रैल 2021 से मार्च 2022 तक, उन्होंने PRADAN के साथ 'सेकंड चांस एजुकेशन प्रोजेक्ट' पर काम किया, महिलाओं को शिक्षा के माध्यम से सशक्त बनाया। 2022 में, उन्होंने पंचलाइट फाउंडेशन ट्रस्ट की स्थापना की, अपनी दृष्टि को प्रभावशाली नुक्कड़ नाटकों के मंचन के माध्यम से साकार किया। उनके नेतृत्व में, फाउंडेशन ने स्थानीय समुदायों के सहयोग से स्वच्छता, सशक्तिकरण और मतदाता जागरूकता जैसे प्रमुख मुद्दों को संबोधित किया।आज, संजय कुमार ठाकुर अपनी कला के माध्यम से परिवर्तन को प्रेरित करना जारी रखे हुए हैं, पंचलाइट फाउंडेशन ट्रस्ट के मिशन को आगे बढ़ा रहे हैं - एक अधिक सूचित, समावेशी और सशक्त समाज का निर्माण।",
   rajaniJhaName: "रजनी झा",
@@ -1308,7 +1300,7 @@ const hindiContent = {
     "रजनी झा ने यूनिसेफ जैसे प्रसिद्ध संगठनों के साथ काम किया है, विभिन्न सामाजिक कार्यों में अपनी विशेषज्ञता का योगदान दिया है। ऐसे संगठनों के साथ काम करने के उनके अनुभव ने उन्हें जमीनी और वैश्विक दोनों स्तरों पर महत्वपूर्ण मुद्दों को संबोधित करने में मूल्यवान अंतर्दृष्टि प्राप्त करने में मदद की है। वर्तमान में, वह पंचलाइट फाउंडेशन की ट्रस्टी के रूप में कार्यरत हैं, जहाँ वह बाल विवाह, स्वास्थ्य, महिला सशक्तिकरण और महामारियों जैसे सामाजिक मुद्दों पर जागरूकता बढ़ाने और उन्हें संबोधित करने में सक्रिय रूप से काम करती हैं। अपनी भूमिका के माध्यम से, वह सकारात्मक सामाजिक परिवर्तन लाने में महत्वपूर्ण योगदान देना जारी रखती हैं। ",
 
   ramashankarDasName: "रमाशंकर दास",
-  ramashankarDasPosition: "न्यासी",
+  ramashankarDasPosition: "हमारे संस्थापक एवं न्यासी",
   ramashankarDasDescription:
     "रामशंकर दास एक अनुभवी उद्यमी और प्रतिबद्ध परोपकारी हैं। समावेशी विकास में दृढ़ विश्वास के साथ, उन्होंने अपने व्यावसायिक प्रयासों के साथ-साथ सामुदायिक कल्याण पहलों का लगातार समर्थन किया है। COVID-19 लॉकडाउन के दौरान, उन्होंने एक स्थानीय एनजीओ को आवश्यक वस्तुओं को क्रेडिट पर बाजार दर से कम दरों पर आपूर्ति करके महत्वपूर्ण सहायता प्रदान की, जिससे वंचित समुदायों तक प्रभावी राहत वितरण संभव हो सका।पंचलाइट फाउंडेशन के संस्थापक और बोर्ड सदस्य के रूप में, श्री दास रणनीतिक अंतर्दृष्टि और सामाजिक प्रतिबद्धता का एक अनूठा मिश्रण लाते हैं। उनका मार्गदर्शन और निरंतर समर्थन शिक्षा, जागरूकता और सशक्तिकरण के माध्यम से जमीनी स्तर पर परिवर्तन लाने के फाउंडेशन के मिशन को आगे बढ़ाने में महत्वपूर्ण भूमिका निभाते हैं।",
 
@@ -1318,11 +1310,11 @@ const hindiContent = {
     "लक्ष्मी देवी समाज में सकारात्मक बदलाव लाने के लिए समर्पित एक प्रतिबद्ध समाज सेविका हैं। उन्होंने महिला सशक्तिकरण, शिक्षा, स्वास्थ्य और सामाजिक समानता जैसे विभिन्न सामाजिक मुद्दों पर काम किया है, जिसमें हाशिए पर पड़े समुदायों का समर्थन करने पर विशेष ध्यान दिया गया है। वह बाल विवाह और महामारियों जैसे महत्वपूर्ण मुद्दों पर महिलाओं के बीच जागरूकता बढ़ाने के लिए नियमित रूप से बैठकें आयोजित करती हैं।वर्तमान में, वह पंचलाइट फाउंडेशन की ट्रस्टी के रूप में कार्यरत हैं, जो संगठन की सामाजिक पहलों और कार्यक्रमों के लिए मार्गदर्शन और सहायता प्रदान करती हैं। उनका नेतृत्व और प्रतिबद्धता फाउंडेशन के सकारात्मक सामाजिक परिवर्तन लाने के मिशन को आगे बढ़ाने में महत्वपूर्ण भूमिका निभाते हैं।",
 
   akankshaBhartiName: "आकांक्षा भारती",
-  akankshaBhartiPosition: "न्यासी",
+  akankshaBhartiPosition: "हमारे अधिगम सारथी",
   akankshaBhartiDescription:
     "आकांक्षा एक शिक्षिका और समाज सेविका हैं, जिनके पास शिक्षा के क्षेत्र में तीन साल का अनुभव है। उन्होंने निजी स्कूलों में पढ़ाते हुए बच्चों के समग्र विकास में योगदान दिया है। वर्तमान में, वह उच्च शिक्षा प्राप्त कर रही हैं और पंचलाइट फाउंडेशन के साथ अधिगमशाला जैसी पहलों में सक्रिय रूप से शामिल हैं। वह शिक्षा और जागरूकता के माध्यम से समाज में सकारात्मक बदलाव लाने के लिए प्रतिबद्ध हैं। ",
   jiwachhRamName: "जीवाछ राम",
-  jiwachhRamPosition: "बोर्ड सदस्य",
+  jiwachhRamPosition: "हमारे कलाकार",
   jiwachhRamDescription:
     "जीवाछ राम ने 1992 में नुक्कड़ नाटक के साथ अपनी यात्रा शुरू की। इन वर्षों में, उन्होंने विभिन्न सामाजिक मुद्दों पर जागरूकता बढ़ाने के लिए नुक्कड़ नाटकों में सक्रिय रूप से भाग लिया है। उन्होंने बाल कुपोषण, निषेध, बाल विवाह, दहेज उन्मूलन, स्वच्छता और मतदाता जागरूकता जैसे विषयों पर नाटक किए हैं, जिससे कई अभियानों में योगदान मिला है। जीवाछ राम ने रंगमंच के माध्यम से सामाजिक परिवर्तन को बढ़ावा देने में महत्वपूर्ण भूमिका निभाई है, अपने प्रदर्शन का उपयोग शिक्षा और जागरूकता फैलाने के लिए किया है। वह समाज में सकारात्मक बदलाव लाने के लिए रंगमंच की शक्ति में विश्वास करते हैं और अपने नाटकों के माध्यम से लोगों को सशक्त बनाने का प्रयास करते हैं। वर्तमान में, वह पंचलाइट फाउंडेशन से जुड़े हुए हैं और उनके नुक्कड़ नाटक कार्यक्रमों में सक्रिय रूप से भाग लेते हैं।",
 
@@ -1421,15 +1413,7 @@ const hindiContent = {
         date: "जून 28, 2025",
         featured: true,
       },
-      {
-        id: "news_government_scheme",
-        image: "image54",
-        title: "हर बहना को ₹12 हजार की योजना",
-        snippet:
-          "सरकार द्वारा महिलाओं के सशक्तिकरण के लिए ₹12,000 सालाना सहायता की योजना शुरू की गई है। इस योजना से लाखों महिलाएं लाभान्वित हो रही हैं।",
-        publication: "सरकारी विज्ञप्ति",
-        date: "जून 28, 2025",
-      },
+     
     ],
     otherPublications: [
       {
