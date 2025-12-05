@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { LanguageContext } from '../LanguageProvider';
 import './Footer.css';
 
@@ -21,11 +22,11 @@ const Footer = () => {
           <div className="footer-column">
             <h3>{content.quickLinks}</h3> {/* Translated */}
             <ul className="footer-links">
-              <li><a href="#mission">{content.footerOurMission}</a></li> {/* Translated */}
-              <li><a href="#programs">{content.programs}</a></li> {/* Translated */}
-              <li><a href="#gallery">{content.gallery}</a></li> {/* Translated */}
-              <li><a href="#donate">{content.donate}</a></li> {/* Translated */}
-              <li><a href="#volunteer">{content.volunteer}</a></li> {/* Translated */}
+              <li><Link to="/about">{content.footerOurMission}</Link></li> {/* Translated */}
+              <li><Link to="/programs">{content.programs}</Link></li> {/* Translated */}
+              <li><Link to="/publication">{content.gallery}</Link></li> {/* Translated */}
+              <li><Link to="/donation">{content.donate}</Link></li> {/* Translated */}
+              <li><Link to="/contact">{content.volunteer}</Link></li> {/* Translated */}
             </ul>
           </div>
 
@@ -65,7 +66,7 @@ const Footer = () => {
         </button>
 
         <div className="copyright">
-          <p>{content.copyright} | <a href="#">{content.privacyPolicy}</a> | <a href="#">{content.termsOfService}</a></p> {/* Translated */}
+          <p>{content.copyright} | <Link to="/privacy-policy">{content.privacyPolicy}</Link> | <Link to="/terms">{content.termsOfService}</Link></p> {/* Translated */}
         </div>
       </div>
     </footer>
